@@ -7,6 +7,7 @@ const resolvers = {
     users: async () => {
       try {
         const users = await User.find();
+        return users;
       } catch (err) {
         throw new Error(err);
       }
