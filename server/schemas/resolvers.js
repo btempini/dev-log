@@ -4,6 +4,25 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    users: async () => {
+      try {
+        const users = await User.find();
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+    user: async (_, { userId }) => {
+      try {
+        const user = await User.findById(userId);
+        if (!user) {
+          throw new Error("User not found");
+        }
+        return user;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+
     //find all posts
     posts: async () => {
       try {
