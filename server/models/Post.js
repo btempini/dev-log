@@ -3,11 +3,19 @@ const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema(
   {
+    postTitle: {
+      type: String,
+      required: true,
+      maxlength: 100,
+    },
     postText: {
       type: String,
       required: true,
       maxlength: 600,
       minlength: 1,
+    },
+    image: {
+      type: String,
     },
     postedAt: {
       type: Date,
