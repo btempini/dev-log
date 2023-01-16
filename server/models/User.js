@@ -26,14 +26,14 @@ const userSchema = new Schema({
   },
   posts: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "post",
+      type: Schema.Types.ObjectId,
+      ref: "Post",
     },
   ],
   friends: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "user",
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   ],
   bio: {

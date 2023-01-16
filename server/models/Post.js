@@ -1,5 +1,6 @@
 const { timeStamp } = require("console");
 const { Schema, model } = require("mongoose");
+const commentSchema = require("./Comment");
 
 const postSchema = new Schema(
   {
