@@ -23,7 +23,6 @@ const start = async () => {
     //delete
     await deleteDB();
     await postsBulkCreate();
-
     //post find and array creation
     const posts = await Post.find({});
     const postIdArr = posts.map((element) => element._id);
@@ -32,9 +31,9 @@ const start = async () => {
       element.posts.push(postIdArr[0]);
     });
     await userBulkCreate(users);
-
     const response = await User.find({}).populate("posts");
     console.log(response);
+    process.exit(0);
   } catch (error) {
     console.log(error);
   }
