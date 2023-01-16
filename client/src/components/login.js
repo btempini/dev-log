@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div>
+    <div className="signUpForm">
+      <h1 className="devLog">
+        <span>{"<"}</span>dev.log<span>{">"}</span>
+      </h1>
       <form>
         <input placeholder="Username" name="username" />
         <input placeholder="Password" name="password" />
       </form>
-     {/* Link button to Feed page */}
+      {/* Link button to Feed page */}
       <button>Login</button>
       <Link to="/signup">
-        <button>Signup</button>
+        <button className="signUpButton">Sign up?</button>
       </Link>
     </div>
   );
