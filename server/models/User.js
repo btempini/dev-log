@@ -58,6 +58,13 @@ userSchema.pre("save", async function (next) {
   }
   next();
 });
+userSchema.pre("insertMany", async function (next, docs) {
+  const saltRounds = 10;
+  docs.forEach((element) => {
+    element.password = bcrypt.hashSync(element.password, saltRounds);
+  });
+  next();
+});
 
 //compares the entered password to the hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
