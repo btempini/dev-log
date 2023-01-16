@@ -93,7 +93,7 @@ const resolvers = {
       // login logic
       const user = await User.findOne({ email });
 
-      if (!profile) {
+      if (!user) {
         throw new AuthenticationError("No user found with this email!");
       }
 
