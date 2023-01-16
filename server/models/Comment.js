@@ -4,7 +4,7 @@ const { Schema, model, default: mongoose, mongo } = require("mongoose");
 const commentSchema = new Schema(
   {
     commentId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       default: () => new mongoose.Types.ObjectId(),
     },
     CommentText: {
