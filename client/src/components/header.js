@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div>
       <div>
-        <Link to="/login">
+        <Link to="/">
         <button>Logout</button>
         </Link>
       </div>
