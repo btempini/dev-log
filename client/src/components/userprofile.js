@@ -3,9 +3,21 @@ import "./styles/userprofile.css";
 // import User from "../../../server/models/User";
 // import Post from "../../../server/models/Post";
 import { QUERY_SINGLE_USER } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 
 function UserProfile() {
   console.log("our query:", QUERY_SINGLE_USER);
+
+  const [getUser, { error, data }] = useQuery(QUERY_SINGLE_USER);
+ const queryUser = async function() {
+  try {
+
+    const {data} = await getUser()
+
+  } catch (error) {
+  }
+ }
+  
   return (
     <div key={User._id}>
       {/* <img /> */}
@@ -22,7 +34,7 @@ function UserProfile() {
       <btn>add a post</btn>
       {/* user post */}
       <section>
-        <h3>{User.Post.postTitle}</h3>
+        <h3>{User.postTitle}</h3>
         <h3>{Post.postedAt}</h3>
         {/* <img src={Post.image} /> */}
         <p>{Post.postText}</p>
