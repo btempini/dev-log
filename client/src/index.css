@@ -35,6 +35,7 @@ video {
   font-size: 100px;
   font-family: "Shadows Into Light", cursive;
   color: #39ffe8;
+  letter-spacing: 2px;
 }
 
 input {
@@ -44,6 +45,9 @@ input {
   width: 200px;
   border: 1px solid #39ffe8;
   background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
 }
 
 input::placeholder {
@@ -81,7 +85,7 @@ input::placeholder {
   position: absolute;
   background: radial-gradient(
     circle farthest-side,
-    rgb(0, 0, 0, 80%),
+    rgb(0, 0, 0, 100%),
     transparent
   );
   width: 100%;
@@ -90,4 +94,8 @@ input::placeholder {
 
 button:hover {
   cursor: pointer;
+}
+
+span {
+  margin: 5px;
 }
