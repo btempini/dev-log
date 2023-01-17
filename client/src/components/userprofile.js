@@ -2,21 +2,26 @@ import React from "react";
 import "./styles/userprofile.css";
 // import User from "../../../server/models/User";
 // import Post from "../../../server/models/Post";
-import { QUERY_SINGLE_USER } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+
+// import { QUERY_SINGLE_USER } from "../utils/queries";
+// import { useQuery } from "@apollo/client";
+// import {navigate, useParams} from "react-router-dom";
 
 function UserProfile() {
-  console.log("our query:", QUERY_SINGLE_USER);
+//   console.log("Single Query:", QUERY_SINGLE_USER);
 
-  const [getUser, { error, data }] = useQuery(QUERY_SINGLE_USER);
- const queryUser = async function() {
-  try {
+//   const [getUser, { error, data }] = useQuery(QUERY_SINGLE_USER, 
+//     {
+//       variables: {userId: useParams}});
 
-    const {data} = await getUser()
+//     const queryUser = async function() {
+//   try {
 
-  } catch (error) {
-  }
- }
+//     const {data} = await getUser()
+
+//   } catch (error) {
+//   }
+//  }
   
   return (
     <div key={User._id}>
