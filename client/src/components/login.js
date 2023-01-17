@@ -9,7 +9,7 @@ const Login = () => {
       </h1>
       <form>
         <input placeholder="Username" name="username" />
-        <input placeholder="Password" name="password" />
+        <input type="password" placeholder="Password" name="password" />
       </form>
       {/* Link button to Feed page */}
       <button className="loginButton">Login</button>
