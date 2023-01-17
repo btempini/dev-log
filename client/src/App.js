@@ -1,6 +1,14 @@
+// Imported Pages
+import Feed from "./pages/Feed";
 import Home from "./pages/Home";
+import Post from "./pages/Post";
+import Profile from "./pages/Profile";
+import SearchResults from "./pages/SearchResults"
 import Signup from "./pages/Signup";
+
 // import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+// Importing Router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // const client = new ApolloClient({
@@ -15,6 +23,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/searchresults" element={<SearchResults />} />
+
       </Routes>
     </Router>
     // </ApolloProvider>
