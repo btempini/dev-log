@@ -1,7 +1,6 @@
 /* Setup main CSS */
 /* Or divide into componenents?? */
-@import url('https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap");
 
 * {
   margin: 0;
@@ -34,7 +33,7 @@ video {
 
 .devLog {
   font-size: 100px;
-  font-family: 'Lekton', sans-serif;
+  font-family: "Lekton", sans-serif;
   color: #39ffe8;
   letter-spacing: 2px;
 }
@@ -47,12 +46,12 @@ input {
   border: 1px solid #39ffe8;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   text-align: center;
 }
 
 input::placeholder {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   text-align: center;
   color: white;
 }
@@ -63,8 +62,8 @@ input::placeholder {
   align-items: center;
 }
 
-.loginButton {
-  font-family: 'Lekton', sans-serif;
+button {
+  font-family: "Lekton", sans-serif;
   font-size: 20px;
   border: none;
   background-color: #39ffe8;
@@ -75,7 +74,7 @@ input::placeholder {
 }
 
 .signUpButton {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   background-color: transparent;
   border: none;
   color: #39ffe8;
