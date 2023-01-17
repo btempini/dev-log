@@ -1,23 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './styles/login.css'
+import "./styles/login.css";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 
-const Login = () => {
+import Auth from "../utils/auth";
+
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
-    <div className="signUpForm">
-      <h1 className="devLog">
-        <span>{"<"}</span>dev.log<span>{">"}</span>
-      </h1>
-      <form>
-        <input placeholder="Username" name="username" />
-        <input type="password" placeholder="Password" name="password" />
-      </form>
-      {/* Link button to Feed page */}
-      <button className="loginButton">Login</button>
-      <Link to="/signup">
-        <button className="signUpButton">Sign up?</button>
-      </Link>
-    </div>
+    <>
+      {data ? (
+        <p>
+          Success! You may now head <Link to="/">back to the homepage.</Link>
+        </p>
+      ) : (
+        <div className="signUpForm">
+          <h1 className="devLog">
+            <span>{"<"}</span>dev.log<span>{">"}</span>
+          </h1>
+          <form onSubmit={handleFormSubmit}>
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+            <button className="loginButton">Login</button>
+          </form>
+          {/* Link button to Feed page */}
+          <Link to="/signup">
+            <button className="signUpButton">Sign up?</button>
+          </Link>
+        </div>
+      )}
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
+    </>
   );
 };
 
