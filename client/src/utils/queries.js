@@ -121,3 +121,67 @@ export const QUERY_ME = gql`
     }
   }
 `;
+export const QUERY_POSTS = gql`
+  query allPosts {
+    posts {
+      _id
+      commentCount
+      image
+      postText
+      postTitle
+      postedAt
+      username
+      likes
+      comments {
+        CommentText
+        commentId
+        likes
+        postedAt
+        username
+      }
+    }
+  }
+`;
+export const QUERY_SINGLE_POST = `
+query post($postId: ID!) {
+    post(postId: $postId) {
+      _id
+      postText
+      postTitle
+      image
+      postedAt
+      username
+      commentCount
+      likes
+      comments {
+        CommentText
+        commentId
+        likes
+        postedAt
+        username
+      }
+    }
+  }
+`;
+export const QUERY_COMMENTS = `
+query comments {
+    comments {
+      CommentText
+      commentId
+      likes
+      postedAt
+      username
+    }
+  }
+  `;
+export const QUERY_SINGLE_COMMENT = `
+query comment($commentId: ID!) {
+    comment(commentId: $commentId) {
+      commentId
+      CommentText
+      username
+      likes
+      postedAt
+    }
+  }
+`;
