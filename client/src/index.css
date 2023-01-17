@@ -81,7 +81,7 @@ input::placeholder {
   position: absolute;
   background: radial-gradient(
     circle farthest-side,
-    rgb(0, 0, 0, 100%),
+    rgb(0, 0, 0, 80%),
     transparent
   );
   width: 100%;
