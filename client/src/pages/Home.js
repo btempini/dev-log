@@ -8,6 +8,7 @@ const Home = () => {
     <div className="hero">
       <Video />
       <div className="overlay"></div>
+      <div className="overlay"></div>
       <Login />
     </div>
   );
