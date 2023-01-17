@@ -6,8 +6,8 @@ import Video from "../components/video";
 const Home = () => {
   return (
     <div className="hero">
-      <Login />
       <Video />
+      <Login />
     </div>
   );
 };
