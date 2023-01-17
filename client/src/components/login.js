@@ -12,7 +12,7 @@ const Login = () => {
         <input placeholder="Password" name="password" />
       </form>
       {/* Link button to Feed page */}
-      <button>Login</button>
+      <button className="loginButton">Login</button>
       <Link to="/signup">
         <button className="signUpButton">Sign up?</button>
       </Link>
