@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.245.0",
+    "@aws-sdk/s3-request-presigner": "^3.245.0",
     "apollo-server-express": "^3.11.1",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
@@ -19,8 +21,6 @@
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
-    "@aws-sdk/client-s3": "^3.245.0",
-    "@aws-sdk/s3-request-presigner": "^3.245.0",
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
