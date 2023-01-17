@@ -1,9 +1,4 @@
-const {
-  S3Client,
-  PutObjectCommand,
-  GetObjectCommand,
-  DeleteObjectCommand,
-} = require("@aws-sdk/client-s3");
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const dotenv = require("dotenv");
 const multer = require("multer");
@@ -27,21 +22,26 @@ const s3 = new S3Client({
   },
 });
 
-const ObjectCall = async () => {
+let url = "";
+const putObject = async (key) => {
   try {
     //params to be passed to the s3 putObject function
     const params = {
       Bucket: bucketName,
-      Key: "TestObject",
+      Key: key,
       Body: "test!",
       //   contentType: "passfile type",
     };
     //command to put
     putCommand = new PutObjectCommand(params);
     // send the command to aws bucket
-    await s3.send(putCommand);
-    console.log("putCommand sent to AWS");
+    const response = await s3.send(putCommand);
+    console.log(response);
+    url = `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${key}`;
+    console.log(url);
   } catch (error) {
     console.log(error);
   }
 };
+
+putObject("newObject");
