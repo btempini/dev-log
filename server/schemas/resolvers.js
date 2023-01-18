@@ -14,7 +14,7 @@ const resolvers = {
     },
     user: async (_, { userId }) => {
       try {
-        const user = await User.findById(userId);
+        const user = await User.findById(userId).populate("posts");
         if (!user) {
           throw new Error("User not found");
         }
