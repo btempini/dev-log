@@ -2,9 +2,14 @@ import React from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
+import { useQuery } from "@apollo/client";
+import { QUERY_POSTS } from "../utils/queries";
 import Post from "./post";
 
-function userFeed() {
+function UserFeed() {
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
+
   return (
     // user feed
     <div className="userFeed">
@@ -31,11 +36,11 @@ function userFeed() {
             <div className="divider"></div>
             <button className="globalScopeBtn">Global Scope</button>
           </div>
-          {Post}
+          <Post posts={posts} title="All posts" />
         </div>
       </div>
     </div>
   );
 }
 
-export default userFeed;
+export default UserFeed;
