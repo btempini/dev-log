@@ -9,13 +9,18 @@ function UserProfile() {
   //grabs the profile id from the params
   //url looks like heroku/devlog/USER-ID
   const { userId } = useParams();
-  console.log(userId);
   //set up query
   const { loading, data } = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: userId },
   });
-  const User = data;
+  //Define user to be reassigned to data later
+  let User = "";
   const Post = {};
+  if (loading) {
+    return <div>Loading...</div>;
+  } else {
+    User = data.user;
+  }
 
   return (
     <div key={User._id}>
@@ -30,7 +35,6 @@ function UserProfile() {
       <section>
         <p>{User.bio}</p>
       </section>
-      <btn>add a post</btn>
       {/* user post */}
       <section>
         <h3>{User.postTitle}</h3>

@@ -41,8 +41,8 @@ export const QUERY_USERS = gql`
   }
 `;
 
-export const QUERY_SINGLE_USER = `
-query singleProfile($userId: _id!) {
+export const QUERY_SINGLE_USER = gql`
+  query singleProfile($userId: ID!) {
     user(userId: $userId) {
       DevLvl
       _id
