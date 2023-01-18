@@ -16,7 +16,9 @@ function UserProfile() {
   //Define user to be reassigned to data later
   let User = "";
   const Post = {};
+  //waits till loading is not true to assign the User value to query data
   if (loading) {
+    //basic loading bar
     return <div>Loading...</div>;
   } else {
     User = data.user;
