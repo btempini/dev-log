@@ -1,51 +1,53 @@
 import React from "react";
 import "./styles/userfeed.css";
+import placeholder from "../assets/placeholder.png";
+import avatar from "../assets/Avatar.png";
 
 function UserFeed() {
   return (
     // user feed
-    <div>
-      {/* profile image */}
-      {/* <img src="" /> */}
-      {/* profile button */}
-      <btn></btn>
-      {/* choose if you want to see your friends feed or all posts feed */}
-      <section>
-        <btn>Local Scope</btn>
-        <btn>Global Scope</btn>
-      </section>
-      {/* local scope feed */}
-      <section>
-        {/* Post Title */}
-        <h3></h3>
-        {/* Date the post was created */}
-        <h3></h3>
-        {/* image of the user */}
-        {/* <img src="" /> */}
-        {/* post body */}
-        <p></p>
-      </section>
-      {/* global scope feed */}
-      <section>
-        {/* Post Title */}
-        <h3></h3>
-        {/* Date the post was created */}
-        <h3></h3>
-        {/* image of the user */}
-        {/* <img src="" /> */}
-        {/* post body */}
-        <p></p>
-      </section>
-      {/* daily coding challenges aside */}
-      <aside>
-        <h1>Daily Coding Challenges</h1>
-        <div>
-          {/* dynamically create coding challenges from codewars */}
+    <div className="userFeed">
+      <div className="container">
+        <div className="leftAside">
+          <div className="avatarContainer">
+            <img className="avatar" src={avatar} alt="decoration" />
+            <button className="viewProfile">View Profile</button>
+          </div>
+          <div className="codeWarsContainer">
+            <p className="codeWarsTitles">TITLE</p>
+            <p className="codeWarsBody">title here...</p>
+            <p className="codeWarsTitles">DESCRIPTION</p>
+            <p className="codeWarsBody">description here...</p>
+            <p className="codeWarsTitles">LEVEL</p>
+            <p className="codeWarsBody">level here...</p>
+            <p className="codeWarsTitles">URL</p>
+            <p className="codeWarsBody">url here...</p>
+          </div>
         </div>
-        <btn>Link to CodeWars</btn>
-      </aside>
+        <div className="rightAside">
+          <div className="scopeButtonContainer">
+            <button className="localScopeBtn">Local Scope</button>
+            <div className="divider"></div>
+            <button className="globalScopeBtn">Global Scope</button>
+          </div>
+          <div className="postContainer">
+            <div className="leftPost">
+              <p className="date">Mon, Jan 16th 2023</p>
+              <img src={placeholder} alt="decoration" />
+            </div>
+            <div className="rightPost">
+              <p className="postTitle">POST TITLE</p>
+              <p className="postBody">
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim velit mollit.
+                Exercitation veniam consequat sunt nostrud amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default UserFeed;
+export default userfeed;
