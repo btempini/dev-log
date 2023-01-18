@@ -1,11 +1,9 @@
 import React from "react";
 import "./styles/userprofile.css";
-// import User from "../../../server/models/User";
-// import Post from "../../../server/models/Post";
 
-// import { QUERY_SINGLE_USER } from "../utils/queries";
-// import { useQuery } from "@apollo/client";
-// import {navigate, useParams} from "react-router-dom";
+import { QUERY_SINGLE_USER } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { navigate, useParams } from "react-router-dom";
 
 function UserProfile() {
   //grabs the profile id from the params
@@ -47,9 +45,9 @@ function UserProfile() {
       <section>
         <h3>{User.postTitle}</h3>
         {/* POST NEEDS TO BE A LOOP BECAUSE ITS AN ARRAY */}
-        <h3>{Posts[0].postedAt}</h3>
+        {/* <h3>{Posts[0].postedAt}</h3> */}
         {/* <img src={Post.image} /> */}
-        <p>{Posts[0].postText}</p>
+        {/* <p>{Posts[0].postText}</p> */}
       </section>
       {/* Friends list */}
       <aside>
