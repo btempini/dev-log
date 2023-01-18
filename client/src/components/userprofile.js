@@ -16,14 +16,16 @@ function UserProfile() {
   });
   //Define user to be reassigned to data later
   let User = "";
-  const Post = {};
+  let Posts = [];
   //waits till loading is not true to assign the User value to query data
   if (loading) {
     //basic loading bar
     return <div>Loading...</div>;
   } else {
     User = data.user;
+    Posts = User.posts;
     console.log(User);
+    console.log(Posts);
   }
 
   return (
@@ -42,9 +44,10 @@ function UserProfile() {
       {/* user post */}
       <section>
         <h3>{User.postTitle}</h3>
-        <h3>{Post.postedAt}</h3>
+        {/* POST NEEDS TO BE A LOOP BECAUSE ITS AN ARRAY */}
+        <h3>{Posts[0].postedAt}</h3>
         {/* <img src={Post.image} /> */}
-        <p>{Post.postText}</p>
+        <p>{Posts[0].postText}</p>
       </section>
       {/* Friends list */}
       <aside>
