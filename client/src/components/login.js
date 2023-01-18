@@ -47,7 +47,7 @@ const Login = (props) => {
           <h1 className="devLog">
             <span>{"<"}</span>dev.log<span>{">"}</span>
           </h1>
-          <form onSubmit={handleFormSubmit}>
+          <form className="loginFormEl" onSubmit={handleFormSubmit}>
             <input
               type="email"
               placeholder="email"
