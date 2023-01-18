@@ -96,8 +96,9 @@ const Form = () => {
                 name="devLvl"
                 value={formState.devLvl}
                 onChange={handleChange}
-                placeholder="n00b"
+                placeholder="Please select your level."
               >
+                <option>Please select a level.</option>
                 <option>n00b</option>
                 <option>Junior Dev</option>
                 <option>Master Dev</option>
