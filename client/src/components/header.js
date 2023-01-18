@@ -2,20 +2,26 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import './styles/header.css'
+import "./styles/header.css";
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <div>
         <Link to="/">
-        <button>Logout</button>
+          <button className="logoutButton">Logout</button>
         </Link>
       </div>
-      <div>
-        <input type="text" placeholder="Find Friends!" />
+      <div className="searchDiv">
+        <button className="searchButton" type="button">
+          Search
+        </button>
+        <input
+          className="findFriends"
+          type="text"
+          placeholder="Find Friends!"
+        />
         {/* link to results page */}
-        <button type="button">Search!</button>
       </div>
     </div>
   );

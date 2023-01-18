@@ -31,6 +31,12 @@ video {
   border: 1px solid #39ffe8; */
 }
 
+.loginFormEl {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
 .devLog {
   font-size: 100px;
   font-family: "Share Tech", sans-serif;
