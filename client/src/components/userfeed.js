@@ -50,4 +50,4 @@ function userFeed() {
   );
 }
 
-export default UserFeed;
+export default userFeed;
