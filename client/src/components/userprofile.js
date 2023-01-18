@@ -37,7 +37,13 @@ function UserProfile() {
           <button className="editProfile">Edit Profile</button>
         </div>
         <div className="rightProfile">
-          <div className="topProfile"></div>
+          <div className="topProfile">
+            <div className="topButtonContainer">
+              <p className="name">NAME</p>
+              <div className="divider"></div>
+              <button className="globalScopeBtn">Global Scope</button>
+            </div>
+          </div>
         </div>
       </div>
       <p>{User.username}</p>
