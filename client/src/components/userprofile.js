@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import "./styles/userprofile.css";
 import avatar from "../assets/Avatar.png";
 
