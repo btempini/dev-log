@@ -6,7 +6,7 @@ function UserFeed() {
     // user feed
     <div>
       {/* profile image */}
-      <img />
+      {/* <img src="" /> */}
       {/* profile button */}
       <btn></btn>
       {/* choose if you want to see your friends feed or all posts feed */}
@@ -21,7 +21,7 @@ function UserFeed() {
         {/* Date the post was created */}
         <h3></h3>
         {/* image of the user */}
-        {/* <img></img> */}
+        {/* <img src="" /> */}
         {/* post body */}
         <p></p>
       </section>
@@ -32,10 +32,18 @@ function UserFeed() {
         {/* Date the post was created */}
         <h3></h3>
         {/* image of the user */}
-        {/* <img></img> */}
+        {/* <img src="" /> */}
         {/* post body */}
         <p></p>
       </section>
+      {/* daily coding challenges aside */}
+      <aside>
+        <h1>Daily Coding Challenges</h1>
+        <div>
+          {/* dynamically create coding challenges from codewars */}
+        </div>
+        <btn>Link to CodeWars</btn>
+      </aside>
     </div>
   );
 }

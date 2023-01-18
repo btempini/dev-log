@@ -25,7 +25,7 @@ function UserProfile() {
   
   return (
     <div key={User._id}>
-      {/* <img /> */}
+      {/* <img src='' /> */}
       {/* name level and github */}
       <section>
         <h2>{User.username}</h2>
