@@ -40,9 +40,24 @@ function UserProfile() {
         <div className="rightProfile">
           <div className="topProfile">
             <div className="topButtonContainer">
-              <p className="name">NAME</p>
+              <div className="lookLikeButton">
+                <p className="name">Big Poppa</p>
+              </div>
               <div className="divider"></div>
-              <button className="globalScopeBtn">Global Scope</button>
+              <div className="lookLikeButton">
+                <p className="level">Master Dev</p>
+              </div>
+              <div className="divider"></div>
+              <button className="githubButton">Github URL</button>
+            </div>
+            <div className="bioContainer">
+              <h2 className="bioTitle">Bio</h2>
+              <p className="bioDescription">
+                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+                Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+                tempor enim. Elit aute irure tempor cupidatat incididunt sint
+                deserunt ut voluptate aute id deserunt nisi.
+              </p>
             </div>
           </div>
         </div>
