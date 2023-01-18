@@ -1,1 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap');
+
+.footer2 {
+    margin: 4px;
+    position: absolute;
+    bottom: 0;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    right: 0;
+  }

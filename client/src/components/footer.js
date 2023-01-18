@@ -10,7 +10,7 @@ import "./styles/footer.css";
 
 function Footer() {
   return (
-    <footer className="">
+    <footer className="footer2">
       <btn className="devLog">
         <span>{"<"}</span>dev.log<span>{">"}</span>
       </btn>
