@@ -1,1 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&family=Share+Tech&display=swap");
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #36475a;
+  border-bottom: 2px solid #39ffe8;
+}
+
+.logoutButton {
+  margin-left: 0px;
+  height: 32px;
+  margin-top: 0px;
+  background-color: transparent;
+  color: #39ffe8;
+  text-decoration: underline;
+}
+
+.searchDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchButton {
+  margin-top: 0px;
+  height: 32px;
+  font-family: "Share Tech", sans-serif;
+}
+
+.findFriends {
+  font-size: 18px;
+  font-family: "Share Tech", sans-serif;
+}

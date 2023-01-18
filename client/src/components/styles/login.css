@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap");
+/* Setup main CSS */
+/* Or divide into componenents?? */
+@import url("https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&family=Share+Tech&display=swap");
 
 * {
   margin: 0;
@@ -29,11 +31,16 @@ video {
   border: 1px solid #39ffe8; */
 }
 
+.loginFormEl {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
 .devLog {
   font-size: 100px;
-  font-family: "Lekton", sans-serif;
+  font-family: "Share Tech", sans-serif;
   color: #39ffe8;
-  letter-spacing: 2px;
 }
 
 input {
@@ -44,12 +51,12 @@ input {
   border: 1px solid #39ffe8;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  font-family: "Share Tech Mono", monospace;
+  font-family: "Lekton", monospace;
   text-align: center;
 }
 
 input::placeholder {
-  font-family: "Share Tech Mono", monospace;
+  font-family: "Lekton", monospace;
   text-align: center;
   color: white;
 }
@@ -61,18 +68,18 @@ input::placeholder {
 }
 
 button {
-  font-family: "Lekton", sans-serif;
+  font-family: "Share Tech", sans-serif;
   font-size: 20px;
   border: none;
   background-color: #39ffe8;
   color: black;
   padding: 2px;
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100px;
 }
 
 .signUpButton {
-  font-family: "Share Tech Mono", monospace;
+  font-family: "Share Tech", monospace;
   background-color: transparent;
   border: none;
   color: #39ffe8;

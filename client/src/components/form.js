@@ -44,61 +44,67 @@ const Form = () => {
           Success! You may now head <Link to="/">back to the homepage.</Link>
         </p>
       ) : (
-        <form onSubmit={handleFormSubmit}>
-          <input
-            placeholder="Username"
-            name="username"
-            type="text"
-            value={formState.username}
-            onChange={handleChange}
-          />
-          <input
-            placeholder="Full Name"
-            name="fullName"
-            type="text"
-            value={formState.fullName}
-            onChange={handleChange}
-          />
-          <input
-            placeholder="Password"
-            name="password"
-            type="password"
-            value={formState.password}
-            onChange={handleChange}
-          />
-          <input
-            placeholder="Re-enter Password"
-            name="reEnterPassword"
-            type="password"
-          />
-          <input
-            placeholder="Email"
-            name="email"
-            type="email"
-            value={formState.email}
-            onChange={handleChange}
-          />
-          <select
-            selected="selected"
-            name="devLvl"
-            value={formState.devLvl}
-            onChange={handleChange}
-            placeholder="n00b"
-          >
-            <option>n00b</option>
-            <option>Junior Dev</option>
-            <option>Master Dev</option>
-            <option>Ben</option>
-          </select>
-          <input
-            placeholder="Github Name"
-            name="github"
-            value={formState.github}
-            onChange={handleChange}
-          />
-          {/* Link button to Feed page */}
-          <button>Signup</button>
-        </form>
+        <div className="signupContainer">
+          <div className="leftHero"></div>
+          <div className="rightForm">
+            <form className="signupForm" onSubmit={handleFormSubmit}>
+              <h1 className="signupHeader">Please enter your info...</h1>
+              <input
+                placeholder="Username"
+                name="username"
+                type="text"
+                value={formState.username}
+                onChange={handleChange}
+              />
+              <input
+                placeholder="Full Name"
+                name="fullName"
+                type="text"
+                value={formState.fullName}
+                onChange={handleChange}
+              />
+              <input
+                placeholder="Password"
+                name="password"
+                type="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+              <input
+                placeholder="Re-enter Password"
+                name="reEnterPassword"
+                type="password"
+              />
+              <input
+                placeholder="Email"
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+              <select
+                selected="selected"
+                name="devLvl"
+                value={formState.devLvl}
+                onChange={handleChange}
+                placeholder="n00b"
+              >
+                <option>n00b</option>
+                <option>Junior Dev</option>
+                <option>Master Dev</option>
+                <option>Ben</option>
+              </select>
+              <input
+                placeholder="Github Name"
+                name="github"
+                value={formState.github}
+                onChange={handleChange}
+              />
+              {/* Link button to Feed page */}
+              <button className="signupPageButton">Signup</button>
+            </form>
+          </div>
+        </div>
       )}
       {error && <div>{error.message}</div>}
     </div>
