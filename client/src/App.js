@@ -49,7 +49,6 @@ function App() {
           <Route path="/searchresults" element={<SearchResults />} />
         </Routes>
       </Router>
-      {/* //{" "} */}
     </ApolloProvider>
   );
 }
