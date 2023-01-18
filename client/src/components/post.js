@@ -2,20 +2,27 @@ import React from "react";
 import "./styles/userprofile.css";
 import placeholder from "../assets/placeholder.png";
 
-function post() {
+function post({ posts, title }) {
+  if (!posts.length) {
+    return <h2>No posts yet...</h2>;
+  }
   return (
     <div className="postContainer">
-      <div className="leftPost">
-        <p className="date">Mon, Jan 16th 2023</p>
-        <img src={placeholder} alt="decoration" />
-      </div>
+      <div className="leftPost"></div>
       <div className="rightPost">
-        <p className="postTitle">POST TITLE</p>
-        <p className="postBody">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequat duis enim velit mollit. Exercitation
-          veniam consequat sunt nostrud amet.
-        </p>
+        {posts &&
+          posts.map((post) => (
+            <div key={post._id}>
+              <div>
+                <p className="postTitle">{post.postTitle}</p>
+                <p className="date">{post.postedAt}</p>
+                <div>Posted by: {post.username}</div>
+                <img src={placeholder} alt="decoration" />
+                <p className="postBody">{post.postText}</p>
+                <div>Likes:{post.likes}</div>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
