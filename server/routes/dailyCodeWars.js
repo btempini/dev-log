@@ -1,8 +1,11 @@
 const router = require("express").Router();
 const axios = require("axios");
+const webScraper = require("../utils/webScrapper");
 
 router.get("/getDailyChallenge", async (req, res) => {
   //get from codewars API
+  const ids = await webScraper();
+  console.log(ids);
   const getFromCodeWars = async (ID) => {
     try {
       const data = await axios.get(
