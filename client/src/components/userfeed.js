@@ -3,7 +3,7 @@ import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
 
-function userfeed() {
+function UserFeed() {
   return (
     // user feed
     <div className="userFeed">
