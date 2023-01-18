@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../components/header";
-import Userfeed from "../components/userfeed";
+import UserFeed from "../components/userfeed";
 
 const Feed = () => {
   return (
     <div>
       <Header />
-      <Userfeed />
+      <UserFeed />
     </div>
   );
 };
