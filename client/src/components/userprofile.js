@@ -1,9 +1,11 @@
 import React from "react";
 import "./styles/userprofile.css";
+// import User from "../../../server/models/User";
+// import Post from "../../../server/models/Post";
 
-import { QUERY_SINGLE_USER } from "../utils/queries";
-import { useQuery } from "@apollo/client";
-import { navigate, useParams } from "react-router-dom";
+// import { QUERY_SINGLE_USER } from "../utils/queries";
+// import { useQuery } from "@apollo/client";
+// import {navigate, useParams} from "react-router-dom";
 
 function UserProfile() {
   //grabs the profile id from the params
