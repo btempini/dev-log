@@ -3,7 +3,7 @@ import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
 
-function UserFeed() {
+function userFeed() {
   return (
     // user feed
     <div className="userFeed">
@@ -50,4 +50,4 @@ function UserFeed() {
   );
 }
 
-export default userfeed;
+export default userFeed;
