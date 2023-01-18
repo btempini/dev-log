@@ -1,6 +1,12 @@
-.footer {margin: 20px;
-position: absolute;
-bottom: 0;
-/* display: flex; */
-/* justify-content: flex-end; */
-right: 0;}
+.footer {
+  margin: 4px;
+  position: absolute;
+  bottom: 0;
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  right: 0;
+}
+
+.Github {
+  height: 50px;
+}
