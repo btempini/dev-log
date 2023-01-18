@@ -59,6 +59,14 @@ try {
         password: String!
         DevLvl: String!
       ): Auth
+      editUser(
+        id: ID!
+        username: String
+        fullName: String
+        bio: String
+        DevLvl: String
+        github: String
+      ): User
       deleteUser(userId: ID!): User
       login(email: String!, password: String!): Auth
       addPost(postTitle: String!, postText: String!, username: String!): Post
