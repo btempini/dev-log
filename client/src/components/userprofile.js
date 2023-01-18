@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/userprofile.css";
+import avatar from "../assets/Avatar.png";
 
 import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -30,7 +31,15 @@ function UserProfile() {
 
   return (
     <div className="profilePage" key={User._id}>
-      <div className="profileContainer"></div>
+      <div className="profileContainer">
+        <div className="leftProfile">
+          <img className="largeAvatar" src={avatar} alt="avatar" />
+          <button className="editProfile">Edit Profile</button>
+        </div>
+        <div className="rightProfile">
+          <div className="topProfile"></div>
+        </div>
+      </div>
       <p>{User.username}</p>
       <p>{User.DevLvl}</p>
       <p>{User.github}</p>
@@ -40,4 +49,4 @@ function UserProfile() {
   );
 }
 
-// export default UserProfile;
+export default UserProfile;

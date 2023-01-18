@@ -30,7 +30,7 @@ function userFeed() {
             <div className="divider"></div>
             <button className="globalScopeBtn">Global Scope</button>
           </div>
-          <div className="postContainer">
+          {/* <div className="postContainer">
             <div className="leftPost">
               <p className="date">Mon, Jan 16th 2023</p>
               <img src={placeholder} alt="decoration" />
@@ -43,7 +43,7 @@ function userFeed() {
                 Exercitation veniam consequat sunt nostrud amet.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
