@@ -39,7 +39,9 @@ function UserProfile() {
         <div className="rightProfile">
           <div className="topProfile">
             <div className="topButtonContainer">
-              <p className="name">NAME</p>
+              <div className="lookLikeButton">
+                <p className="name">NAME</p>
+              </div>
               <div className="divider"></div>
               <button className="globalScopeBtn">Global Scope</button>
             </div>

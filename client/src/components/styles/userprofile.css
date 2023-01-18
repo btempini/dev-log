@@ -51,3 +51,21 @@
   height: 75px;
   margin: 0 auto;
 }
+
+.topButtonContainer {
+  display: flex;
+}
+
+.lookLikeButton {
+  width: 168px;
+  height: 36px;
+  background: #202b37;
+  border: 2px solid #39ffe8;
+  border-radius: 5px;
+}
+
+.name {
+  color: white;
+  font-family: "Share Tech", sans-serif;
+  text-align: center;
+}
