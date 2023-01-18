@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import "./styles/form.css";
+
 const Form = () => {
   const [formState, setFormState] = useState({
     username: "",
@@ -47,9 +48,7 @@ const Form = () => {
   return (
     <div>
       {data ? (
-        <p>
-          Success! You may now head <Link to="/">back to the homepage.</Link>
-        </p>
+        (window.location.href = "/feed")
       ) : (
         <div className="signupContainer">
           <div className="leftHero"></div>

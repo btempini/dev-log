@@ -39,9 +39,7 @@ const Login = (props) => {
   return (
     <>
       {data ? (
-        <p>
-          Success! You may now head <Link to="/">back to the homepage.</Link>
-        </p>
+        (window.location.href = "/feed")
       ) : (
         <div className="signUpForm">
           <h1 className="devLog">
