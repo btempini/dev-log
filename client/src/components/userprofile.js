@@ -30,6 +30,7 @@ function UserProfile() {
 
   return (
     <div className="profilePage" key={User._id}>
+      <div className="profileContainer"></div>
       <p>{User.username}</p>
       <p>{User.DevLvl}</p>
       <p>{User.github}</p>
