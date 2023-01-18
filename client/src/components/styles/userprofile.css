@@ -41,12 +41,10 @@
 
 .rightProfile {
   width: 70%;
-  background-color: green;
   height: 100%;
 }
 
 .topProfile {
-  background-color: blue;
   width: 80%;
   height: 75px;
   margin: 0 auto;
@@ -54,18 +52,51 @@
 
 .topButtonContainer {
   display: flex;
+  justify-content: space-between;
 }
 
 .lookLikeButton {
-  width: 168px;
+  width: 170px;
   height: 36px;
   background: #202b37;
-  border: 2px solid #39ffe8;
-  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 2px solid rgba(57, 255, 232, 0.8);
+  font-family: "Share Tech", sans-serif;
+  font-size: 20px;
+  padding: 2px;
+  margin-top: 5px;
+  margin-right: 16px;
+  text-align: center;
 }
 
-.name {
+.githubButton {
+  width: 170px;
+  height: 44px;
+  background: #202b37;
+  color: white;
+  border: 2px solid rgba(57, 255, 232, 0.8);
+  font-family: "Share Tech", sans-serif;
+  font-size: 20px;
+  padding: 2px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.bioContainer {
+  border: 2px solid rgba(57, 255, 232, 0.8);
+  width: 625px;
+  height: auto;
+  margin-top: 23px;
   color: white;
   font-family: "Share Tech", sans-serif;
-  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  background: #202b37;
+}
+
+.bioDescription {
+  margin-left: 10px;
 }
