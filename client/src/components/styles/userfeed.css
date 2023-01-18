@@ -123,6 +123,8 @@
 }
 
 .codeWarsContainer {
+  width: 85%;
+  margin-top: 20px;
   background: #202b37;
   border: 2px solid #39ffe8;
   height: 500px;
