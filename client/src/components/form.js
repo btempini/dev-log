@@ -12,7 +12,9 @@ const Form = () => {
     email: "",
     devLvl: "",
     github: "",
+    passwordVerify: "",
   });
+  console.log(formState);
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -27,6 +29,11 @@ const Form = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+    //password verify RETURNS ALERT NEEDS TO BE MODAL
+    if (formState.password !== formState.passwordVerify) {
+      alert("Password Verify failed");
+      return;
+    }
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -72,8 +79,10 @@ const Form = () => {
               />
               <input
                 placeholder="Re-enter Password"
-                name="reEnterPassword"
+                name="passwordVerify"
                 type="password"
+                value={formState.passwordVerify}
+                onChange={handleChange}
               />
               <input
                 placeholder="Email"
@@ -87,8 +96,9 @@ const Form = () => {
                 name="devLvl"
                 value={formState.devLvl}
                 onChange={handleChange}
-                placeholder="n00b"
+                placeholder="Please select your level."
               >
+                <option>Please select a level.</option>
                 <option>n00b</option>
                 <option>Junior Dev</option>
                 <option>Master Dev</option>

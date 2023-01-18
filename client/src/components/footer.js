@@ -1,5 +1,17 @@
-// the freakin github bro
-// on EVERY single page?
+import React from "react";
+import "./styles/footer.css";
+import { Link } from "react-router-dom";
 
-// import React from "react";
-// import './styles/footer.css'
+function Footer() {
+  return (
+    <footer className="footer2">
+      <Link to="/">
+        <button className="devLogf">
+          <span>{"<"}</span>dev.log<span>{">"}</span>
+        </button>
+      </Link>
+    </footer>
+  );
+}
+
+export default Footer;
