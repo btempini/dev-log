@@ -1,28 +1,22 @@
 import React from "react";
 import "./styles/userprofile.css";
-// import User from "../../../server/models/User";
-// import Post from "../../../server/models/Post";
 
-// import { QUERY_SINGLE_USER } from "../utils/queries";
-// import { useQuery } from "@apollo/client";
-// import {navigate, useParams} from "react-router-dom";
+import { QUERY_SINGLE_USER } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { navigate, useParams } from "react-router-dom";
 
 function UserProfile() {
-//   console.log("Single Query:", QUERY_SINGLE_USER);
+  //grabs the profile id from the params
+  //url looks like heroku/devlog/USER-ID
+  const { userId } = useParams();
+  console.log(userId);
+  //set up query
+  const { loading, data } = useQuery(QUERY_SINGLE_USER, {
+    variables: { userId: userId },
+  });
+  const User = data;
+  const Post = {};
 
-//   const [getUser, { error, data }] = useQuery(QUERY_SINGLE_USER, 
-//     {
-//       variables: {userId: useParams}});
-
-//     const queryUser = async function() {
-//   try {
-
-//     const {data} = await getUser()
-
-//   } catch (error) {
-//   }
-//  }
-  
   return (
     <div key={User._id}>
       {/* <img /> */}
