@@ -1,5 +1,4 @@
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const dotenv = require("dotenv");
 const multer = require("multer");
 dotenv.config();
@@ -10,6 +9,7 @@ const bucketRegion = process.env.BUCKET_REGION;
 const accessKey = process.env.ACCESS_KEY;
 const secretKey = process.env.SECRET_ACCESS_KEY;
 
+console.log(bucketRegion);
 //creates s3
 const s3 = new S3Client({
   region: bucketRegion,
@@ -44,4 +44,4 @@ const putObject = async (key) => {
   }
 };
 
-putObject("newObject");
+putObject("newObject1");

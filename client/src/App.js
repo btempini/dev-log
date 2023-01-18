@@ -19,7 +19,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
 });
-console.log(httpLink);
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -32,7 +31,7 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
-console.log(authLink);
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
@@ -45,7 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="profile/:userId" element={<Profile />} />
           <Route path="/post" element={<Post />} />
           <Route path="/searchresults" element={<SearchResults />} />
         </Routes>

@@ -42,7 +42,7 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_SINGLE_USER = `
-query singleProfile($userId: ID!) {
+query singleProfile($userId: _id!) {
     user(userId: $userId) {
       DevLvl
       _id
