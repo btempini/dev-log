@@ -5,6 +5,7 @@ import avatar from "../assets/Avatar.png";
 import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { navigate, useParams } from "react-router-dom";
+import Post from "../components/post";
 
 function UserProfile() {
   //grabs the profile id from the params
@@ -52,7 +53,8 @@ function UserProfile() {
       <p>{User.DevLvl}</p>
       <p>{User.github}</p>
       <p>{User.bio}</p>
-      <p>{User.postTitle}</p>
+      {/* <p>{User.postTitle}</p> */}
+      <Post posts={Posts} title="your posts..." />
     </div>
   );
 }
