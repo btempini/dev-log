@@ -29,63 +29,14 @@ function UserProfile() {
   }
 
   return (
-    <div key={User._id}>
-      {/* <img /> */}
-      {/* name level and github */}
-      <section>
-        <h2>{User.username}</h2>
-        <h2>{User.DevLvl}</h2>
-        <h2>{User.github}</h2>
-      </section>
-      {/* Bio */}
-      <section>
-        <p>{User.bio}</p>
-      </section>
-      {/* user post */}
-      <section>
-        <h3>{User.postTitle}</h3>
-        {/* POST NEEDS TO BE A LOOP BECAUSE ITS AN ARRAY */}
-        {/* <h3>{Posts[0].postedAt}</h3> */}
-        {/* <img src={Post.image} /> */}
-        {/* <p>{Posts[0].postText}</p> */}
-      </section>
-      {/* Friends list */}
-      <aside>
-        <h2>Friends</h2>
-        <ul></ul>
-        <h3>LUL NO FRIENDS</h3>
-      </aside>
+    <div className="profilePage" key={User._id}>
+      <p>{User.username}</p>
+      <p>{User.DevLvl}</p>
+      <p>{User.github}</p>
+      <p>{User.bio}</p>
+      <p>{User.postTitle}</p>
     </div>
   );
 }
-// <div key={User._id}>
-//   {/* <img /> */}
-//   {/* name level and github */}
-//   <section>
-//     <h2>{User.username}</h2>
-//     <h2>{User.DevLvl}</h2>
-//     <h2>{User.github}</h2>
-//   </section>
-//   {/* Bio */}
-//   <section>
-//     <p>{User.bio}</p>
-//   </section>
-//   <btn>add a post</btn>
-//   {/* user post */}
-//   <section>
-//     <h3>{User.postTitle}</h3>
-//     <h3>{Post.postedAt}</h3>
-//     {/* <img src={Post.image} /> */}
-//     <p>{Post.postText}</p>
-//   </section>
-//   {/* Friends list */}
-//   <aside>
-//     <h2>Friends</h2>
-//     <ul></ul>
-//     <h3>LUL NO FRIENDS</h3>
-//   </aside>
-// </div>
-// );
-// }
 
 export default UserProfile;
