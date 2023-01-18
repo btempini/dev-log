@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import "./styles/userprofile.css";
 
 import { QUERY_SINGLE_USER } from "../utils/queries";

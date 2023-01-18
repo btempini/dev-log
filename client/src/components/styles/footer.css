@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap');
+
+.footer2 {
+    margin: 4px;
+    position: absolute;
+    bottom: -150px;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    right: 0;
+  }
+
+  .devLogf {
+    font-size: 40px;
+    font-family: "Share Tech", sans-serif;
+    color: #39ffe8;
+    text-decoration: none;
+    background-color: transparent;
+  }
