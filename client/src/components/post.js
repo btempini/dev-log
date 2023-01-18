@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/userprofile.css";
+import placeholder from "../assets/placeholder.png";
 
 function post() {
   return (
