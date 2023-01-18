@@ -117,3 +117,6 @@ export const DELETE_COMMENT = gql`
     }
   }
 `;
+export const EDIT_USER = gql`
+
+`
