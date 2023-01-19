@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
+const { nextTick } = require("process");
 // const aws = require("./utils/aws");
 
 dotenv.config();
@@ -20,23 +21,29 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-const requestTime = function (req, res, next) {
-  let date = new Date();
-  date = date.getDate();
-  console.log(date);
+//check new day
+const checkNewDay = function (req, res, next) {
+  let newDate = new Date();
+  newDate = newDate.getDate();
+  if (newDate !== lastDate || lastDate === "") {
+    lastDate = newDate;
+    console.log("its a new day!!!");
+  }
   next();
 };
+//check if its a new month
+const newMonth = function (req, res, next) {
+  let newDate = new Date();
+  newDate = newDate.getDate();
+  if (newDate === 28 || lastDate === "") {
+    console.log("get new ids");
+  }
+  next();
+};
+
 let lastDate = "";
-app.use(
-  (checkNewDay = () => {
-    let newDate = new Date();
-    newDate = newDate.getDate();
-    if (newDate !== lastDate || lastDate === "") {
-      lastDate = newDate;
-      console.log("its a new day!!!");
-    }
-  })
-);
+app.use(newMonth);
+app.use(checkNewDay);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes);
