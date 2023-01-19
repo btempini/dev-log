@@ -10,17 +10,6 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const { nextTick } = require("process");
 // const aws = require("./utils/aws");
-
-dotenv.config();
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
-
 //check new day
 const checkNewDay = function (req, res, next) {
   let newDate = new Date();
@@ -40,6 +29,16 @@ const newMonth = function (req, res, next) {
   }
   next();
 };
+
+dotenv.config();
+const PORT = process.env.PORT || 3001;
+const app = express();
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+});
 
 let lastDate = "";
 app.use(newMonth);
