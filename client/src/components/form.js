@@ -39,6 +39,7 @@ const Form = () => {
       setModalError({
         message: "Passwords do not match",
       });
+      return;
     }
     try {
       const { data } = await addUser({
@@ -58,7 +59,7 @@ const Form = () => {
         (window.location.href = "/feed")
       ) : (
         <div className="signupContainer">
-        {modalError && <Modal message={modalError.message} />}
+          {modalError && <Modal message={modalError.message} />}
           <div className="leftHero"></div>
           <div className="rightForm">
             <form className="signupForm" onSubmit={handleFormSubmit}>
