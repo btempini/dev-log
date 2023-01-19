@@ -10,6 +10,7 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 // const aws = require("./utils/aws");
 
+dotenv.config();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -19,11 +20,26 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
+const requestTime = function (req, res, next) {
+  let date = new Date();
+  date = date.getDay();
+  console.log(date);
+  next();
+};
+let lastDate = "";
+app.use(
+  (checkNewDay = () => {
+    let newDate = new Date();
+    newDate = newDate.getDay();
+    if (newDate !== lastDate || lastDate === "") {
+      lastDate = newDate;
+      console.log("its a new day!!!");
+    }
+  })
+);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes);
-
-dotenv.config();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
