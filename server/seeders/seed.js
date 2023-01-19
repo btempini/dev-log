@@ -27,8 +27,8 @@ const start = async () => {
     const posts = await Post.find({});
     const postIdArr = posts.map((element) => element._id);
     // adding posts id to user posts array
-    users.forEach((element) => {
-      element.posts.push(postIdArr[0]);
+    users.forEach((element, index) => {
+      element.posts.push(postIdArr[index]);
     });
     await userBulkCreate(users);
     const response = await User.find({}).populate("posts");
