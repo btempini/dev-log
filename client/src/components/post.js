@@ -8,22 +8,25 @@ function post({ posts, title }) {
   }
   return (
     <div className="postContainer">
-      <div className="leftPost"></div>
-      <div className="rightPost">
-        {posts &&
-          posts.map((post) => (
-            <div key={post._id}>
-              <div>
+      {posts &&
+        posts.map((post) => (
+          <div className="postData" key={post._id}>
+            <div className="leftPost">
+              <p className="date">{post.postedAt}</p>
+              <img src={placeholder} alt="decoration" />
+            </div>
+            <div className="rightPost">
+              <div className="topRight">
                 <p className="postTitle">{post.postTitle}</p>
-                <p className="date">{post.postedAt}</p>
-                <div>Posted by: {post.username}</div>
-                <img src={placeholder} alt="decoration" />
                 <p className="postBody">{post.postText}</p>
-                <div>Likes:{post.likes}</div>
+              </div>
+              <div className="bottomRight">
+                <p className="postedBy">Posted by: {post.username}</p>
+                <p className="likes">Likes:{post.likes}</p>
               </div>
             </div>
-          ))}
-      </div>
+          </div>
+        ))}
     </div>
   );
 }

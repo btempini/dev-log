@@ -41,31 +41,22 @@ function UserProfile() {
           <div className="topProfile">
             <div className="topButtonContainer">
               <div className="lookLikeButton">
-                <p className="name">Big Poppa</p>
+                <p className="name">{User.username}</p>
               </div>
               <div className="divider"></div>
               <div className="lookLikeButton">
-                <p className="level">Master Dev</p>
+                <p className="level">{User.DevLvl}</p>
               </div>
               <div className="divider"></div>
-              <button className="githubButton">Github URL</button>
+              <button className="githubButton">{User.github}</button>
             </div>
             <div className="bioContainer">
               <h2 className="bioTitle">Bio</h2>
-              <p className="bioDescription">
-                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                deserunt ut voluptate aute id deserunt nisi.
-              </p>
+              <p className="bioDescription">{User.bio}</p>
             </div>
           </div>
         </div>
       </div>
-      <p>{User.username}</p>
-      <p>{User.DevLvl}</p>
-      <p>{User.github}</p>
-      <p>{User.bio}</p>
       {/* <p>{User.postTitle}</p> */}
       <Post posts={Posts} title="your posts..." />
     </div>

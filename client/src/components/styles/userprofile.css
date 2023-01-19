@@ -100,3 +100,32 @@
 .bioDescription {
   margin-left: 10px;
 }
+
+.postContainer {
+  margin-top: 50px;
+  width: 967px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postData {
+  width: 100%;
+  display: flex;
+}
+
+.rightPost {
+  position: relative;
+  font-family: "Share Tech", sans-serif;
+  color: white;
+}
+
+.bottomRight {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  right: 0;
+}
+
+.likes {
+  margin-left: 5px;
+}
