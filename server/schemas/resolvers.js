@@ -81,17 +81,37 @@ const resolvers = {
 
       return { token, user };
     },
-    editUser: async (_, { userId, updates }, context) => {
+    editUser: async (
+      _,
+      { userId, username, fullName, DevLvl, bio, github },
+      context
+    ) => {
       // check if user is authorized to edit this user
-      if (!context.user) {
-        throw new AuthenticationError("Not authorized to edit this user");
-      }
-      // edit user logic
-      const user = await User.findByIdAndUpdate(userId, updates, { new: true });
-      if (!user) {
+
+      if (!userId) {
         throw new Error("User not found");
+      } else {
+        const user = await User.findByIdAndUpdate(
+          { _id: userId },
+          {
+            username: username,
+            fullName: fullName,
+            DevLvl: DevLvl,
+            bio: bio,
+            github: github,
+          },
+
+          {
+            new: true,
+          }
+        );
+        return user;
       }
-      return user;
+
+      // if (!context.user) {
+      //   throw new AuthenticationError("Not authorized to edit this user");
+      // }
+      // edit user logic
     },
     deleteUser: async (_, { userId }, context) => {
       // check if user is authorized to delete this user
