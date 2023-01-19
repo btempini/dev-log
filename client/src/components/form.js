@@ -7,6 +7,7 @@ import "./styles/form.css";
 import Modal from "./modal.js";
 
 const Form = () => {
+  const [modalError, setModalError] = useState("");
   const [formState, setFormState] = useState({
     username: "",
     fullName: "",
@@ -32,7 +33,13 @@ const Form = () => {
     event.preventDefault();
     console.log(formState);
     //password verify RETURNS ALERT NEEDS TO BE MODAL
-    verifyPassword();
+    if (formState.password !== formState.passwordVerify) {
+      console.log("Hitting if statement.");
+      // if this is true, then call state method to update error message variable, call setModalError, and pass string
+      setModalError({
+        message: "Passwords do not match",
+      });
+    }
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -43,11 +50,7 @@ const Form = () => {
     }
   };
 
-  const verifyPassword = async () => {
-    if (formState.password !== formState.passwordVerify) {
-      return <Modal />;
-    }
-  };
+  // if error, display modal component, passing down prop w/ error title
 
   return (
     <div>
@@ -55,6 +58,7 @@ const Form = () => {
         (window.location.href = "/feed")
       ) : (
         <div className="signupContainer">
+          {modalError && <Modal message={modalError.message} />}
           <div className="leftHero"></div>
           <div className="rightForm">
             <form className="signupForm" onSubmit={handleFormSubmit}>
