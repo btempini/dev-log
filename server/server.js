@@ -11,14 +11,14 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const { nextTick } = require("process");
 // const aws = require("./utils/aws");
-//check new day
+// check new day
 const checkNewDay = async function (req, res, next) {
   let newDate = new Date();
   newDate = newDate.getDate();
   if (newDate !== lastDate || lastDate === "") {
     lastDate = newDate;
     console.log("its a new day!!!");
-    const remove = await removeID();
+    await removeID();
   }
   next();
 };
@@ -33,7 +33,6 @@ const newMonth = function (req, res, next) {
   next();
 };
 
-dotenv.config();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -49,6 +48,7 @@ app.use(checkNewDay);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes);
+dotenv.config();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
