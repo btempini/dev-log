@@ -39,6 +39,7 @@ const Form = () => {
       setModalError({
         message: "Passwords do not match",
       });
+      return;
     }
     try {
       const { data } = await addUser({
