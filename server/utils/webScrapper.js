@@ -51,12 +51,42 @@ const storeID = async (newIDs) => {
   };
 };
 const startScrape = async () => {
+  fs.writeFile(
+    path.join(__dirname, "/data/codeWarsIDs.json"),
+    "[]",
+    function (err) {
+      if (err) throw err;
+      console.log("Saved!");
+    }
+  );
   ids = await scrapeCodeWars();
   console.log(ids);
   storeID(ids);
 };
 
-//Date()
-//if dayCount = storedIDs.length
-startScrape();
-module.exports = scrapeCodeWars;
+const getOneID = async () => {
+  let data = await fs.promises.readFile(
+    path.join(__dirname, "/data/codeWarsIDs.json"),
+    "utf8",
+    (error, data) => {
+      return error ? console.log(error) : fileData(data);
+    }
+  );
+  //parses fileData
+  data = JSON.parse(data);
+  //sets new data to the array value of file data
+  const singleID = data.pop();
+  //writes over data with new data
+  data = JSON.stringify(data);
+  fs.writeFile(
+    path.join(__dirname, "/data/codeWarsIDs.json"),
+    data,
+    function (err) {
+      if (err) throw err;
+      console.log("Saved!");
+    }
+  );
+  console.log(singleID);
+  return singleID;
+};
+module.exports = { startScrape, getOneID };

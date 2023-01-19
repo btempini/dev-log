@@ -5,6 +5,7 @@ const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 const dotenv = require("dotenv");
+const { startScrape } = require("./utils/webScrapper");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -26,6 +27,7 @@ const newMonth = function (req, res, next) {
   newDate = newDate.getDate();
   if (newDate === 28 || lastDate === "") {
     console.log("get new ids");
+    startScrape();
   }
   next();
 };
