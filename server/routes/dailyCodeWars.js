@@ -4,6 +4,8 @@ const webScraper = require("../utils/webScrapper");
 
 router.get("/getDailyChallenge", async (req, res) => {
   //get from codewars API
+  //check req.body for current date
+  //new date here, if it doesnt match fun get new ID function
   const ids = await webScraper();
   console.log(ids);
   const getFromCodeWars = async (ID) => {
