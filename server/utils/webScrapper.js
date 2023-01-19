@@ -1,6 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const { start } = require("repl");
 
 const scrapeCodeWars = async () => {
   try {
@@ -16,8 +17,37 @@ const scrapeCodeWars = async () => {
     console.log(error);
   }
 };
-const storeID = async () => {
-  fs.readFile("./data/codeWarsIDs.json", ())
+const storeID = async (newIDs) => {
+  fs.readFile("./data/codeWarsIDs.json", "utf8", (error, data) => {
+    return error ? console.log(error) : fileData(data, newIDs);
+  });
+  const fileData = (data, newIDs) => {
+    //parses fileDaya
+    data = JSON.parse(data);
+    //sets new data to the array value of file data
+    let newData = data;
+
+    newIDs.forEach((element) => {
+      //only pushes new elements to the newData array so there is no duplicates
+      if (!data.includes(element)) {
+        newData.push(element);
+      }
+    });
+    console.log(newData.length);
+    newData = JSON.stringify(newData);
+    //save file
+    fs.writeFile("./data/codeWarsIDs.json", newData, function (err) {
+      if (err) throw err;
+      console.log("Saved!");
+    });
+  };
+};
+const startScrape = async () => {
+  ids = await scrapeCodeWars();
+  storeID(ids);
 };
 
+//Date()
+//if dayCount = storedIDs.length
+startScrape();
 module.exports = scrapeCodeWars;
