@@ -5,19 +5,20 @@ const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 const dotenv = require("dotenv");
-const { startScrape } = require("./utils/webScrapper");
+const { startScrape, removeID } = require("./utils/webScrapper");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const { nextTick } = require("process");
 // const aws = require("./utils/aws");
 //check new day
-const checkNewDay = function (req, res, next) {
+const checkNewDay = async function (req, res, next) {
   let newDate = new Date();
   newDate = newDate.getDate();
   if (newDate !== lastDate || lastDate === "") {
     lastDate = newDate;
     console.log("its a new day!!!");
+    const remove = await removeID();
   }
   next();
 };

@@ -64,7 +64,7 @@ const startScrape = async () => {
   storeID(ids);
 };
 
-const getOneID = async () => {
+const removeID = async () => {
   let data = await fs.promises.readFile(
     path.join(__dirname, "/data/codeWarsIDs.json"),
     "utf8",
@@ -89,4 +89,19 @@ const getOneID = async () => {
   console.log(singleID);
   return singleID;
 };
-module.exports = { startScrape, getOneID };
+
+const getOneID = async () => {
+  let data = await fs.promises.readFile(
+    path.join(__dirname, "/data/codeWarsIDs.json"),
+    "utf8",
+    (error, data) => {
+      return error ? console.log(error) : fileData(data);
+    }
+  );
+  //parses fileData
+  data = JSON.parse(data);
+  const singleID = data.pop();
+  console.log(singleID);
+  return singleID;
+};
+module.exports = { startScrape, getOneID, removeID };
