@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -32,10 +32,7 @@ const Form = () => {
     event.preventDefault();
     console.log(formState);
     //password verify RETURNS ALERT NEEDS TO BE MODAL
-    if (formState.password !== formState.passwordVerify) {
-      console.log("Hitting if statement.");
-      return <Modal />;
-    }
+    verifyPassword();
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -43,6 +40,12 @@ const Form = () => {
       Auth.login(data.addUser.token);
     } catch (e) {
       console.log(e);
+    }
+  };
+
+  const verifyPassword = async () => {
+    if (formState.password !== formState.passwordVerify) {
+      return <Modal />;
     }
   };
 
