@@ -22,7 +22,7 @@ const server = new ApolloServer({
 
 const requestTime = function (req, res, next) {
   let date = new Date();
-  date = date.getDay();
+  date = date.getDate();
   console.log(date);
   next();
 };
@@ -30,7 +30,7 @@ let lastDate = "";
 app.use(
   (checkNewDay = () => {
     let newDate = new Date();
-    newDate = newDate.getDay();
+    newDate = newDate.getDate();
     if (newDate !== lastDate || lastDate === "") {
       lastDate = newDate;
       console.log("its a new day!!!");
