@@ -2,7 +2,7 @@
 
 .footer2 {
   margin: 4px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 87px;
 }
