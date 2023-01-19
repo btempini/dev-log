@@ -102,21 +102,28 @@
 }
 
 .postContainer {
-  margin-top: 50px;
-  width: 967px;
   display: flex;
   flex-direction: column;
 }
 
 .postData {
-  width: 100%;
+  background-color: rgba(114, 113, 248, 0.2);
+  padding-left: 24px;
+  width: 97%;
   display: flex;
+  border: 2px solid rgba(12, 16, 14, 1);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 15px;
 }
 
 .rightPost {
   position: relative;
   font-family: "Share Tech", sans-serif;
   color: white;
+  width: 85%;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .bottomRight {
@@ -128,4 +135,31 @@
 
 .likes {
   margin-left: 5px;
+}
+
+.abovePost {
+  display: flex;
+  width: 997px;
+  height: 60px;
+  margin: 45px auto 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recentPosts {
+  font-family: "Lekton", sans-serif;
+  color: rgba(57, 255, 232);
+  font-size: 38px;
+}
+
+.profileButton {
+  color: #0c100e;
+  padding: 8px;
+  width: 165px;
+  border-radius: 27px;
+}
+
+.feedPost {
+  width: 1160px;
+  margin: 0 auto;
 }

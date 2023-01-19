@@ -4,7 +4,7 @@ import avatar from "../assets/Avatar.png";
 
 import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import { navigate, useParams } from "react-router-dom";
+import { Link, navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
 
 function UserProfile() {
@@ -57,8 +57,16 @@ function UserProfile() {
           </div>
         </div>
       </div>
-      {/* <p>{User.postTitle}</p> */}
-      <Post posts={Posts} title="your posts..." />
+      <div className="abovePost">
+        <Link to="/feed">
+          <button className="profileButton">Go to Feed</button>
+        </Link>
+        <h2 className="recentPosts">Recent Posts...</h2>
+        <button className="profileButton">Add a Post</button>
+      </div>
+      <div className="feedPost">
+        <Post posts={Posts} title="your posts..." />
+      </div>
     </div>
   );
 }
