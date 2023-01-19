@@ -52,6 +52,7 @@ const Form = () => {
         (window.location.href = "/feed")
       ) : (
         <div className="signupContainer">
+          <Modal />
           <div className="leftHero"></div>
           <div className="rightForm">
             <form className="signupForm" onSubmit={handleFormSubmit}>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/modal.css";
 
-function modal() {
+const Modal= (props) {
   return (
     <div className="modalContainer">
       <div className="modal">
@@ -15,4 +15,4 @@ function modal() {
   );
 }
 
-export default modal;
+export default Modal;
