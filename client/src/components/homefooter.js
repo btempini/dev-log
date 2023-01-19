@@ -5,7 +5,9 @@ import Github from "../assets/Github.png";
 function HomeFooter() {
   return (
     <footer className="footer">
-      <img className="Github" src={Github} alt="Github icon" />
+      <a href="https://github.com/btempini/dev-log">
+        <img className="Github" src={Github} alt="Github icon" />
+      </a>
     </footer>
   );
 }
