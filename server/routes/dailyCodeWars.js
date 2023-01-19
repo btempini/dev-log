@@ -1,13 +1,8 @@
 const router = require("express").Router();
 const axios = require("axios");
-const webScraper = require("../utils/webScrapper");
+const { getOneID } = require("../utils/webScrapper");
 
 router.get("/getDailyChallenge", async (req, res) => {
-  //get from codewars API
-  //check req.body for current date
-  //new date here, if it doesnt match fun get new ID function
-  const ids = await webScraper();
-  console.log(ids);
   const getFromCodeWars = async (ID) => {
     try {
       const data = await axios.get(
@@ -15,10 +10,12 @@ router.get("/getDailyChallenge", async (req, res) => {
       );
       res.send(data.data);
     } catch (error) {
+      console.log(ID);
       console.log(error);
     }
   };
-  getFromCodeWars("5831200eb812b8016d000094");
+  ID = await getOneID();
+  getFromCodeWars(ID);
 });
 
 module.exports = router;
