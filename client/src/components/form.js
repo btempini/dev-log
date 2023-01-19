@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import "./styles/form.css";
+import Modal from "./modal.js";
 
 const Form = () => {
   const [formState, setFormState] = useState({
@@ -32,8 +33,8 @@ const Form = () => {
     console.log(formState);
     //password verify RETURNS ALERT NEEDS TO BE MODAL
     if (formState.password !== formState.passwordVerify) {
-      alert("Password Verify failed");
-      return;
+      console.log("Hitting if statement.");
+      return <Modal />;
     }
     try {
       const { data } = await addUser({
