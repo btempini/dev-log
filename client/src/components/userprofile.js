@@ -2,7 +2,7 @@
 import "./styles/userprofile.css";
 import avatar from "../assets/Avatar.png";
 import React, { useState } from "react";
-import { QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Link, navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
@@ -15,9 +15,12 @@ function UserProfile() {
   const { userId } = useParams();
   console.log(useQuery);
   //set up query
-  const { loading, data, error } = useQuery(QUERY_SINGLE_USER, {
-    variables: { userId: userId },
-  });
+  const { loading, data, error } = useQuery(
+    userId ? QUERY_SINGLE_USER : QUERY_ME,
+    {
+      variables: { userId: userId },
+    }
+  );
   //Define user to be reassigned to data later
   let User = "";
   let Posts = [];
@@ -26,7 +29,7 @@ function UserProfile() {
     //basic loading bar
     return <div>Loading...</div>;
   } else {
-    User = data.user;
+    User = data?.user || data?.me;
     Posts = User.posts;
     console.log(User);
     console.log(Posts);

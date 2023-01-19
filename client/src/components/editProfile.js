@@ -81,7 +81,7 @@ const EditProfile = (User) => {
                       </p>
                     </div>
                     <div className="divider"></div>
-                    <button className="githubButton">
+                    <p className="githubButton">
                       <input
                         placeholder={Profile.github}
                         name="github"
@@ -89,7 +89,7 @@ const EditProfile = (User) => {
                         value={formState.github}
                         onChange={handleChange}
                       ></input>
-                    </button>
+                    </p>
                   </div>
                   <div className="bioContainer">
                     <h2 className="bioTitle">Bio</h2>

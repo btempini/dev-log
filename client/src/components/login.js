@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
+import UserFeed from "./userfeed";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -39,7 +40,9 @@ const Login = (props) => {
   return (
     <>
       {data ? (
-        (window.location.href = "/feed")
+        <p>
+          Succes! head to <Link to={`/feed`}>You can now head t</Link>
+        </p>
       ) : (
         <div className="signUpForm">
           <h1 className="devLog">
