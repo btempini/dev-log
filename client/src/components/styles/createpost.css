@@ -1,1 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap");
+
+.createPostPage {
+  background-position-y: -278px;
+  background-color: #0b100e;
+  background-image: url("../../assets/honeycomb-min.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.createPostContainer {
+  width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postInput {
+  background-color: #202b37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #39ffe8;
+  color: white;
+  height: 35px;
+  width: 170px;
+  margin: 10px;
+  font-family: "Share Tech Mono", sans-serif;
+  font-size: 16px;
+}
+
+.topCreate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.createBody {
+  margin-top: 20px;
+  background-color: #202b37;
+  width: 100%;
+  border: 1px solid #39ffe8;
+  height: 200px;
+}
+
+.submitButton {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
