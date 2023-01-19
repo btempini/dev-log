@@ -33,8 +33,8 @@ const Form = () => {
     console.log(formState);
     //password verify RETURNS ALERT NEEDS TO BE MODAL
     if (formState.password !== formState.passwordVerify) {
-      console.log(Modal);
-      return;
+      console.log("Hitting if statement.");
+      return <Modal />;
     }
     try {
       const { data } = await addUser({
@@ -49,9 +49,7 @@ const Form = () => {
   return (
     <div>
       {data ? (
-        <p>
-          Success! You may now head <Link to="/">back to the homepage.</Link>
-        </p>
+        (window.location.href = "/feed")
       ) : (
         <div className="signupContainer">
           <div className="leftHero"></div>
