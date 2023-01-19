@@ -4,7 +4,7 @@ import avatar from "../assets/Avatar.png";
 import React, { useState } from "react";
 import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import { navigate, useParams } from "react-router-dom";
+import { Link, navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
 import EditProfile from "./editProfile";
 
@@ -56,7 +56,7 @@ function UserProfile() {
                 <p className="level">{User.DevLvl}</p>
               </div>
               <div className="divider"></div>
-              <button className="githubButton">Github:{User.github}</button>
+              <button className="githubButton">{User.github}</button>
             </div>
             <div className="bioContainer">
               <h2 className="bioTitle">Bio</h2>
@@ -65,8 +65,16 @@ function UserProfile() {
           </div>
         </div>
       </div>
-
-      <Post posts={Posts} title="your posts..." />
+      <div className="abovePost">
+        <Link to="/feed">
+          <button className="profileButton">Go to Feed</button>
+        </Link>
+        <h2 className="recentPosts">Recent Posts...</h2>
+        <button className="profileButton">Add a Post</button>
+      </div>
+      <div className="feedPost">
+        <Post posts={Posts} title="your posts..." />
+      </div>
     </div>
   );
 }

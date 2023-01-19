@@ -36,7 +36,9 @@ function UserFeed() {
             <div className="divider"></div>
             <button className="globalScopeBtn">Global Scope</button>
           </div>
-          <Post posts={posts} title="All posts" />
+          <div className="largerPost">
+            <Post posts={posts} title="All posts" />
+          </div>
         </div>
       </div>
     </div>

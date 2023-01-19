@@ -58,7 +58,6 @@
   height: 56px;
   width: 3px;
   border-radius: 10px;
-  margin-right: 16px;
 }
 
 .postContainer {
@@ -97,6 +96,7 @@
 
 .leftPost {
   width: 25%;
+  flex-basis: content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,4 +142,8 @@
   font-family: "Share Tech", sans-serif;
   margin-bottom: 20px;
   margin-left: 15px;
+}
+
+.largerPost {
+  width: 846px;
 }
