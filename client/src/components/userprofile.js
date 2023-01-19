@@ -1,13 +1,14 @@
 // import React from "react";
 import "./styles/userprofile.css";
 import avatar from "../assets/Avatar.png";
-
+import React, { useState } from "react";
 import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
 
 function UserProfile() {
+  const [editState, setEditState] = useState(false);
   //grabs the profile id from the params
   //url looks like heroku/devlog/USER-ID
   const { userId } = useParams();
@@ -30,12 +31,18 @@ function UserProfile() {
     console.log(Posts);
   }
 
+  if (editState) {
+    return <div>workgin !</div>;
+  }
+
   return (
     <div className="profilePage" key={User._id}>
       <div className="profileContainer">
         <div className="leftProfile">
           <img className="largeAvatar" src={avatar} alt="avatar" />
-          <button className="editProfile">Edit Profile</button>
+          <button className="editProfile" onClick={() => setEditState(true)}>
+            Edit Profile
+          </button>
         </div>
         <div className="rightProfile">
           <div className="topProfile">
