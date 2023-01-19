@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/modal.css";
 
-const Modal= (props) {
+
+const Modal= (props) => {
   return (
     <div className="modalContainer">
       <div className="modal">
-        <Link to="/signup">
-          <div className="close"></div>
+        <Link to="/">
+          <button className="close"></button>
         </Link>
-        <h1 className="errorMessage">Error Can Go Here!</h1>
+        <h1 className="errorMessage">{props.message}</h1>
       </div>
     </div>
   );
