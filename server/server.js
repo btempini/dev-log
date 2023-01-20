@@ -1,6 +1,7 @@
 //server
 const express = require("express");
 const routes = require("./routes");
+const cors = require("cors");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
@@ -47,6 +48,7 @@ const server = new ApolloServer({
 // app.use(checkNewDay);
 // app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 // app.use(routes);
 dotenv.config();
 
