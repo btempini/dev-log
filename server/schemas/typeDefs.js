@@ -27,6 +27,7 @@ try {
       likes: Int
       comments: [Comment]
       commentCount: Int
+      userProfileId: String
     }
     type Comment {
       commentId: ID!

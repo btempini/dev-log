@@ -103,6 +103,16 @@
   flex-direction: column;
 }
 
+.likeBtn {
+  background-image: url("../../assets/heart-50.png");
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  right: 0;
+  margin: 5px;
+  /* background-color: none; */
+}
+
 .avatarContainer {
   width: 100%;
   display: flex;

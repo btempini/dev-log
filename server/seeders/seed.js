@@ -45,6 +45,8 @@ const start = async () => {
       console.log("find one:", findOne);
     });
     const response = await User.find({}).populate("posts");
+    const postResponse = await Post.find({});
+    console.log(postResponse);
     console.log(response);
     process.exit(0);
   } catch (error) {
