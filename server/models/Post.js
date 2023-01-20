@@ -1,6 +1,7 @@
 const { timeStamp } = require("console");
 const { Schema, model } = require("mongoose");
 const commentSchema = require("./Comment");
+const User = require("./User");
 
 const postSchema = new Schema(
   {
@@ -44,6 +45,11 @@ const postSchema = new Schema(
 
 postSchema.virtual("commentCount").get(function () {
   return this.comments.length;
+});
+
+postSchema.virtual("userProfileId").get(async function () {
+  const user = await User.findOne({ username: this.username });
+  return user._id;
 });
 
 const Post = model("Post", postSchema);
