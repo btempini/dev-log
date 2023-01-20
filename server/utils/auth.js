@@ -29,7 +29,7 @@ module.exports = {
     //session lasts two hours
     const expiration = "2h";
     const payload = { email, username, _id };
-    console.log(secret);
+    console.log("Look for secret", secret);
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
