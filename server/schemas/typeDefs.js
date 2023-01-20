@@ -60,7 +60,7 @@ try {
         DevLvl: String!
       ): Auth
       editUser(
-        id: ID!
+        userId: ID!
         username: String
         fullName: String
         bio: String
