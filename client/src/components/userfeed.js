@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
@@ -10,17 +10,33 @@ import auth from "../utils/auth";
 import axios from "axios";
 
 function UserFeed() {
+  useEffect(() => {
+    getCode();
+  });
+
   const { loading, data } = useQuery(QUERY_POSTS);
-  const [codeWarsState, setCodeWarsState] = useState({});
+  const [codeWarsState, setCodeWarsState] = useState({
+    name: "CodeWars",
+    category: "Is Down",
+    rank: { name: ":(" },
+    url: "try Again later",
+  });
   const posts = data?.posts || [];
-  console.log(axios);
   const getCode = async () => {
-    const codeWarsData = await axios.get(
-      "https://codewarsapi.herokuapp.com/api/getDailyChallenge/"
-    );
-    console.log(codeWarsData);
+    try {
+      const codeWarsData = await axios.get(
+        "https://codewarsapi.herokuapp.com/api/getDailyChallenge/"
+      );
+      setCodeWarsState(codeWarsData.data);
+    } catch (error) {
+      setCodeWarsState({
+        name: "CodeWars",
+        category: "Is Down",
+        rank: { name: ":(" },
+        url: "try Again later",
+      });
+    }
   };
-  getCode();
   return (
     // user feed
     <div className="userFeed">
@@ -36,14 +52,14 @@ function UserFeed() {
             </button>
           </div>
           <div className="codeWarsContainer">
-            <p className="codeWarsTitles">TITLE</p>
-            <p className="codeWarsBody">title here...</p>
-            <p className="codeWarsTitles">DESCRIPTION</p>
-            <p className="codeWarsBody">description here...</p>
+            <p className="codeWarsTitles">Daily CodeWars:</p>
+            <p className="codeWarsBody">{codeWarsState.name}</p>
+            <p className="codeWarsTitles">CATEGORY</p>
+            <p className="codeWarsBody">{codeWarsState.category}</p>
             <p className="codeWarsTitles">LEVEL</p>
-            <p className="codeWarsBody">level here...</p>
+            <p className="codeWarsBody">{codeWarsState.rank.name}</p>
             <p className="codeWarsTitles">URL</p>
-            <p className="codeWarsBody">url here...</p>
+            <a className="codeWarsBody">{codeWarsState.url}</a>
           </div>
         </div>
         <div className="rightAside">
