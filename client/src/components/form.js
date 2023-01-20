@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -17,7 +17,7 @@ const Form = () => {
     github: "",
     passwordVerify: "",
   });
-  console.log(formState);
+  // console.log(formState);
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -31,7 +31,8 @@ const Form = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
+    //password verify RETURNS ALERT NEEDS TO BE MODAL
     if (formState.password !== formState.passwordVerify) {
       console.log("Hitting if statement.");
       setModalError({
@@ -68,8 +69,7 @@ const Form = () => {
 
   return (
     <div>
-      {data ? (
-        (window.location.href = "/feed")
+      {data ? (<Navigate  to="/feed"/>
       ) : (
         <div className="signupContainer">
           {modalError && <Modal message={modalError.message} />}
