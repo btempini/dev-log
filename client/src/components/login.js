@@ -41,7 +41,7 @@ const Login = (props) => {
     <>
       {data ? (
         <p>
-          Succes! head to <Link to={`/feed`}>You can now head t</Link>
+          Success! head to <Link to={`/feed`}>You can now head t</Link>
         </p>
       ) : (
         <div className="signUpForm">
