@@ -45,6 +45,9 @@ function UserFeed() {
             <div className="divider"></div>
             <button className="globalScopeBtn">Global Scope</button>
           </div>
+          <button className="profileButton">
+            <Link to={"/addPost"}>Add a Post</Link>
+          </button>
           <div className="largerPost">
             <Post posts={posts} title="All posts" />
           </div>
