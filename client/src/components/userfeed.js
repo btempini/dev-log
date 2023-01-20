@@ -12,7 +12,7 @@ import axios from "axios";
 function UserFeed() {
   useEffect(() => {
     getCode();
-  });
+  }, []);
 
   const { loading, data } = useQuery(QUERY_POSTS);
   const [codeWarsState, setCodeWarsState] = useState({
