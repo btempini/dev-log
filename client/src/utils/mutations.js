@@ -44,16 +44,16 @@ export const LOGIN_USER = gql`
         fullName
         email
         password
-        posts {
-          _id
-          commentCount
-          username
-          postedAt
-          postTitle
-          image
-          likes
-          postText
-        }
+        # posts {
+        #   _id
+        #   commentCount
+        #   username
+        #   postedAt
+        #   postTitle
+        #   image
+        #   likes
+        #   postText
+        # }
         friends {
           DevLvl
           _id
