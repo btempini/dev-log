@@ -17,7 +17,7 @@ module.exports = {
       username: "Dwight Likes Bears",
     },
     {
-      postTitle: "",
+      postTitle: "Games!",
       postText: "I like playing games!",
       username: "anotherUser",
     },
