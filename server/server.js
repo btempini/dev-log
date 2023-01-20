@@ -5,7 +5,7 @@ const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 const dotenv = require("dotenv");
-const { startScrape, removeID } = require("./utils/webScrapper");
+// const { startScrape, removeID } = require("./utils/webScrapper");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
