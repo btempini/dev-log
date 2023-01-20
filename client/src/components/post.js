@@ -28,7 +28,10 @@ function post({ posts, title }) {
                     Posted by: {post.username}
                   </Link>
                 </p>
-                <p className="likes">Likes:{post.likes}</p>
+                <div>
+                  <button className="likeBtn"></button>
+                  <p className="likes">{post.likes}</p>
+                </div>
               </div>
             </div>
           </div>
