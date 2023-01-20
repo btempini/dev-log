@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
@@ -7,11 +7,20 @@ import { QUERY_POSTS } from "../utils/queries";
 import Post from "./post";
 import { Link } from "react-router-dom";
 import auth from "../utils/auth";
+import axios from "axios";
 
 function UserFeed() {
   const { loading, data } = useQuery(QUERY_POSTS);
+  const [codeWarsState, setCodeWarsState] = useState({});
   const posts = data?.posts || [];
-
+  console.log(axios);
+  const getCode = async () => {
+    const codeWarsData = await axios.get(
+      "https://codewarsapi.herokuapp.com/api/getDailyChallenge/"
+    );
+    console.log(codeWarsData);
+  };
+  getCode();
   return (
     // user feed
     <div className="userFeed">
