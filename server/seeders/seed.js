@@ -33,10 +33,16 @@ const start = async () => {
     const userMongoData = await User.find({});
     //post find and array creation
     const posts = await Post.find({});
-    userMongoData.forEach((element, index) => {
+    userMongoData.forEach(async (element, index) => {
       const currentUser = element.username;
-      const nextPost = posts[index]._id;
-      User.findOneAndUpdate({ username: currentUser }, { posts: nextPost });
+      const nextPost = [posts[index]._id];
+      console.log("next post:", nextPost);
+      console.log("current user:", currentUser);
+      const findOne = await User.findOneAndUpdate(
+        { username: currentUser },
+        { posts: nextPost }
+      );
+      console.log("find one:", findOne);
     });
     const response = await User.find({}).populate("posts");
     console.log(response);
