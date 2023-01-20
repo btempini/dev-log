@@ -30,34 +30,19 @@
   margin-left: 10px;
 }
 
-.scopeButtonContainer {
+.consoleLogContainer {
   display: flex;
   margin: 0 auto;
   width: 380px;
 }
 
-.localScopeBtn {
+.consoleLog {
   margin-right: 16px;
   width: 170px;
   height: 40px;
   background: #202b37;
   color: white;
   border: 2px solid rgba(57, 255, 232, 0.8);
-}
-
-.globalScopeBtn {
-  width: 170px;
-  height: 40px;
-  background: #202b37;
-  color: white;
-  border: 2px solid rgba(57, 255, 232, 0.8);
-}
-
-.divider {
-  background-color: #7271f8;
-  height: 56px;
-  width: 3px;
-  border-radius: 10px;
 }
 
 .postContainer {
@@ -152,6 +137,7 @@
   font-family: "Share Tech", sans-serif;
   margin-bottom: 20px;
   margin-left: 15px;
+  overflow-wrap: break-word;
 }
 
 .largerPost {

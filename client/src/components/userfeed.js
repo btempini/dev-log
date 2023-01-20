@@ -59,14 +59,12 @@ function UserFeed() {
             <p className="codeWarsTitles">LEVEL</p>
             <p className="codeWarsBody">{codeWarsState.rank.name}</p>
             <p className="codeWarsTitles">URL</p>
-            <a className="codeWarsBody">{codeWarsState.url}</a>
+            <a className="codeWarsBody" href={codeWarsState.url}>{codeWarsState.url}</a>
           </div>
         </div>
         <div className="rightAside">
-          <div className="scopeButtonContainer">
-            <button className="localScopeBtn">console.log</button>
-            <div className="divider"></div>
-            <button className="globalScopeBtn">Post</button>
+          <div className="consoleLogContainer">
+            <h3 className="consoleLog">console.log</h3>
           </div>
           <button className="profileButton">
             <Link to={"/addPost"}>Add a Post</Link>
