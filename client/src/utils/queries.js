@@ -131,6 +131,7 @@ export const QUERY_POSTS = gql`
       postTitle
       postedAt
       username
+      // add userProfileId when seed data is done
       likes
       comments {
         CommentText

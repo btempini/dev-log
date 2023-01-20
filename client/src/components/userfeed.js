@@ -11,6 +11,8 @@ import auth from "../utils/auth";
 function UserFeed() {
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
+  console.log(data);
+  console.log(posts);
 
   return (
     // user feed

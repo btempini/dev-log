@@ -25,6 +25,7 @@ const start = async () => {
     await postsBulkCreate();
     //post find and array creation
     const posts = await Post.find({});
+    console.log(posts);
     const postIdArr = posts.map((element) => element._id);
     // adding posts id to user posts array
     users.forEach((element, index) => {
