@@ -5,6 +5,8 @@ import avatar from "../assets/Avatar.png";
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
 import Post from "./post";
+import { Link } from "react-router-dom";
+import auth from "../utils/auth";
 
 function UserFeed() {
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -17,7 +19,12 @@ function UserFeed() {
         <div className="leftAside">
           <div className="avatarContainer">
             <img className="avatar" src={avatar} alt="decoration" />
-            <button className="viewProfile">View Profile</button>
+
+            <button className="viewProfile">
+              <Link to={`/profile/${auth.getProfile().data._id}`}>
+                View Profile
+              </Link>
+            </button>
           </div>
           <div className="codeWarsContainer">
             <p className="codeWarsTitles">TITLE</p>

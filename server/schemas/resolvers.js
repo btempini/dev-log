@@ -1,4 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
+
 const { User, Post, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -22,6 +23,12 @@ const resolvers = {
       } catch (err) {
         throw new Error(err);
       }
+    },
+    me: async (_, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError("you need to be logged in!");
     },
 
     //find all posts

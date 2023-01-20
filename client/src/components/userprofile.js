@@ -1,39 +1,52 @@
 // import React from "react";
 import "./styles/userprofile.css";
 import avatar from "../assets/Avatar.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import { Link, navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
 import EditProfile from "./editProfile";
+import auth from "../utils/auth";
 
 function UserProfile() {
   const [editState, setEditState] = useState(false);
+  const [meState, setMeState] = useState(false);
   //grabs the profile id from the params
   //url looks like heroku/devlog/USER-ID
   const { userId } = useParams();
-  console.log(useQuery);
+
   //set up query
+
   const { loading, data, error } = useQuery(
     userId ? QUERY_SINGLE_USER : QUERY_ME,
     {
       variables: { userId: userId },
     }
   );
+
+  const User = data?.me || data?.user || {};
+  const Posts = [];
+
   //Define user to be reassigned to data later
-  let User = "";
-  let Posts = [];
+  // let User = "";
+  // let Posts = [];
   //waits till loading is not true to assign the User value to query data
+  console.log(data);
+  console.log(auth.loggedIn(), auth.getProfile().data._id);
+
+  useEffect(() => {
+    if (auth.loggedIn() && auth.getProfile().data._id === userId) {
+      setMeState(true);
+    }
+  }, []);
+
   if (loading) {
     //basic loading bar
     return <div>Loading...</div>;
-  } else {
-    User = data?.user || data?.me;
-    Posts = User.posts;
-    console.log(User);
-    console.log(Posts);
   }
+  console.log(User);
+  console.log(Posts);
 
   if (editState) {
     return <EditProfile User={User} />;
@@ -44,9 +57,13 @@ function UserProfile() {
       <div className="profileContainer">
         <div className="leftProfile">
           <img className="largeAvatar" src={avatar} alt="avatar" />
-          <button className="editProfile" onClick={() => setEditState(true)}>
-            Edit Profile
-          </button>
+          {meState ? (
+            <button className="editProfile" onClick={() => setEditState(true)}>
+              Edit Profile
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="rightProfile">
           <div className="topProfile">

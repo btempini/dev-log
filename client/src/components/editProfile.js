@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-
-import "./styles/header.css";
 import avatar from "../assets/Avatar.png";
+import "./styles/header.css";
 import { useMutation } from "@apollo/client";
 import { EDIT_USER } from "../utils/mutations";
 import auth from "../utils/auth";
+import React, { useState } from "react";
 
 const EditProfile = (User) => {
   console.log(User);
