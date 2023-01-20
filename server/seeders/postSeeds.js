@@ -12,7 +12,8 @@ module.exports = {
     },
     {
       postTitle: "Learning Code",
-      postText: "Learning code is probably the easiest thing in the world not gonna lie.",
+      postText:
+        "Learning code is probably the easiest thing in the world not gonna lie.",
       username: "Dwight Likes Bears",
     },
     {
@@ -21,29 +22,34 @@ module.exports = {
       username: "anotherUser",
     },
     {
-      postTitle: "Gaming",
-      postText: "I like playing games!",
-      username: "anotherUser",
+      postTitle: "JavaScript Tips",
+      postText:
+        "I've been working with JavaScript for a while now and I've learned a lot of useful tips and tricks. Sharing them here!",
+      username: "Bryan",
     },
     {
-      postTitle: "Gaming",
-      postText: "I like playing games!",
-      username: "anotherUser",
+      postTitle: "Node.js Tips",
+      postText:
+        "I've been working with Node.js for a while now and I've learned a lot of useful tips and tricks. Sharing them here!",
+      username: "Michael-Jordan",
     },
     {
-      postTitle: "Gaming",
-      postText: "I like playing games!",
-      username: "anotherUser",
+      postTitle: "My First GitHub Project",
+      postText:
+        "I just created my first GitHub project and it's live! It's a simple weather app built with React and I'm really proud of it.",
+      username: "Dwight Likes Bears",
     },
     {
-      postTitle: "Gaming",
-      postText: "I like playing games!",
-      username: "anotherUser",
+      postTitle: "CSS Grid vs Flexbox",
+      postText:
+        "I've been trying to decide between using CSS Grid or Flexbox for my next project. Both have their pros and cons, but I think I'm going to go with Grid.",
+      username: "Jackson",
     },
     {
-      postTitle: "Gaming",
-      postText: "I like playing games!",
-      username: "anotherUser",
+      postTitle: "Learning Vue.js",
+      postText:
+        "I've been diving into Vue.js lately and it's been a great experience so far. I'm really enjoying the simplicity and flexibility of the framework.",
+      username: "Tessa",
     },
   ],
 };
