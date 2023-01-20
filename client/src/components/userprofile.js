@@ -28,6 +28,7 @@ function UserProfile() {
     Posts = User.posts;
     console.log(User);
     console.log(Posts);
+    console.log(data);
   }
 
   return (
