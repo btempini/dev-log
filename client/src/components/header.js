@@ -5,18 +5,17 @@ import { Link } from "react-router-dom";
 import "./styles/header.css";
 
 const Header = () => {
-  const logout = (Event) => {
-    Event.preventDefault();
+  const logout = (event) => {
+    event.preventDefault();
     auth.logout();
   };
+
   return (
     <div className="header">
       <div>
-        <Link to="/">
-          <button onClick={logout} className="logoutButton">
-            Logout
-          </button>
-        </Link>
+        <button onClick={logout} className="logoutButton">
+          <Link to="/">Logout</Link>
+        </button>
       </div>
       <div className="searchDiv">
         <button className="searchButton" type="button">
