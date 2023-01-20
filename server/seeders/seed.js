@@ -18,19 +18,26 @@ const deleteDB = async () => {
   console.log(postResponse, userResponse);
 };
 
+// const postIdArr = posts.map((element) => element._id);
+// // adding posts id to user posts array
+// users.forEach((element, index) => {
+//   element.posts.push(postIdArr[index]);
+// });
+
 const start = async () => {
   try {
     //delete
     await deleteDB();
+    await userBulkCreate(users);
     await postsBulkCreate();
+    const userMongoData = await User.find({});
     //post find and array creation
     const posts = await Post.find({});
-    const postIdArr = posts.map((element) => element._id);
-    // adding posts id to user posts array
-    users.forEach((element, index) => {
-      element.posts.push(postIdArr[index]);
+    userMongoData.forEach((element, index) => {
+      const currentUser = element.username;
+      const nextPost = posts[index];
+      User.findOneAndUpdate({ username: currentUser }, { posts: nextPost });
     });
-    await userBulkCreate(users);
     const response = await User.find({}).populate("posts");
     console.log(response);
     process.exit(0);
