@@ -44,16 +44,16 @@ export const LOGIN_USER = gql`
         fullName
         email
         password
-        posts {
-          _id
-          commentCount
-          username
-          postedAt
-          postTitle
-          image
-          likes
-          postText
-        }
+        # posts {
+        #   _id
+        #   commentCount
+        #   username
+        #   postedAt
+        #   postTitle
+        #   image
+        #   likes
+        #   postText
+        # }
         friends {
           DevLvl
           _id
@@ -118,16 +118,30 @@ export const DELETE_COMMENT = gql`
   }
 `;
 export const EDIT_USER = gql`
-mutation Mutation($editUserId: ID!, $username: String, $fullName: String, $bio: String, $devLvl: String, $github: String) {
-  editUser(id: $editUserId, username: $username, fullName: $fullName, bio: $bio, DevLvl: $devLvl, github: $github) {
-    DevLvl
-    bio
-    email
-    _id
-    fullName
-    github
-    password
-    username
+  mutation Mutation(
+    $editUserId: ID!
+    $username: String
+    $fullName: String
+    $bio: String
+    $devLvl: String
+    $github: String
+  ) {
+    editUser(
+      id: $editUserId
+      username: $username
+      fullName: $fullName
+      bio: $bio
+      DevLvl: $devLvl
+      github: $github
+    ) {
+      DevLvl
+      bio
+      email
+      _id
+      fullName
+      github
+      password
+      username
+    }
   }
-}
-`
+`;
