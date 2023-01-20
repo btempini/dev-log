@@ -35,7 +35,7 @@ const start = async () => {
     const posts = await Post.find({});
     userMongoData.forEach((element, index) => {
       const currentUser = element.username;
-      const nextPost = posts[index];
+      const nextPost = posts[index]._id;
       User.findOneAndUpdate({ username: currentUser }, { posts: nextPost });
     });
     const response = await User.find({}).populate("posts");
