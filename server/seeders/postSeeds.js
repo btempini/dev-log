@@ -11,6 +11,36 @@ module.exports = {
       username: "reallycoo",
     },
     {
+      postTitle: "Learning Code",
+      postText: "Learning code is probably the easiest thing in the world not gonna lie.",
+      username: "Dwight Likes Bears",
+    },
+    {
+      postTitle: "",
+      postText: "I like playing games!",
+      username: "anotherUser",
+    },
+    {
+      postTitle: "Gaming",
+      postText: "I like playing games!",
+      username: "anotherUser",
+    },
+    {
+      postTitle: "Gaming",
+      postText: "I like playing games!",
+      username: "anotherUser",
+    },
+    {
+      postTitle: "Gaming",
+      postText: "I like playing games!",
+      username: "anotherUser",
+    },
+    {
+      postTitle: "Gaming",
+      postText: "I like playing games!",
+      username: "anotherUser",
+    },
+    {
       postTitle: "Gaming",
       postText: "I like playing games!",
       username: "anotherUser",
