@@ -10,7 +10,6 @@ const Header = () => {
     auth.logout();
   };
 
-  // !! fix doshit script cuz employers look at it
   return (
     <div className="header">
       <div>
