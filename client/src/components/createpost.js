@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./styles/createpost.css";
 import { ADD_POST } from "../utils/mutations";
 import auth from "../utils/auth";
+import axios from "axios";
+const formData = new FormData();
 
 const CreatePost = () => {
   const [formState, setFormState] = useState({
@@ -22,9 +24,31 @@ const CreatePost = () => {
       [name]: value,
     });
   };
+  const handleChangeFile = (event) => {
+    const { name, files } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: files,
+    });
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    //send file information to AWS
+    //AWS will return a URL
+    // addPost {} = formState image URL
+    // send to AWS
+    const image = formState.image[0];
+    console.log("image log", image);
+    formData.append("files", image);
+    console.log(formData);
+    const AWSresponse = await axios.post(
+      `http://localhost:3001/api/bucketRequest/`,
+      formData
+    );
+    console.log(AWSresponse);
+
     try {
       const { data } = await addPost({
         variables: { ...formState },
@@ -50,8 +74,8 @@ const CreatePost = () => {
             <input
               type="file"
               name="image"
-              value={formState.image}
-              onChange={handleChange}
+              files={formState.image}
+              onChange={handleChangeFile}
               id="file"
               className="inputfile"
             />
