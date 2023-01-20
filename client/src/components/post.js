@@ -22,7 +22,10 @@ function post({ posts, title }) {
               </div>
               <div className="bottomRight">
                 <p className="postedBy">Posted by: {post.username}</p>
-                <p className="likes">Likes:{post.likes}</p>
+                <div>
+                  <button className="likeBtn"></button>
+                  <p className="likes">:{post.likes}</p>
+                </div>
               </div>
             </div>
           </div>
