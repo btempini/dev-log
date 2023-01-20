@@ -131,6 +131,7 @@ export const QUERY_POSTS = gql`
       postTitle
       postedAt
       username
+
       likes
       comments {
         CommentText

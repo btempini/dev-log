@@ -11,6 +11,8 @@ import auth from "../utils/auth";
 function UserFeed() {
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
+  console.log(data);
+  console.log(posts);
 
   return (
     // user feed
@@ -43,6 +45,9 @@ function UserFeed() {
             <div className="divider"></div>
             <button className="globalScopeBtn">Post</button>
           </div>
+          <button className="profileButton">
+            <Link to={"/addPost"}>Add a Post</Link>
+          </button>
           <div className="largerPost">
             <Post posts={posts} title="All posts" />
           </div>
