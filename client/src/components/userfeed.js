@@ -64,10 +64,13 @@ function UserFeed() {
         </div>
         <div className="rightAside">
           <div className="scopeButtonContainer">
-            <button className="localScopeBtn">Local Scope</button>
+            <button className="localScopeBtn">console.log</button>
             <div className="divider"></div>
-            <button className="globalScopeBtn">Global Scope</button>
+            <button className="globalScopeBtn">Post</button>
           </div>
+          <button className="profileButton">
+            <Link to={"/addPost"}>Add a Post</Link>
+          </button>
           <div className="largerPost">
             <Post posts={posts} title="All posts" />
           </div>

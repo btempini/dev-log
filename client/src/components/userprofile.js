@@ -90,7 +90,9 @@ function UserProfile() {
           <button className="profileButton">Go to Feed</button>
         </Link>
         <h2 className="recentPosts">Recent Posts...</h2>
-        <button className="profileButton">Add a Post</button>
+        <button className="profileButton">
+          <Link to={"/addPost"}>Add a Post</Link>
+        </button>
       </div>
       <div className="feedPost">
         <Post posts={Posts} title="your posts..." />
