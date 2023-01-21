@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -17,7 +17,7 @@ const Form = () => {
     github: "",
     passwordVerify: "",
   });
-  console.log(formState);
+  // console.log(formState);
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -31,16 +31,30 @@ const Form = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
     //password verify RETURNS ALERT NEEDS TO BE MODAL
     if (formState.password !== formState.passwordVerify) {
       console.log("Hitting if statement.");
-      // if this is true, then call state method to update error message variable, call setModalError, and pass string
       setModalError({
         message: "Passwords do not match",
       });
       return;
     }
+    // if email already used/exists, set message as e-mail already exists
+    // if () {
+    // setModalError({
+    // message: "E-mail already in use",
+    // });
+    // return;
+    // }
+
+    // if github name already used/exists, set message as github already in use
+    // if () {
+    // setModalError({
+    // message: "Github username already in use"
+    // });
+    // }
+
     try {
       const { data } = await addUser({
         variables: { ...formState },

@@ -70,6 +70,7 @@ userSchema.pre("insertMany", async function (next, docs) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+// please work
 
 const User = model("User", userSchema);
 

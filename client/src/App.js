@@ -16,8 +16,10 @@ import {
 // Importing Router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import AddPost from "./pages/AddPost";
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: `http://localhost:3001/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -48,6 +50,7 @@ function App() {
           <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/post" element={<Post />} />
           <Route path="/searchresults" element={<SearchResults />} />
+          <Route path="/addPost" element={<AddPost />} />
         </Routes>
       </Router>
     </ApolloProvider>

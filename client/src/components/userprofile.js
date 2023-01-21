@@ -6,7 +6,7 @@ import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
-import EditProfile from "./editProfile";
+import EditProfile from "./editprofile";
 import auth from "../utils/auth";
 
 function UserProfile() {
@@ -90,7 +90,9 @@ function UserProfile() {
           <button className="profileButton">Go to Feed</button>
         </Link>
         <h2 className="recentPosts">Recent Posts...</h2>
-        <button className="profileButton">Add a Post</button>
+        <button className="profileButton">
+          <Link to={"/addPost"}>Add a Post</Link>
+        </button>
       </div>
       <div className="feedPost">
         <Post posts={Posts} title="your posts..." />
