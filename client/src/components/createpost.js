@@ -43,18 +43,24 @@ const CreatePost = () => {
     console.log("image log", image);
     formData.append("files", image);
     console.log(formData);
-    const AWSresponse = await axios.post(
-      `http://localhost:3001/api/bucketRequest/`,
-      formData
-    );
-    console.log(AWSresponse);
-
     try {
+      // AWS request
+      const AWSresponse = await axios.post(
+        `http://localhost:3001/api/bucketRequest/`,
+        formData
+      );
+      //set form state to image url
+      setFormState({
+        ...formState,
+        image: `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${image.name}`,
+      });
+      //update DB
       const { data } = await addPost({
         variables: { ...formState },
       });
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.log(error);
+      console.log("AWS IS DOWN");
     }
   };
   return (
@@ -83,7 +89,13 @@ const CreatePost = () => {
               Choose a file
             </label>
           </div>
-          <textarea className="createBody" defaultValue={"..."} />
+          <textarea
+            name="postText"
+            className="createBody"
+            defaultValue={"..."}
+            value={formState.postText}
+            onChange={handleChange}
+          />
           <button className="submitButton">Submit</button>
         </div>
       </div>
