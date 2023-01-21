@@ -9,7 +9,6 @@ const formData = new FormData();
 
 const CreatePost = () => {
   const navigate = useNavigate();
-
   const [formState, setFormState] = useState({
     postTitle: "",
     postText: "",
@@ -49,7 +48,7 @@ const CreatePost = () => {
     try {
       // AWS request
       const AWSresponse = await axios.post(
-        `http://localhost:3001/api/bucketRequest/`,
+        `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
         formData
       );
       //set form state to image url
