@@ -10,6 +10,7 @@
   background-repeat: no-repeat;
 }
 
+
 .container {
   margin: 40px auto;
   width: 1160px;
@@ -30,34 +31,17 @@
   margin-left: 10px;
 }
 
-.scopeButtonContainer {
+.consoleContainer {
   display: flex;
-  margin: 0 auto;
-  width: 380px;
+  justify-content:flex-end;
 }
 
-.localScopeBtn {
-  margin-right: 16px;
-  width: 170px;
-  height: 40px;
-  background: #202b37;
-  color: white;
-  border: 2px solid rgba(57, 255, 232, 0.8);
-}
-
-.globalScopeBtn {
-  width: 170px;
-  height: 40px;
-  background: #202b37;
-  color: white;
-  border: 2px solid rgba(57, 255, 232, 0.8);
-}
-
-.divider {
-  background-color: #7271f8;
-  height: 56px;
-  width: 3px;
-  border-radius: 10px;
+.consoleLog {
+  font-size: px;
+  font-family: "Share Tech", sans-serif;
+  color: #39ffe8;
+  /* text-align: center; */
+  /* margin-right: 100px; */
 }
 
 .postContainer {
@@ -110,6 +94,7 @@
   background-repeat: no-repeat;
   right: 0;
   margin: 5px;
+  background-color: transparent;
   /* background-color: none; */
 }
 
@@ -152,6 +137,7 @@
   font-family: "Share Tech", sans-serif;
   margin-bottom: 20px;
   margin-left: 15px;
+  overflow-wrap: break-word;
 }
 
 .largerPost {
