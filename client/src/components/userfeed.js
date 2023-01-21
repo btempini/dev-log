@@ -63,12 +63,12 @@ function UserFeed() {
           </div>
         </div>
         <div className="rightAside">
-          <div className="consoleLogContainer">
-            <h3 className="consoleLog">console.log</h3>
-          </div>
-          <button className="profileButton">
+          <div className="consoleContainer">
+          <h2 className="consoleLog">console.log</h2>
+          <button className="postButton">
             <Link to={"/addPost"}>Add a Post</Link>
           </button>
+          </div>
           <div className="largerPost">
             <Post posts={posts} title="All posts" />
           </div>
