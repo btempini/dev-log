@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/userprofile.css";
+import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import { Link } from "react-router-dom";
 

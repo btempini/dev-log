@@ -59,15 +59,17 @@ function UserFeed() {
             <p className="codeWarsTitles">LEVEL</p>
             <p className="codeWarsBody">{codeWarsState.rank.name}</p>
             <p className="codeWarsTitles">URL</p>
-            <a className="codeWarsBody" href={codeWarsState.url}>{codeWarsState.url}</a>
+            <a className="codeWarsBody" href={codeWarsState.url}>
+              {codeWarsState.url}
+            </a>
           </div>
         </div>
         <div className="rightAside">
           <div className="consoleContainer">
-          <h2 className="consoleLog">console.log</h2>
-          <button className="postButton">
-            <Link to={"/addPost"}>Add a Post</Link>
-          </button>
+            <h2 className="consoleLog">console.log</h2>
+            <button className="postButton">
+              <Link to={"/addPost"}>Add a Post</Link>
+            </button>
           </div>
           <div className="largerPost">
             <Post posts={posts} title="All posts" />

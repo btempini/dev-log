@@ -31,11 +31,17 @@
   margin-left: 10px;
 }
 
+.consoleContainer {
+  display: flex;
+  justify-content:flex-end;
+}
+
 .consoleLog {
-  font-size: 100px;
+  font-size: px;
   font-family: "Share Tech", sans-serif;
   color: #39ffe8;
-  text-align: center;
+  /* text-align: center; */
+  /* margin-right: 100px; */
 }
 
 .postContainer {
@@ -88,6 +94,7 @@
   background-repeat: no-repeat;
   right: 0;
   margin: 5px;
+  background-color: transparent;
   /* background-color: none; */
 }
 
