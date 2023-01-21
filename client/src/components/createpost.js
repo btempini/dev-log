@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/createpost.css";
 import { ADD_POST } from "../utils/mutations";
 import auth from "../utils/auth";
@@ -7,6 +8,8 @@ import axios from "axios";
 const formData = new FormData();
 
 const CreatePost = () => {
+  const navigate = useNavigate();
+
   const [formState, setFormState] = useState({
     postTitle: "",
     postText: "",
@@ -58,9 +61,11 @@ const CreatePost = () => {
       const { data } = await addPost({
         variables: { ...formState },
       });
+      navigate("/feed");
     } catch (error) {
       console.log(error);
       console.log("AWS IS DOWN");
+      navigate("/feed");
     }
   };
   return (
@@ -92,7 +97,7 @@ const CreatePost = () => {
           <textarea
             name="postText"
             className="createBody"
-            defaultValue={"..."}
+            placeholder="..."
             value={formState.postText}
             onChange={handleChange}
           />
