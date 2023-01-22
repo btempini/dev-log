@@ -23,25 +23,20 @@ const s3 = new S3Client({
 });
 
 let url = "";
-const putObject = async (key) => {
+const putObject = async (params, key) => {
   try {
-    //params to be passed to the s3 putObject function
-    const params = {
-      Bucket: bucketName,
-      Key: key,
-      Body: "test!",
-      //   contentType: "passfile type",
-    };
+    params.originalname;
     //command to put
     putCommand = new PutObjectCommand(params);
     // send the command to aws bucket
     const response = await s3.send(putCommand);
     console.log(response);
     url = `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${key}`;
-    console.log(url);
+    return url;
   } catch (error) {
     console.log(error);
   }
 };
 
-putObject("newObject");
+// putObject("newObject");
+module.exports = { putObject };

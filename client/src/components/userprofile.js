@@ -76,7 +76,9 @@ function UserProfile() {
                 <p className="level">{User.DevLvl}</p>
               </div>
               <div className="divider"></div>
-              <button className="githubButton">{User.github}</button>
+              <button className="emailButton">{User.github}</button>
+              <div className="divider"></div>
+              <button className="emailButton">{User.email}</button>
             </div>
             <div className="bioContainer">
               <h2 className="bioTitle">Bio</h2>
@@ -91,7 +93,9 @@ function UserProfile() {
         </Link>
         <h2 className="recentPosts">Recent Posts...</h2>
         <button className="profileButton">
-          <Link to={"/addPost"}>Add a Post</Link>
+          <Link className="alternate" to={"/addPost"}>
+            Add a Post
+          </Link>
         </button>
       </div>
       <div className="feedPost">

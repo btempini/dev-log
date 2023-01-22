@@ -40,15 +40,21 @@ const Form = () => {
       });
       return;
     }
-    // if email already exists, set message as e-mail already exists
+    // if email already used/exists, set message as e-mail already exists
     // if () {
-    // set ModalError({
+    // setModalError({
     // message: "E-mail already in use",
     // });
     // return;
     // }
 
-    // if 
+    // if github name already used/exists, set message as github already in use
+    // if () {
+    // setModalError({
+    // message: "Github username already in use"
+    // });
+    // }
+
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -63,7 +69,8 @@ const Form = () => {
 
   return (
     <div>
-      {data ? (<Navigate  to="/feed"/>
+      {data ? (
+        (window.location.href = "/feed")
       ) : (
         <div className="signupContainer">
           {modalError && <Modal message={modalError.message} />}
@@ -130,7 +137,7 @@ const Form = () => {
             </form>
           </div>
         </div>
-       )}
+      )}
       {error && <div>{error.message}</div>}
     </div>
   );
