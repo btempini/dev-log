@@ -2,27 +2,25 @@ import React, { useState, useEffect } from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
-import { useQuery } from "@apollo/client";
 
 import Post from "./post";
 import { Link } from "react-router-dom";
 import auth from "../utils/auth";
 import axios from "axios";
 
-
 function UserFeed() {
   useEffect(() => {
     getCode();
   }, []);
-
   
+
   const [codeWarsState, setCodeWarsState] = useState({
     name: "CodeWars",
     category: "Is Down",
     rank: { name: ":(" },
     url: "try Again later",
   });
- 
+
   const getCode = async () => {
     try {
       const codeWarsData = await axios.get(
