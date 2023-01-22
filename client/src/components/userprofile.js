@@ -56,7 +56,7 @@ function UserProfile() {
     <div className="profilePage" key={User._id}>
       <div className="profileContainer">
         <div className="leftProfile">
-          <img className="largeAvatar" src={avatar} alt="avatar" />
+          <img className="largeAvatar" src={User.profilePhoto} alt="avatar" />
           {meState ? (
             <>
               <button

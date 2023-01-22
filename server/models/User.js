@@ -50,8 +50,7 @@ const userSchema = new Schema({
   },
   profilePhoto: {
     type: String,
-    default:
-      "https://images-ext-1.discordapp.net/external/HZshEEBeh8C2_hHpM2tSIx7WahHkc54zV-BZfFvyQQs/https/devlog-bucket-2023.s3.us-west-1.amazonaws.com/Avatar.png",
+    default: "https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/Avatar.png",
   },
 });
 
