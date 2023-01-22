@@ -18,6 +18,8 @@ const postSchema = new Schema(
     },
     image: {
       type: String,
+      default:
+        "https://images-ext-2.discordapp.net/external/fx3oXBp9xtYEuCvBQ0dzqzQuX68Zzwz904Lk5og63Ew/%3Fixlib%3Drb-4.0.3%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D1738%26q%3D80/https/images.unsplash.com/photo-1515879218367-8466d910aaa4?width=761&height=508",
     },
     postedAt: {
       type: Date,

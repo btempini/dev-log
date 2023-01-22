@@ -73,8 +73,14 @@ export const ADD_POST = gql`
     $postTitle: String!
     $postText: String!
     $username: String!
+    $image: String
   ) {
-    addPost(postTitle: $postTitle, postText: $postText, username: $username) {
+    addPost(
+      postTitle: $postTitle
+      postText: $postText
+      username: $username
+      image: $image
+    ) {
       _id
       image
       likes

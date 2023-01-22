@@ -3,7 +3,7 @@ const axios = require("axios");
 const { putObject } = require("../utils/aws");
 const dotenv = require("dotenv");
 const multer = require("multer");
-
+console.log(process.env.Route);
 dotenv.config();
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -25,9 +25,8 @@ router.post(
         Body: req.file.buffer,
         contentType: req.file.mimetype,
       };
-      const put = putObject(params, imageKey);
-      res.send(put);
-      //   putObject(params, imageKey);
+
+      putObject(params, imageKey);
     } catch (error) {
       console.log(error);
       res.status(500);
