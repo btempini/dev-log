@@ -124,7 +124,7 @@
   flex-direction: column;
 }
 
-.likeBtnBackground {
+.likeBtn {
   display: flex;
   width: 20px;
   height: 20px;
@@ -132,16 +132,16 @@
   background-position: cover;
   background-color: transparent;
   background-size: cover;
-}
-
-.likeBtn {
   border: none;
-  background-color: transparent;
   cursor: pointer;
   color: none;
   padding: 0px;
   margin-top: 0px;
   width: 20px;
+}
+
+.likeBtnBackground {
+  display: flex;
 }
 
 .postedBy {
