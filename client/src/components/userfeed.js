@@ -45,7 +45,6 @@ function UserFeed() {
         <div className="leftAside">
           <div className="avatarContainer">
             <img className="avatar" src={avatar} alt="decoration" />
-
             <button className="viewProfile">
               <Link to={`/profile/${auth.getProfile().data._id}`}>
                 View Profile
