@@ -9,6 +9,7 @@ export const QUERY_USERS = gql`
       fullName
       email
       password
+      profilePhoto
       posts {
         _id
         postTitle
@@ -52,6 +53,7 @@ export const QUERY_SINGLE_USER = gql`
       github
       password
       username
+      profilePhoto
       posts {
         _id
         commentCount
