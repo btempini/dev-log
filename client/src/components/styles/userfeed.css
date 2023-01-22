@@ -137,6 +137,7 @@
 .likeBtn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
   color: none;
   padding: 0px;
   margin-top: 0px;
