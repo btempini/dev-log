@@ -1,5 +1,5 @@
 import avatar from "../assets/Avatar.png";
-import "./styles/header.css";
+import "./styles/editprofile.css";
 import { useMutation } from "@apollo/client";
 import { EDIT_USER } from "../utils/mutations";
 import auth from "../utils/auth";
@@ -52,6 +52,9 @@ const EditProfile = (User) => {
             <div className="profileContainer">
               <div className="leftProfile">
                 <img className="largeAvatar" src={avatar} alt="avatar" />
+                <button className="updateProfilePhoto">
+                  Update Profile Picture
+                </button>
               </div>
               <div className="rightProfile">
                 <div className="topProfile">
