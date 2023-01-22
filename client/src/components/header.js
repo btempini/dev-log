@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <div className="header" id="top">
       <div>
         <button onClick={logout} className="logoutButton">
           <Link to="/">Logout</Link>

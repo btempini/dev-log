@@ -35,17 +35,18 @@
   display: flex;
   justify-content: center;
   width: 700px;
+  height: 35px;
 }
 
 .postButton {
   font-family: "Share Tech", sans-serif;
   font-size: 20px;
-  border: 1px solid #39ffe8;
-  color: #39ffe8;
-  padding: 2px;
-  background-color: #0c100e;
-  margin-top: 0px;
-  width: 150px;
+  padding: 0px;
+  background-color: transparent;
+  margin-top: 20px;
+  margin-left: auto;
+  width: 90px;
+  height: 25px;
 }
 
 .noposts {
@@ -58,17 +59,18 @@
 
 .consoleLog {
   font-family: "Share Tech", sans-serif;
+  font-size: 40px;
   color: #39ffe8;
-  margin-right: 10px;
-  /* text-align: center; */
-  /* margin-right: 100px; */
+  margin-right: 0px;
+  margin-left: 270px;
 }
 
 .postContainer {
   width: 95%;
   height: auto;
   padding: 15px;
-  margin: 20px auto;
+  margin: 15px auto;
+  margin-bottom: 5px;
   background: #202b37;
   border: 2px solid #39ffe8;
   display: flex;
@@ -207,11 +209,16 @@
   margin-right: 25px;
   overflow-wrap: break-word;
 }
+a {
+  color: white;
+}
 
 .largerPost {
   width: 700px;
 }
 
-a {
-  color: white;
+.scroll {
+  margin-top: 0px;
+  margin-left: 600px;
+  background-color: transparent;
 }

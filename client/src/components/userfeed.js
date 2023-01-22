@@ -37,6 +37,7 @@ function UserFeed() {
       });
     }
   };
+
   return (
     // user feed
     <div className="userFeed">
@@ -60,7 +61,7 @@ function UserFeed() {
             <p className="codeWarsBody">{codeWarsState.rank.name}</p>
             <p className="codeWarsTitles">URL:</p>
             <p className="codeWarsBody">
-              <a href={codeWarsState.url}>{codeWarsState.url}</a>
+              <a href={codeWarsState.url}>Click Here to try it out!!</a>
             </p>
           </div>
         </div>
@@ -73,6 +74,9 @@ function UserFeed() {
           </div>
           <div className="largerPost">
             <Post posts={posts} title="All posts" />
+            <button className="scroll">
+              <a href="#top">Scroll to top</a>
+            </button>
           </div>
         </div>
       </div>
