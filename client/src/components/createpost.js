@@ -59,7 +59,14 @@ const CreatePost = () => {
               Choose a file
             </label>
           </div>
-          <textarea className="createBody" defaultValue={"..."} />
+          <textarea
+            className="createBody"
+            defaultValue={"..."}
+            type="text"
+            name="postText"
+            value={formState.postText}
+            onChange={handleChange}
+          />
           <button className="submitButton">Submit</button>
         </div>
       </div>
