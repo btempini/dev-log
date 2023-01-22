@@ -4,14 +4,14 @@
 
 ## Description
 
-Social media for developers!
+Social media for developers! 
 Testing DS Store !
 
 ## Table of Contents
 
 ### - [Usage](#usage)
 
-### - [Tests](#tests)
+### - [Features](#features)
 
 ### - [Credits](#credits)
 
@@ -19,9 +19,10 @@ Testing DS Store !
 
 ### - [Contact](#contact)
 
+
 ## Usage
 
-## Tests
+## Features
 
 ## Credits
 - <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> *Lead Developer*
@@ -32,6 +33,8 @@ Testing DS Store !
 
 ## License: MIT license
 
-#### For more information visit https://opensource.org/licenses/MIT
+For more information visit https://opensource.org/licenses/MIT
 
 ## Contact
+
+To contact individuals, please refer to 
