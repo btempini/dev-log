@@ -29,10 +29,10 @@ View deployed app at: https://dev-log.herokuapp.com/
 
 # Credits
 - <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> _Lead Developer_
-- <a href="">**Max Gibes**</a> _Scrum Master_
-- <a href="">**Tessa Robinson**</a> _Scrum Master II_
-- <a href="">**Bradley Rodriguez**</a> _Backend Architect_
-- <a href="">**Bryan Tempini**</a> _Frontend Architect_
+- <a href="https://github.com/Slimshady079">**Max Gibes**</a> _Scrum Master_
+- <a href="https://github.com/tessie-the-messy">**Tessa Robinson**</a> _Scrum Master II_
+- <a href="https://github.com/HeyItsBradley">**Bradley Rodriguez**</a> _Backend Architect_
+- <a href="https://github.com/btempini">**Bryan Tempini**</a> _Frontend Architect_
 
 </br>
 
