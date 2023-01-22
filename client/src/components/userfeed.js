@@ -52,8 +52,8 @@ function UserFeed() {
             </button>
           </div>
           <div className="codeWarsContainer">
-            <p className="codeWarsTitles">Daily CodeWars</p>
-            <p className="codeWarsBody">{codeWarsState.name}</p>
+            <p className="codeWarsDaily">Daily CodeWars</p>
+            <p className="codeWarsName">{codeWarsState.name}</p>
             <p className="codeWarsTitles">CATEGORY:</p>
             <p className="codeWarsBody">{codeWarsState.category}</p>
             <p className="codeWarsTitles">LEVEL:</p>
