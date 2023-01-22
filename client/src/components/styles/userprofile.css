@@ -199,3 +199,11 @@
 .alternate {
   color: black;
 }
+
+.profileTagWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lekton", sans-serif;
+  color: rgba(57, 255, 232);
+}

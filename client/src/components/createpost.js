@@ -78,23 +78,28 @@ const CreatePost = () => {
       <div className="createPostPage">
         <div className="createPostContainer">
           <div className="topCreate">
-            <input
-              className="postInput"
-              placeholder="postTitle"
-              name="postTitle"
-              type="text"
-              value={formState.postTitle}
-              onChange={handleChange}
-            />
+            <div className="profileTagWrapper">
+              <input
+                className="postInput"
+                placeholder="postTitle"
+                name="postTitle"
+                type="text"
+                value={formState.postTitle}
+                onChange={handleChange}
+              />
+            </div>
             <div className="divider"></div>
-            <input
-              type="file"
-              name="image"
-              files={formState.image}
-              onChange={handleChangeFile}
-              id="file"
-              className="inputfile"
-            />
+            <div className="profileTagWrapper">
+              <p>Upload Image</p>
+              <input
+                type="file"
+                name="image"
+                files={formState.image}
+                onChange={handleChangeFile}
+                id="file"
+                className="inputfile"
+              />
+            </div>
             <label className="postInput" for="file">
               Choose a file
             </label>
