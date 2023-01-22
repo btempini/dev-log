@@ -2,12 +2,18 @@ import React from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import { Link } from "react-router-dom";
-
-function post({ posts, title }) {
+import { QUERY_POSTS } from "../utils/queries";
+function post() {
+  
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
+  console.log(posts);
+  
   if (!posts.length) {
     return <h2>No posts yet...</h2>;
   }
-  console.log(posts);
+
+
   return (
     <div className="postContainer">
       {posts &&

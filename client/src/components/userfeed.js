@@ -3,25 +3,26 @@ import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import avatar from "../assets/Avatar.png";
 import { useQuery } from "@apollo/client";
-import { QUERY_POSTS } from "../utils/queries";
+
 import Post from "./post";
 import { Link } from "react-router-dom";
 import auth from "../utils/auth";
 import axios from "axios";
+
 
 function UserFeed() {
   useEffect(() => {
     getCode();
   }, []);
 
-  const { loading, data } = useQuery(QUERY_POSTS);
+  
   const [codeWarsState, setCodeWarsState] = useState({
     name: "CodeWars",
     category: "Is Down",
     rank: { name: ":(" },
     url: "try Again later",
   });
-  const posts = data?.posts || [];
+ 
   const getCode = async () => {
     try {
       const codeWarsData = await axios.get(
@@ -72,7 +73,7 @@ function UserFeed() {
             </button>
           </div>
           <div className="largerPost">
-            <Post posts={posts} title="All posts" />
+            <Post />
             <button className="scroll">
               <a href="#top">Scroll to top</a>
             </button>
