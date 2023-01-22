@@ -7,6 +7,7 @@ Social media for developers! Testing DS Store!
 
 View deployed app at: https://dev-log.herokuapp.com/
 
+</br>
 
 # Table of Contents
 ## - [Features](#features)
