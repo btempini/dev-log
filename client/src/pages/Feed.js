@@ -5,7 +5,7 @@ import Footer from "../components/footer"
 
 const Feed = () => {
   return (
-    <div id="top">
+    <div>
       <Header />
       <Userfeed />
       <Footer />
