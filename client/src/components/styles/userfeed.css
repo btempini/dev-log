@@ -5,7 +5,6 @@
   background-attachment: fixed;
   padding: 40px;
   height: 2000px;
-  width: 100%;
   background-color: #0c100e;
   background-size: cover;
   background-repeat: no-repeat;
@@ -138,6 +137,7 @@
 .likeBtn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
   color: none;
   padding: 0px;
   margin-top: 0px;

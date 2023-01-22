@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function post({ posts, title }) {
   if (!posts.length) {
-    return <h2>No posts yet...</h2>;
+    return <h2 className="noposts">No posts yet...</h2>;
   }
   console.log(posts);
   return (
