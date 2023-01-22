@@ -3,6 +3,7 @@ import Feed from "./pages/Feed";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
+import Error from "./pages/Error";
 import SearchResults from "./pages/SearchResults";
 import Signup from "./pages/Signup";
 import { setContext } from "@apollo/client/link/context";
@@ -51,6 +52,7 @@ function App() {
           <Route path="/post" element={<Post />} />
           <Route path="/searchresults" element={<SearchResults />} />
           <Route path="/addPost" element={<AddPost />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </Router>
     </ApolloProvider>

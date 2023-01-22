@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles/login.css";
+import "./styles/404.css";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 // import Modal from "./modal.js"
@@ -26,14 +27,14 @@ const Login = (props) => {
     console.log(formState);
     // if (password and/or email do not match ) {
     // setModalError({
-      // message: Invalid email and/or password
+    // message: Invalid email and/or password
     // });
     // return;
     // }
-    
+
     // if (nothing in either or both fields) {
     // setModalError({
-      // message: Please enter your email/password
+    // message: Please enter your email/password
     // })
     // }
     try {
@@ -84,7 +85,9 @@ const Login = (props) => {
         </div>
       )}
       {error && (
-        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+        <div className="errorPage">
+          <p>{error.message}</p>
+        </div>
       )}
     </>
   );
