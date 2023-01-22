@@ -1,40 +1,39 @@
-![Logo](./client/src/assets/_dev.log_.png)
+<center><img src="./client/src/assets/dev.log.png" /></center>
 
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
-## Description
+# About Dev-Log
+Social media for developers! Testing DS Store! 
 
-Social media for developers! 
-Testing DS Store !
-
-## Table of Contents
-
-### - [Usage](#usage)
-
-### - [Features](#features)
-
-### - [Credits](#credits)
-
-### - [License](#license)
-
-### - [Contact](#contact)
+View deployed app at: https://dev-log.herokuapp.com/
 
 
-## Usage
+# Table of Contents
+## - [Features](#features)
+## - [Credits](#credits)
+## - [License](#license)
+## - [Contact](#contact)
 
-## Features
+</br>
 
-## Credits
-- <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> *Lead Developer*
-- <a href="">**Max Gibes**</a> *Scrum Master*
-- <a href="">**Tessa Robinson**</a> *Scrum Master II*
-- <a href="">**Bradley Rodriguez**</a> *Backend Architect*
-- <a href="">**Bryan Tempini**</a> *Frontend Architect*
+# Features
 
-## License: MIT license
 
+</br>
+
+# Credits
+- <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> _Lead Developer_
+- <a href="">**Max Gibes**</a> _Scrum Master_
+- <a href="">**Tessa Robinson**</a> _Scrum Master II_
+- <a href="">**Bradley Rodriguez**</a> _Backend Architect_
+- <a href="">**Bryan Tempini**</a> _Frontend Architect_
+
+</br>
+
+# License: MIT license
 For more information visit https://opensource.org/licenses/MIT
 
-## Contact
+</br>
 
-To contact individuals, please refer to 
+# Contact
+To contact individuals, please refer to github links under [credits](#credits).
