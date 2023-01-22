@@ -1,1 +1,13 @@
-
+.bioInput {
+  background-color: #202b37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #39ffe8;
+  color: white;
+  height: 150px;
+  width: 94%;
+  margin: 10px;
+  font-family: "Share Tech Mono", sans-serif;
+  font-size: 16px;
+}
