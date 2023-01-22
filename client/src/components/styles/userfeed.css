@@ -193,11 +193,14 @@
   margin-right: 25px;
   overflow-wrap: break-word;
 }
+a {
+  color: white;
+}
 
 .largerPost {
   width: 700px;
 }
 
-a {
-  color: white;
-}
+/* scroll{
+  display: flex;
+} */

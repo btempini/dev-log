@@ -36,9 +36,9 @@ Testing DS Store !
 ## Credits
 - <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> *Lead Developer*
 - <a href="">**Max Gibes**</a> *Scrum Master*
-- <a href="">**Tessa Robinson**</a> *Scrum Master II*
-- <a href="">**Bradley Rodriguez**</a> *Backend Architect*
-- <a href="">**Bryan Tempini**</a> *Frontend Architect*
+- <a href="https://github.com/tessie-the-messy">**Tessa Robinson**</a> *Scrum Master II*
+- <a href="https://github.com/HeyItsBradley">**Bradley Rodriguez**</a> *Backend Architect*
+- <a href="https://github.com/btempini">**Bryan Tempini**</a> *Frontend Architect*
 
 ## License: MIT license
 
