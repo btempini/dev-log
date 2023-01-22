@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&family=Share+Tech&display=swap");
+
+.errorPage {
+  position: absolute;
+  top: 70%;
+  font-family: "Share Tech", sans-serif;
+  color: #39ffe8;
+  justify-self: center;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 20px;
+  background-color: transparent;
+}

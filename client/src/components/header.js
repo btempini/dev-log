@@ -3,6 +3,7 @@ import auth from "../utils/auth";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/header.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const Header = () => {
   const logout = (event) => {
@@ -17,7 +18,7 @@ const Header = () => {
           <Link to="/">Logout</Link>
         </button>
       </div>
-      <div className="searchDiv">
+      <div id="searchF" className="searchDiv">
         <button className="searchButton" type="button">
           Search
         </button>
@@ -25,6 +26,13 @@ const Header = () => {
           className="findFriends"
           type="text"
           placeholder="Find Friends!"
+        />
+        <ReactTooltip
+          className="tooltip"
+          classNameArrow="arrow"
+          anchorId="searchF"
+          place="bottom"
+          content="Coming Soon!"
         />
         {/* link to results page */}
       </div>

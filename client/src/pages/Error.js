@@ -1,13 +1,12 @@
 import React from "react";
 import Footer from "../components/footer";
+import FourOhfour from "../components/404";
+import Header from "../components/header";
 
 const Error = () => {
   return (
     <div>
-      <div>
-        <h1>erRoR 404</h1>
-        <h2>pagenotfound Sadge</h2>
-      </div>
+      <FourOhfour />
       <Footer />
     </div>
   );

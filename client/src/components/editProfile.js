@@ -66,7 +66,7 @@ const EditProfile = (User) => {
                     ></input>
                     <div className="divider"></div>
                     <select
-                      className="lookLikeButton"
+                      className="lookLikeButton select"
                       placeholder={Profile.DevLvl}
                       name="devLvl"
                       type="text"

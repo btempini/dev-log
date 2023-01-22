@@ -104,3 +104,16 @@ button:hover {
 span {
   margin: 5px;
 }
+
+.errorPage {
+  top: 455px;
+  position: absolute;
+  font-family: "Share Tech", sans-serif;
+  color: #39ffe8;
+  justify-self: center;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 20px;
+  background: transparent;
+}
