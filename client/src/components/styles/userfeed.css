@@ -41,12 +41,11 @@
 .postButton {
   font-family: "Share Tech", sans-serif;
   font-size: 20px;
-  border: 1px solid #39ffe8;
-  color: #39ffe8;
-  padding: 2px;
-  background-color: #0c100e;
+  padding: 0px;
+  background-color: transparent;
   margin-top: 0px;
-  width: 150px;
+  width: 88px;
+  height: 63px;
 }
 
 .noposts {
@@ -218,6 +217,6 @@ a {
 
 .scroll {
   margin-top: 0px;
-margin-left: 600px;
-background-color: transparent;
+  margin-left: 600px;
+  background-color: transparent;
 }

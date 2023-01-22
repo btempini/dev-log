@@ -21,17 +21,17 @@ Testing DS Store !
 
 ### - [Usage](#usage)
 
-### - [Tests](#tests)
-
 ### - [Credits](#credits)
 
 ### - [License](#license)
 
 ### - [Contact](#contact)
 
-## Usage
+### - [Features](#features)
 
-## Tests
+
+
+## Usage
 
 ## Credits
 - <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> *Lead Developer*
