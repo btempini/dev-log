@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./styles/createpost.css";
 import { ADD_POST } from "../utils/mutations";
 import auth from "../utils/auth";
+import { Navigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [formState, setFormState] = useState({
@@ -34,43 +35,50 @@ const CreatePost = () => {
     }
   };
   return (
-    <form onSubmit={handleFormSubmit}>
-      <div className="createPostPage">
-        <div className="createPostContainer">
-          <div className="topCreate">
-            <input
-              className="postInput"
-              placeholder="postTitle"
-              name="postTitle"
-              type="text"
-              value={formState.postTitle}
-              onChange={handleChange}
-            />
-            <div className="divider"></div>
-            <input
-              type="file"
-              name="image"
-              value={formState.image}
-              onChange={handleChange}
-              id="file"
-              className="inputfile"
-            />
-            <label className="postInput" for="file">
-              Choose a file
-            </label>
+    <>
+      {data ? (
+        <Navigate to={"/feed"} />
+      ) : (
+        <form onSubmit={handleFormSubmit}>
+          <div className="createPostPage">
+            <div className="createPostContainer">
+              <div className="topCreate">
+                <input
+                  className="postInput"
+                  placeholder="postTitle"
+                  name="postTitle"
+                  type="text"
+                  value={formState.postTitle}
+                  onChange={handleChange}
+                />
+                <div className="divider"></div>
+                <input
+                  type="file"
+                  name="image"
+                  value={formState.image}
+                  onChange={handleChange}
+                  id="file"
+                  className="inputfile"
+                />
+                <label className="postInput" for="file">
+                  Choose a file
+                </label>
+              </div>
+              <textarea
+                className="createBody"
+                defaultValue={"..."}
+                type="text"
+                name="postText"
+                value={formState.postText}
+                onChange={handleChange}
+              />
+              <button className="submitButton">Submit</button>
+            </div>
           </div>
-          <textarea
-            className="createBody"
-            defaultValue={"..."}
-            type="text"
-            name="postText"
-            value={formState.postText}
-            onChange={handleChange}
-          />
-          <button className="submitButton">Submit</button>
-        </div>
-      </div>
-    </form>
+        </form>
+      )}
+      {error && <div>{error.message}</div>}
+    </>
   );
 };
 
