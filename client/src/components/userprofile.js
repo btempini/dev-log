@@ -26,8 +26,8 @@ function UserProfile() {
   );
 
   const User = data?.me || data?.user || {};
-  const Posts = [];
-
+  const Posts = User.posts;
+  console.log(Posts);
   //Define user to be reassigned to data later
   // let User = "";
   // let Posts = [];
