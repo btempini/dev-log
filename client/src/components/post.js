@@ -8,7 +8,7 @@ import { useMutation } from "@apollo/client";
 
 function post({ posts, title }) {
   if (!posts.length) {
-    return <h2 className="noposts">No posts yet...</h2>;
+    return <h2>No posts yet...</h2>;
   }
   console.log(posts);
   return (
@@ -37,10 +37,10 @@ function post({ posts, title }) {
                     Posted by: {post.username}
                   </Link>
                 </p>
-                <button className="likeBtn">
-                  <div className="likeBtnBackground"></div>
-                </button>
-                <p className="likes">{post.likes}</p>
+                <div className="likeBtnBackground">
+                  <button className="likeBtn"></button>
+                  <p className="likes">{post.likes}</p>
+                </div>
               </div>
             </div>
           </div>

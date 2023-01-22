@@ -52,9 +52,6 @@ const EditProfile = (User) => {
             <div className="profileContainer">
               <div className="leftProfile">
                 <img className="largeAvatar" src={avatar} alt="avatar" />
-                <button className="updateProfilePhoto">
-                  Update Profile Picture
-                </button>
               </div>
               <div className="rightProfile">
                 <div className="topProfile">
@@ -73,13 +70,18 @@ const EditProfile = (User) => {
                     <div className="divider"></div>
                     <div className="lookLikeButton">
                       <p className="level">
-                        <input
+                        <select
                           placeholder={Profile.DevLvl}
                           name="devLvl"
                           type="text"
                           value={formState.devLvl}
                           onChange={handleChange}
-                        ></input>
+                        >
+                          <option>n00b</option>
+                          <option>Junior Dev</option>
+                          <option>Master Dev</option>
+                          <option>Ben</option>
+                        </select>
                       </p>
                     </div>
                     <div className="divider"></div>
