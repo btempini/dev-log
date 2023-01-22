@@ -70,7 +70,12 @@ try {
       ): User
       deleteUser(userId: ID!): User
       login(email: String!, password: String!): Auth
-      addPost(postTitle: String!, postText: String!, username: String!): Post
+      addPost(
+        postTitle: String!
+        postText: String!
+        username: String!
+        image: String
+      ): Post
       deletePost(postId: ID!): Post
       addComment(CommentText: String!, username: String!): Comment
       deleteComment(commentId: ID!): Comment
