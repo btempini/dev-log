@@ -6,7 +6,7 @@ import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Post from "../components/post";
-import EditProfile from "./editprofile";
+import EditProfile from "./editProfile";
 import auth from "../utils/auth";
 
 function UserProfile() {
