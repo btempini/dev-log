@@ -145,12 +145,12 @@
 .bottomRight {
   position: absolute;
   display: flex;
-  bottom: 0;
-  right: 0;
+  bottom: -13px;
+  right: -7px;
 }
 
 .likes {
-  margin-left: 24px;
+  margin-left: 5px;
 }
 
 .abovePost {
