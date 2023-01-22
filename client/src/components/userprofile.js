@@ -58,9 +58,17 @@ function UserProfile() {
         <div className="leftProfile">
           <img className="largeAvatar" src={avatar} alt="avatar" />
           {meState ? (
-            <button className="editProfile" onClick={() => setEditState(true)}>
-              Edit Profile
-            </button>
+            <>
+              <button
+                className="editProfile"
+                onClick={() => setEditState(true)}
+              >
+                Edit Profile
+              </button>
+              <button className="updateProfilePhoto">
+                Update Profile Picture
+              </button>
+            </>
           ) : (
             <></>
           )}
