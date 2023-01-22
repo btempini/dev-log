@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import { Link } from "react-router-dom";
+import { EDIT_POST } from "../utils/mutations";
+import auth from "../utils/auth";
+import { useMutation } from "@apollo/client";
 
 function post({ posts, title }) {
   if (!posts.length) {

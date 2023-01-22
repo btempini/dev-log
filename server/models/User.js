@@ -48,6 +48,9 @@ const userSchema = new Schema({
   github: {
     type: String,
   },
+  profilePhoto: {
+    type: String,
+  },
 });
 
 //set up pre-save middleware to create a password

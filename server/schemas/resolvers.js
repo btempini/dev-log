@@ -90,7 +90,7 @@ const resolvers = {
     },
     editUser: async (
       _,
-      { userId, username, fullName, DevLvl, bio, github },
+      { userId, username, fullName, DevLvl, bio, github, profilePhoto },
       context
     ) => {
       // check if user is authorized to edit this user
@@ -106,6 +106,7 @@ const resolvers = {
             DevLvl: DevLvl,
             bio: bio,
             github: github,
+            profilePhoto: profilePhoto,
           },
 
           {
@@ -159,6 +160,22 @@ const resolvers = {
       });
       return newPost;
     },
+    editPost: async (_, { postTitle, postText, username, image, likes }) => {
+      const user = await User.findOne({ username });
+      if (!user) {
+        throw new AuthenticationError("Not authorized!");
+      }
+      const editedPost = await Post.findOneAndUpdate(
+        { title: postTitle },
+        { $set: { text: postText, image: image, likes: likes } },
+        { new: true }
+      );
+      if (!editedPost) {
+        throw new Error("Error editing post!");
+      }
+      return editedPost;
+    },
+
     deletePost: async (_, { postId }, context) => {
       try {
         // check if user is authorized to delete this post
