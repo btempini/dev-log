@@ -43,9 +43,10 @@
   font-size: 20px;
   padding: 0px;
   background-color: transparent;
-  margin-top: 0px;
-  width: 88px;
-  height: 63px;
+  margin-top: 20px;
+  margin-left: auto;
+  width: 90px;
+  height: 25px;
 }
 
 .noposts {
@@ -61,7 +62,7 @@
   font-size: 40px;
   color: #39ffe8;
   margin-right: 0px;
-  /* text-align: center; */
+  margin-left: 270px;
 }
 
 .postContainer {
