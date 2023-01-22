@@ -35,6 +35,7 @@
   display: flex;
   justify-content: center;
   width: 700px;
+  height: 35px;
 }
 
 .postButton {
@@ -58,17 +59,17 @@
 
 .consoleLog {
   font-family: "Share Tech", sans-serif;
+  font-size: 40px;
   color: #39ffe8;
-  margin-right: 10px;
+  margin-right: 0px;
   /* text-align: center; */
-  /* margin-right: 100px; */
 }
 
 .postContainer {
   width: 95%;
   height: auto;
   padding: 15px;
-  margin: 20px auto;
+  margin: 15px auto;
   background: #202b37;
   border: 2px solid #39ffe8;
   display: flex;
