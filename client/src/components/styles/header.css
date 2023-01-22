@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&family=Share+Tech&display=swap");
 
 html {
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .header {
@@ -36,4 +36,13 @@ scroll-behavior: smooth;
 .findFriends {
   font-size: 18px;
   font-family: "Share Tech", sans-serif;
+}
+
+.tooltip {
+  background-color: #36475a;
+  border: 1px solid #7271f8;
+}
+
+.searchDiv .tooltip .arrow {
+  background-color: #39ffe8;
 }

@@ -85,7 +85,6 @@ const CreatePost = () => {
               type="text"
               value={formState.postTitle}
               onChange={handleChange}
-              required
             />
             <div className="divider"></div>
             <input
@@ -106,7 +105,6 @@ const CreatePost = () => {
             placeholder="..."
             value={formState.postText}
             onChange={handleChange}
-            required
           />
           <button className="submitButton">Submit</button>
         </div>
