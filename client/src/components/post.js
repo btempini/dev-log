@@ -34,7 +34,7 @@ function post({ posts, title }) {
                     Posted by: {post.username}
                   </Link>
                 </p>
-                <div>
+                <div className="likeBtnBackground">
                   <button className="likeBtn"></button>
                   <p className="likes">{post.likes}</p>
                 </div>

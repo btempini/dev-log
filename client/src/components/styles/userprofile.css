@@ -39,6 +39,16 @@
   background-color: transparent;
 }
 
+.updateProfilePhoto {
+  color: white;
+  margin-top: 15px;
+  text-decoration: underline;
+  font-family: "Lekton", sans-serif;
+  width: 275px;
+  background-color: transparent;
+  font-size: 15px;
+}
+
 .rightProfile {
   width: 70%;
   height: 100%;
@@ -140,7 +150,7 @@
 }
 
 .likes {
-  margin-left: 5px;
+  margin-left: 24px;
 }
 
 .abovePost {

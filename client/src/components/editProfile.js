@@ -52,9 +52,6 @@ const EditProfile = (User) => {
             <div className="profileContainer">
               <div className="leftProfile">
                 <img className="largeAvatar" src={avatar} alt="avatar" />
-                <button className="updateProfilePhoto">
-                  Update Profile Picture
-                </button>
               </div>
               <div className="rightProfile">
                 <div className="topProfile">
