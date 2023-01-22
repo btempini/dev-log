@@ -56,58 +56,50 @@ const EditProfile = (User) => {
               <div className="rightProfile">
                 <div className="topProfile">
                   <div className="topButtonContainer">
-                    <div className="lookLikeButton">
-                      <p className="name">
-                        <input
-                          placeholder={Profile.username}
-                          name="username"
-                          type="text"
-                          value={formState.username}
-                          onChange={handleChange}
-                        ></input>
-                      </p>
-                    </div>
+                    <input
+                      className="lookLikeButton"
+                      placeholder={Profile.username}
+                      name="username"
+                      type="text"
+                      value={formState.username}
+                      onChange={handleChange}
+                    ></input>
                     <div className="divider"></div>
-                    <div className="lookLikeButton">
-                      <p className="level">
-                        <select
-                          placeholder={Profile.DevLvl}
-                          name="devLvl"
-                          type="text"
-                          value={formState.devLvl}
-                          onChange={handleChange}
-                        >
-                          <option>n00b</option>
-                          <option>Junior Dev</option>
-                          <option>Master Dev</option>
-                          <option>Ben</option>
-                        </select>
-                      </p>
-                    </div>
+                    <select
+                      className="lookLikeButton select"
+                      placeholder={Profile.DevLvl}
+                      name="devLvl"
+                      type="text"
+                      value={formState.devLvl}
+                      onChange={handleChange}
+                    >
+                      <option>n00b</option>
+                      <option>Junior Dev</option>
+                      <option>Master Dev</option>
+                      <option>Ben</option>
+                    </select>
                     <div className="divider"></div>
-                    <p className="githubButton">
-                      <input
-                        placeholder={Profile.github}
-                        name="github"
-                        type="text"
-                        value={formState.github}
-                        onChange={handleChange}
-                      ></input>
-                    </p>
+                    <input
+                      className="lookLikeButton wider"
+                      placeholder={Profile.github}
+                      name="github"
+                      type="text"
+                      value={formState.github}
+                      onChange={handleChange}
+                    ></input>
                   </div>
                   <div className="bioContainer">
                     <h2 className="bioTitle">Bio</h2>
-                    <p className="bioDescription">
-                      <input
-                        placeholder={Profile.bio}
-                        name="bio"
-                        type="text"
-                        value={formState.bio}
-                        onChange={handleChange}
-                      ></input>
-                    </p>
+                    <textarea
+                      className="bioInput"
+                      placeholder={Profile.bio}
+                      name="bio"
+                      type=""
+                      value={formState.bio}
+                      onChange={handleChange}
+                    ></textarea>
+                    <button className="saveButton">Save</button>
                   </div>
-                  <button>Save</button>
                 </div>
               </div>
             </div>
