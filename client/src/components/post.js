@@ -15,7 +15,13 @@ function post({ posts, title }) {
           <div className="postData" key={post._id}>
             <div className="leftPost">
               <p className="date">{post.postedAt}</p>
-              <img src={post.image} alt="decoration" />
+              <div className="imageWrapper">
+                <img
+                  className="postPicture"
+                  src={post.image}
+                  alt="decoration"
+                />
+              </div>
             </div>
             <div className="rightPost">
               <div className="topRight">
