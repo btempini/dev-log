@@ -37,6 +37,7 @@ function UserFeed() {
       });
     }
   };
+
   return (
     // user feed
     <div className="userFeed">
