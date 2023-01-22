@@ -70,7 +70,7 @@ const Form = () => {
   return (
     <div>
       {data ? (
-        (window.location.href = "/feed")
+        (<Navigate to="/feed" /> )
       ) : (
         <div className="signupContainer">
           {modalError && <Modal message={modalError.message} />}
