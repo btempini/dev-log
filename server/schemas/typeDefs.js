@@ -16,6 +16,7 @@ try {
       bio: String
       DevLvl: String!
       github: String
+      profilePhoto: String
     }
     type Post {
       _id: ID!
@@ -67,6 +68,7 @@ try {
         bio: String
         DevLvl: String
         github: String
+        profilePhoto: String
       ): User
       deleteUser(userId: ID!): User
       login(email: String!, password: String!): Auth
@@ -75,6 +77,13 @@ try {
         postText: String!
         username: String!
         image: String
+      ): Post
+      editPost(
+        postTitle: String
+        postText: String
+        username: String!
+        image: String
+        likes: Int
       ): Post
       deletePost(postId: ID!): Post
       addComment(CommentText: String!, username: String!): Comment

@@ -92,6 +92,33 @@ export const ADD_POST = gql`
     }
   }
 `;
+export const EDIT_POST = gql`
+  mutation Mutation(
+    $username: String!
+    $likes: Int
+    $postTitle: String
+    $image: String
+    $postText: String
+  ) {
+    editPost(
+      username: $username
+      likes: $likes
+      postTitle: $postTitle
+      image: $image
+      postText: $postText
+    ) {
+      _id
+      commentCount
+      image
+      likes
+      postText
+      postTitle
+      postedAt
+      userProfileId
+      username
+    }
+  }
+`;
 export const DELETE_POST = gql`
   mutation Mutation($postId: ID!) {
     deletePost(postId: $postId) {
@@ -131,6 +158,7 @@ export const EDIT_USER = gql`
     $bio: String
     $devLvl: String
     $github: String
+    $profilePhoto: String
   ) {
     editUser(
       userId: $userId
@@ -139,6 +167,7 @@ export const EDIT_USER = gql`
       bio: $bio
       DevLvl: $devLvl
       github: $github
+      profilePhoto: $profilePhoto
     ) {
       _id
       username

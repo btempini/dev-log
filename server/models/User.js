@@ -48,6 +48,10 @@ const userSchema = new Schema({
   github: {
     type: String,
   },
+  profilePhoto: {
+    type: String,
+    default: "https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/Avatar.png",
+  },
 });
 
 //set up pre-save middleware to create a password

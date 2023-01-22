@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import SearchResults from "./pages/SearchResults";
 import Signup from "./pages/Signup";
+import CreatePfp from "./pages/CreatePfp";
 import { setContext } from "@apollo/client/link/context";
 import {
   ApolloClient,
@@ -53,6 +54,7 @@ function App() {
           <Route path="/searchresults" element={<SearchResults />} />
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/error" element={<Error />} />
+          <Route path="/addpfp" element={<CreatePfp />} />
         </Routes>
       </Router>
     </ApolloProvider>
