@@ -2,8 +2,9 @@
 
 .userFeed {
   background-image: url("../../assets/background1-min.png");
+  background-attachment: fixed;
   padding: 40px;
-  height: 100vh;
+  height: 2000px;
   width: 100%;
   background-color: #0c100e;
   background-size: cover;
@@ -30,34 +31,37 @@
   margin-left: 10px;
 }
 
-.scopeButtonContainer {
+.consoleContainer {
   display: flex;
-  margin: 0 auto;
-  width: 380px;
+  justify-content: center;
+  width: 700px;
 }
 
-.localScopeBtn {
-  margin-right: 16px;
-  width: 170px;
-  height: 40px;
-  background: #202b37;
+.postButton {
+  font-family: "Share Tech", sans-serif;
+  font-size: 20px;
+  border: 1px solid #39ffe8;
+  color: #39ffe8;
+  padding: 2px;
+  background-color: #0c100e;
+  margin-top: 0px;
+  width: 150px;
+}
+
+.noposts {
   color: white;
-  border: 2px solid rgba(57, 255, 232, 0.8);
+  font-family: "Share Tech", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
 }
 
-.globalScopeBtn {
-  width: 170px;
-  height: 40px;
-  background: #202b37;
-  color: white;
-  border: 2px solid rgba(57, 255, 232, 0.8);
-}
-
-.divider {
-  background-color: #7271f8;
-  height: 56px;
-  width: 3px;
-  border-radius: 10px;
+.consoleLog {
+  font-family: "Share Tech", sans-serif;
+  color: #39ffe8;
+  margin-right: 10px;
+  /* text-align: center; */
+  /* margin-right: 100px; */
 }
 
 .postContainer {
@@ -103,14 +107,26 @@
   flex-direction: column;
 }
 
-.likeBtn {
+.likeBtnBackground {
+  width: 20px;
+  height: 20px;
   background-image: url("../../assets/heart-50.png");
-  width: 15px;
-  height: 15px;
-  background-repeat: no-repeat;
-  right: 0;
-  margin: 5px;
-  /* background-color: none; */
+  background-position: cover;
+  background-color: transparent;
+  background-size: cover;
+}
+
+.likeBtn {
+  border: none;
+  background-color: transparent;
+  color: none;
+  padding: 0px;
+  margin-top: 0px;
+  width: 20px;
+}
+
+.postedBy {
+  margin-right: 10px;
 }
 
 .avatarContainer {
@@ -152,8 +168,14 @@
   font-family: "Share Tech", sans-serif;
   margin-bottom: 20px;
   margin-left: 15px;
+  overflow-wrap: break-word;
 }
 
 .largerPost {
-  width: 846px;
+  width: 700px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

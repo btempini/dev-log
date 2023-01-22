@@ -30,6 +30,12 @@ const Login = (props) => {
     // });
     // return;
     // }
+    
+    // if (nothing in either or both fields) {
+    // setModalError({
+      // message: Please enter your email/password
+    // })
+    // }
     try {
       const { data } = await login({
         variables: { ...formState },

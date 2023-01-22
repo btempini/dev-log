@@ -1,11 +1,11 @@
 import React from "react";
-import "./styles/userprofile.css";
+import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import { Link } from "react-router-dom";
 
 function post({ posts, title }) {
   if (!posts.length) {
-    return <h2>No posts yet...</h2>;
+    return <h2 className="noposts">No posts yet...</h2>;
   }
   console.log(posts);
   return (
@@ -28,7 +28,10 @@ function post({ posts, title }) {
                     Posted by: {post.username}
                   </Link>
                 </p>
-                <p className="likes">Likes:{post.likes}</p>
+                <button className="likeBtn">
+                  <div className="likeBtnBackground"></div>
+                </button>
+                <p className="likes">{post.likes}</p>
               </div>
             </div>
           </div>
