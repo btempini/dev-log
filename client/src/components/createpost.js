@@ -17,6 +17,7 @@ const CreatePost = () => {
   });
   console.log(formState);
   const [addPost, { error, data }] = useMutation(ADD_POST);
+  console.log(addPost);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,7 +43,7 @@ const CreatePost = () => {
     // addPost {} = formState image URL
     // send to AWS
     const image = formState.image[0];
-    console.log("image log", image);
+
     formData.append("files", image);
     console.log(formData);
     try {
@@ -51,18 +52,23 @@ const CreatePost = () => {
         `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
         formData
       );
+      console.log(AWSresponse);
+      console.log("image log", image.name);
       //set form state to image url
-      setFormState({
-        ...formState,
+      const postData = {
+        postTitle: formState.postTitle,
+        postText: formState.postText,
         image: `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${image.name}`,
-      });
+        username: formState.username,
+      };
       //update DB
+      console.log(formState);
       const { data } = await addPost({
-        variables: { ...formState },
+        variables: { ...postData },
       });
       navigate("/feed");
     } catch (error) {
-      console.log(error);
+      console.log(JSON.stringify(error));
       console.log("AWS IS DOWN");
       navigate("/feed");
     }

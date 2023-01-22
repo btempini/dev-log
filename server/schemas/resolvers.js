@@ -144,14 +144,19 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (_, { postTitle, postText, username }, context) => {
+    addPost: async (_, { postTitle, postText, username, image }, context) => {
       // check if user is authorized to create this post
       // create post logic
       const user = await User.findOne({ username });
       if (!user) {
         throw new AuthenticationError("Not authorized");
       }
-      const newPost = await Post.create({ postTitle, postText, username });
+      const newPost = await Post.create({
+        postTitle,
+        postText,
+        username,
+        image,
+      });
       return newPost;
     },
     deletePost: async (_, { postId }, context) => {
