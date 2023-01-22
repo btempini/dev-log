@@ -4,7 +4,7 @@ import avatar from "../assets/Avatar.png";
 import React, { useEffect, useState } from "react";
 import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Post from "../components/post";
 import EditProfile from "./editProfile";
 import auth from "../utils/auth";
@@ -56,7 +56,7 @@ function UserProfile() {
     <div className="profilePage" key={User._id}>
       <div className="profileContainer">
         <div className="leftProfile">
-          <img className="largeAvatar" src={avatar} alt="avatar" />
+          <img className="largeAvatar" src={User.profilePhoto} alt="avatar" />
           {meState ? (
             <>
               <button
@@ -66,7 +66,9 @@ function UserProfile() {
                 Edit Profile
               </button>
               <button className="updateProfilePhoto">
-                Update Profile Picture
+                <Link to={"/addPfp"} User={User}>
+                  Update Profile Picture
+                </Link>
               </button>
             </>
           ) : (
