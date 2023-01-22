@@ -20,7 +20,10 @@ View deployed app at: https://dev-log.herokuapp.com/
 </br>
 
 # Features
-
+- Create an account with an encrypted password
+- Update profile picture
+- Make posts that display on global feed and on profile page
+- View other user posts on global feed
 
 </br>
 
