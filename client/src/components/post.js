@@ -1,22 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./styles/userfeed.css";
 import placeholder from "../assets/placeholder.png";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { QUERY_POSTS } from "../utils/queries";
 
-// function getPosts() {
-// }
-function Post() {
-  let posts = [];
-  const { loading, data } = useQuery(QUERY_POSTS);
-  posts = data?.posts || [];
-  console.log(posts);
-
+function post({ posts, title }) {
   if (!posts.length) {
     return <h2 className="noposts">No posts yet...</h2>;
   }
-
+  console.log(posts);
   return (
     <div className="postContainer">
       {posts &&
@@ -55,4 +46,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default post;
