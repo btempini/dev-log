@@ -52,16 +52,16 @@ function UserFeed() {
             </button>
           </div>
           <div className="codeWarsContainer">
-            <p className="codeWarsTitles">Daily CodeWars:</p>
-            <p className="codeWarsBody">{codeWarsState.name}</p>
-            <p className="codeWarsTitles">CATEGORY</p>
+            <p className="codeWarsDaily">Daily CodeWars</p>
+            <p className="codeWarsName">{codeWarsState.name}</p>
+            <p className="codeWarsTitles">CATEGORY:</p>
             <p className="codeWarsBody">{codeWarsState.category}</p>
-            <p className="codeWarsTitles">LEVEL</p>
+            <p className="codeWarsTitles">LEVEL:</p>
             <p className="codeWarsBody">{codeWarsState.rank.name}</p>
-            <p className="codeWarsTitles">URL</p>
-            <a className="codeWarsBody" href={codeWarsState.url}>
-              {codeWarsState.url}
-            </a>
+            <p className="codeWarsTitles">URL:</p>
+            <p className="codeWarsBody">
+              <a href={codeWarsState.url}>{codeWarsState.url}</a>
+            </p>
           </div>
         </div>
         <div className="rightAside">
