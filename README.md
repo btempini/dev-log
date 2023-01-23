@@ -1,4 +1,4 @@
-<center><img src="./client/src/assets/dev.log.png" /></center>
+<div align="center"><img src="./client/src/assets/dev.log.png"/></div>
 
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
