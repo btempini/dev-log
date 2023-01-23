@@ -5,7 +5,7 @@ import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import SearchResults from "./pages/SearchResults";
-import SinglePost from "./pages/Test";
+import OnePost from "./pages/OnePost";
 import Signup from "./pages/Signup";
 import CreatePfp from "./pages/CreatePfp";
 import { setContext } from "@apollo/client/link/context";
@@ -56,7 +56,7 @@ function App() {
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/error" element={<Error />} />
           <Route path="/addpfp" element={<CreatePfp />} />
-          <Route path="/singlepost" element={<SinglePost />} />
+          <Route path="/singlepost/:postId" element={<OnePost />} />
         </Routes>
       </Router>
     </ApolloProvider>

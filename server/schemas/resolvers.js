@@ -43,7 +43,7 @@ const resolvers = {
     //find one post
     post: async (_, { postId }) => {
       try {
-        const post = await Post.findById(postId);
+        const post = await Post.findById(postId).populate("comments");
         if (!post) {
           throw new Error("Post not found");
         }

@@ -25,7 +25,9 @@ function post({ posts, title }) {
             </div>
             <div className="rightPost">
               <div className="topRight">
-                <p className="postTitle">{post.postTitle}</p>
+                <p className="postTitle">
+                  <Link to={`/singlePost/${post._id}`}>{post.postTitle}</Link>
+                </p>
                 <p className="postBody">{post.postText}</p>
               </div>
               <div className="bottomRight">
