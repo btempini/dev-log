@@ -3,27 +3,48 @@
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
 # About Dev-Log
-Social media for developers! Testing DS Store! 
+Social media for developers!
 
-View deployed app at: https://dev-log.herokuapp.com/
+Are you a developer? Have you ever thought "I have SO MANY FEELINGS, but NO FRIENDS to vent to!!"? Well you are not alone! With Dev-Log you are now able to connect with other devs on a more personal and light-hearted level.
 
-<center><img src="./client/src/assets/loginSS.png" /></center>
+View deployed app and sign-up at: https://dev-log.herokuapp.com/
+
+<img align="center" src="./client/src/assets/loginSS.png" />
 
 </br>
 
 # Table of Contents
+## - [Process](#process)
 ## - [Features](#features)
 ## - [Credits](#credits)
 ## - [License](#license)
 ## - [Contact](#contact)
 
+<br/>
+
+# Process
+Interested in how dev-log came about? Take a look at some of our brainstorming tools!
+
+### Lucid chart, built by Bradley Rodriguez
+https://lucid.app/lucidchart/bf210d8f-83ca-42f6-a54b-7260615a61b3/edit?viewport_loc=107%2C248%2C1347%2C647%2C0_0&invitationId=inv_2ca88812-e00a-4a5d-a076-9cbe156f8b24
+
+### Figma, built by Bryan Tempini
+https://www.figma.com/proto/3fOcBF0YSzlM5zIRx6lcsK/Work-Section?page-id=0%3A1&node-id=498%3A2&viewport=98%2C735%2C0.19&scaling=min-zoom&starting-point-node-id=444%3A44
+
 </br>
 
 # Features
+### Current
 - Create an account with an encrypted password
-- Update profile picture
-- Make posts that display on global feed and on profile page
+- Make posts with images that display on global feed and on profile page
 - View other user posts on global feed
+- Checkout a daily challenge from Code Wars on the feed page
+- Update profile picture, username, github, and Dev Level
+- Search for other devs and get their contact information
+
+### Coming Soon
+- Add friends and view them on your friends list!
+- Like posts
 
 </br>
 
