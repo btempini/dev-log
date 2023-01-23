@@ -45,6 +45,7 @@ try {
 
     type Query {
       users: [User]!
+      username(username: String!): User
       user(userId: ID!): User
       me: User
       posts: [Post]

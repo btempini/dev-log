@@ -83,6 +83,22 @@ export const QUERY_SINGLE_USER = gql`
     }
   }
 `;
+
+export const QUERY_SINGLE_USER_NAME = gql`
+  query singleProfile($username: String!) {
+    username(username: $username) {
+      _id
+      username
+      fullName
+      email
+      password
+      bio
+      DevLvl
+      github
+      profilePhoto
+    }
+  }
+`;
 export const QUERY_ME = gql`
   query me {
     me {

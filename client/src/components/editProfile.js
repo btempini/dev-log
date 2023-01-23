@@ -59,7 +59,7 @@ const EditProfile = (User) => {
                       name="username"
                       type="text"
                       value={formState.username}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                     ></input>
                     <div className="divider"></div>
                     <select
