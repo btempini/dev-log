@@ -167,8 +167,8 @@ export const QUERY_SINGLE_POST = gql`
     }
   }
 `;
-export const QUERY_COMMENTS = `
-query comments {
+export const QUERY_COMMENTS = gql`
+  query comments {
     comments {
       CommentText
       commentId
@@ -177,9 +177,9 @@ query comments {
       username
     }
   }
-  `;
-export const QUERY_SINGLE_COMMENT = `
-query comment($commentId: ID!) {
+`;
+export const QUERY_SINGLE_COMMENT = gql`
+  query comment($commentId: ID!) {
     comment(commentId: $commentId) {
       commentId
       CommentText
