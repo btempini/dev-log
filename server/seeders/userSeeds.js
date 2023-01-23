@@ -7,7 +7,7 @@ module.exports = {
       password: "supersecret",
       posts: [],
       bio: "Im slim shady yeah im the real shady",
-      github: "MGKGOTNOTHINGONME@github",
+      github: "MGKGOTNOTHINGONME",
     },
     {
       username: "Michael-Jordan",
@@ -16,7 +16,7 @@ module.exports = {
       password: "sercretpass",
       posts: [],
       bio: "Buy my shoes",
-      github: "Nike>Adidas@github",
+      github: "Nike>Adidas",
     },
     {
       username: "Dwight Likes Bears",
@@ -25,7 +25,7 @@ module.exports = {
       password: "stuffandthings",
       posts: [],
       bio: "False, Im now a developer",
-      github: "Dwight@github",
+      github: "Dwight",
     },
     {
       username: "Jackson",
@@ -34,7 +34,7 @@ module.exports = {
       password: "12345",
       posts: [],
       bio: "False, Im now a developer",
-      github: "Dwight@github",
+      github: "Dwight",
     },
     {
       username: "Tessa",
@@ -43,7 +43,7 @@ module.exports = {
       password: "12345",
       posts: [],
       bio: "False, Im now a developer",
-      github: "Dwight@github",
+      github: "Dwight",
     },
     {
       username: "Bryan",
@@ -52,7 +52,7 @@ module.exports = {
       password: "12345",
       posts: [],
       bio: "False, Im now a developer",
-      github: "Dwight@github",
+      github: "Dwight",
     },
     {
       username: "Bradley",
@@ -61,7 +61,7 @@ module.exports = {
       password: "12345",
       posts: [],
       bio: "False, Im now a developer",
-      github: "Dwight@github",
+      github: "Dwight",
     },
   ],
 };

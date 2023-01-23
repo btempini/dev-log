@@ -1,47 +1,49 @@
-<style>
-    @import url("https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&family=Share+Tech&display=swap");
-    h1 {color: #39ffe8;
-    font-family: "Share Tech", sans-serif;
-    font-size: 70px;
-    text-align: center;}
-</style>
-
-<h1>
-<span><</span>dev.log<span>></span>
-</h1>
+<center><img src="./client/src/assets/dev.log.png" /></center>
 
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
-## Description
+# About Dev-Log
+Social media for developers! Testing DS Store! 
 
-Social media for developers!
-Testing DS Store !
+View deployed app at: https://dev-log.herokuapp.com/
 
-## Table of Contents
+<center><img src="./client/src/assets/loginSS.png" /></center>
 
-### - [Usage](#usage)
+</br>
 
-### - [Credits](#credits)
+# Table of Contents
+## - [Features](#features)
+## - [Credits](#credits)
+## - [License](#license)
+## - [Contact](#contact)
 
-### - [License](#license)
+</br>
 
-### - [Contact](#contact)
+# Features
+- Create an account with an encrypted password
+- Update profile picture
+- Make posts that display on global feed and on profile page
+- View other user posts on global feed
 
-### - [Features](#features)
+</br>
 
+# Credits
+- <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> _Lead Developer_
+- <a href="https://github.com/Slimshady079">**Max Gibes**</a> _Scrum Master_
+- <a href="https://github.com/tessie-the-messy">**Tessa Robinson**</a> _Scrum Master II_
+- <a href="https://github.com/HeyItsBradley">**Bradley Rodriguez**</a> _Backend Architect_
+- <a href="https://github.com/btempini">**Bryan Tempini**</a> _Frontend Architect_
 
+</br>
 
-## Usage
+# License: MIT license
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-## Credits
-- <a href="https://github.com/JacksonGrimm">**Jackson Grimm**</a> *Lead Developer*
-- <a href="">**Max Gibes**</a> *Scrum Master*
-- <a href="https://github.com/tessie-the-messy">**Tessa Robinson**</a> *Scrum Master II*
-- <a href="https://github.com/HeyItsBradley">**Bradley Rodriguez**</a> *Backend Architect*
-- <a href="https://github.com/btempini">**Bryan Tempini**</a> *Frontend Architect*
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## License: MIT license
+For more information visit https://opensource.org/licenses/MIT
 
-#### For more information visit https://opensource.org/licenses/MIT
+</br>
 
-## Contact
+# Contact
+To contact individuals, please refer to github links under [credits](#credits).
