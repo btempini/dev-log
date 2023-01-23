@@ -27,16 +27,16 @@ function SinglePost() {
           <img className="singlePostImage" alt="placeholder" src={Post.image} />
         </div>
         <div className="rightSingle">
-          <p className="singleTitle">Title:{Post.postTitle}</p>
-          <p className="singleTitle">Date:{Post.postedAt}</p>
-          <p className="singleTitle">Body:{Post.postText}</p>
-          <p className="singleTitle">Posted By:{Post.username}</p>
-          <p className="singleTitle">Likes:{Post.likes}</p>
+          <p className="singleTitle">Title: {Post.postTitle}</p>
+          <p className="singleTitle">Date: {Post.postedAt}</p>
+          <p className="singleTitle">Body: {Post.postText}</p>
+          <p className="singleTitle">Posted By: {Post.username}</p>
+          <p className="singleTitle">Likes: {Post.likes}</p>
         </div>
       </div>
-      <div>
-        <Link to="/feed">Back to feed</Link>
-      </div>
+      <Link to="/feed">
+        <button className="backFeed">Back to feed</button>
+      </Link>
     </div>
   );
 }

@@ -1,0 +1,30 @@
+.userError {
+  background-image: url("../../assets/background1-min.png");
+  background-color: #0c100e;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.noUser {
+  font-size: 100px;
+  font-family: "Share Tech", sans-serif;
+  color: #39ffe8;
+  text-align: Center;
+  margin: 50px; 
+}
+
+.returnBtn{
+    text-align: center;
+}
+.returnFeed {
+  color: #0c100e;
+  padding: 17px;
+  width: 270px;
+  border-radius: 27px;
+  margin: 215px;
+}
