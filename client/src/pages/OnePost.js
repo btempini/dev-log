@@ -3,7 +3,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import SinglePost from "../components/singlepost";
 
-const Test = () => {
+const OnePost = () => {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default OnePost;

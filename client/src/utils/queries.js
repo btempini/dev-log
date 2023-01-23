@@ -145,23 +145,24 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
-export const QUERY_SINGLE_POST = `
-query post($postId: ID!) {
+export const QUERY_SINGLE_POST = gql`
+  query Post($postId: ID!) {
     post(postId: $postId) {
       _id
+      commentCount
+      image
+      likes
       postText
       postTitle
-      image
       postedAt
+      userProfileId
       username
-      commentCount
-      likes
       comments {
-        CommentText
         commentId
+        CommentText
+        username
         likes
         postedAt
-        username
       }
     }
   }
