@@ -13,7 +13,7 @@ const postSchema = new Schema(
     postText: {
       type: String,
       required: true,
-      maxlength: 600,
+      maxlength: 1500,
       minlength: 1,
     },
     image: {
