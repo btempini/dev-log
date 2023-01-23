@@ -38,7 +38,7 @@
 }
 
 .rightSingle {
-  height: 350px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
