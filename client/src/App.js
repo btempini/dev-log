@@ -5,6 +5,7 @@ import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import SearchResults from "./pages/SearchResults";
+import SinglePost from "./pages/Test";
 import Signup from "./pages/Signup";
 import CreatePfp from "./pages/CreatePfp";
 import { setContext } from "@apollo/client/link/context";
@@ -21,7 +22,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddPost from "./pages/AddPost";
 
 const httpLink = createHttpLink({
-  uri: `/graphql`,
+  uri: `http://localhost:3001/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/error" element={<Error />} />
           <Route path="/addpfp" element={<CreatePfp />} />
+          <Route path="/singlepost" element={<SinglePost />} />
         </Routes>
       </Router>
     </ApolloProvider>
