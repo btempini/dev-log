@@ -15,6 +15,7 @@
   font-family: "Share Tech", sans-serif;
   color: #39ffe8;
   text-align: Center;
+  margin: 50px; 
 }
 
 .returnBtn{
@@ -25,5 +26,5 @@
   padding: 17px;
   width: 270px;
   border-radius: 27px;
-  margin: 200px;
+  margin: 215px;
 }
