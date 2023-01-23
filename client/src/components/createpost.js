@@ -79,6 +79,7 @@ const CreatePost = () => {
         <div className="createPostContainer">
           <div className="topCreate">
             <div className="profileTagWrapper">
+              <p>Title</p>
               <input
                 className="postInput"
                 placeholder="postTitle"
@@ -99,10 +100,10 @@ const CreatePost = () => {
                 id="file"
                 className="inputfile"
               />
+              <label className="postInput" for="file">
+                Choose a file
+              </label>
             </div>
-            <label className="postInput" for="file">
-              Choose a file
-            </label>
           </div>
           <textarea
             name="postText"
