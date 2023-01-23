@@ -57,6 +57,7 @@ export const QUERY_SINGLE_USER = gql`
       posts {
         _id
         commentCount
+        userProfileId
         comments {
           commentId
           CommentText
@@ -113,6 +114,7 @@ export const QUERY_ME = gql`
       posts {
         _id
         commentCount
+        userProfileId
         comments {
           commentId
           CommentText
@@ -149,7 +151,7 @@ export const QUERY_POSTS = gql`
       postTitle
       postedAt
       username
-
+      userProfileId
       likes
       comments {
         CommentText
