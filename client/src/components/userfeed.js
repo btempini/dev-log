@@ -74,8 +74,6 @@ function UserFeed() {
             <p className="codeWarsName">{codeWarsState.name}</p>
             <p className="codeWarsTitles">CATEGORY:</p>
             <p className="codeWarsBody">{codeWarsState.category}</p>
-            <p className="codeWarsTitles">LEVEL:</p>
-            <p className="codeWarsBody">{codeWarsState.rank.name}</p>
             <p className="codeWarsTitles">URL:</p>
             <p className="codeWarsBody">
               <a href={codeWarsState.url} target="_blank">
