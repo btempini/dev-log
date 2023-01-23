@@ -156,7 +156,9 @@
 
 .avatar {
   height: 100px;
-  padding: 10px;
+  border-radius: 70px;
+  margin-right: 10px;
+  border: 2px solid #7271f8;
 }
 
 .viewProfile {

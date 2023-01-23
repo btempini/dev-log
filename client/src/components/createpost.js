@@ -96,6 +96,7 @@ const CreatePost = () => {
         <div className="createPostContainer">
           <div className="topCreate">
             <div className="profileTagWrapper">
+              <p>Title</p>
               <input
                 className="postInput"
                 placeholder="postTitle"

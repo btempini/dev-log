@@ -5,6 +5,7 @@ import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import SearchResults from "./pages/SearchResults";
+import OnePost from "./pages/OnePost";
 import Signup from "./pages/Signup";
 import CreatePfp from "./pages/CreatePfp";
 import UserError from"./pages/UserError"
@@ -57,6 +58,7 @@ function App() {
           <Route path="/error" element={<Error />} />
           <Route path="/addpfp" element={<CreatePfp />} />
           <Route path="*" element={<UserError />}></Route>
+          <Route path="/singlepost/:postId" element={<OnePost />} />
         </Routes>
       </Router>
     </ApolloProvider>

@@ -50,9 +50,6 @@ const EditProfile = (User) => {
         <form onSubmit={handleFormSubmit}>
           <div className="profilePage" key={Profile._id}>
             <div className="profileContainer">
-              <div className="leftProfile">
-                <img className="largeAvatar" src={avatar} alt="avatar" />
-              </div>
               <div className="rightProfile">
                 <div className="topProfile">
                   <div className="topButtonContainer">
