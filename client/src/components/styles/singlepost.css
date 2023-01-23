@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap");
+
+.singlePostPage {
+  background-color: #0c100e;
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Share Tech", sans-serif;
+  color: #39ffe8;
+}
+
+.singlePostWrapper {
+  margin-top: -30px;
+  width: 50%;
+  border: 2px solid #39ffe8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.singlePostImageWrapper {
+  object-fit: cover;
+}
+
+.singlePostImage {
+  margin: 20px;
+  width: 500px;
+}
+
+.rightSingle {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.singleTitle {
+  text-decoration: underline;
+}

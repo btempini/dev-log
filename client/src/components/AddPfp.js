@@ -96,7 +96,6 @@ const AddPfp = () => {
         <div className="createPostPage">
           <div className="createPostContainer">
             <div className="topCreate">
-              <div className="divider"></div>
               <input
                 type="file"
                 name="image"
