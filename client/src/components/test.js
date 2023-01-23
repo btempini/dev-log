@@ -69,7 +69,7 @@ const AddPfp = () => {
     try {
       // AWS request
       const AWSresponse = await axios.post(
-        `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
+        `/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
         formData
       );
       console.log(AWSresponse);
