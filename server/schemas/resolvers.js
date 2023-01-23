@@ -24,6 +24,14 @@ const resolvers = {
         throw new Error(err);
       }
     },
+    username: async (_, { username }) => {
+      try {
+        const find = User.findOne({ username: username });
+        return find;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
     me: async (_, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
