@@ -116,10 +116,10 @@ const CreatePost = () => {
                 id="file"
                 className="inputfile"
               />
+              <label className="postInput" for="file">
+                Choose a file
+              </label>
             </div>
-            <label className="postInput" for="file">
-              Choose a file
-            </label>
           </div>
           <textarea
             name="postText"
