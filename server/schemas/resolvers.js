@@ -158,6 +158,9 @@ const resolvers = {
         username,
         image,
       });
+      console.log("resolver", newPost);
+      user.posts.push(newPost._id);
+      user.save();
       return newPost;
     },
     editPost: async (_, { postTitle, postText, username, image, likes }) => {

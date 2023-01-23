@@ -47,26 +47,43 @@ const CreatePost = () => {
     formData.append("files", image);
     console.log(formData);
     try {
-      // AWS request
-      const AWSresponse = await axios.post(
-        `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
-        formData
-      );
-      console.log(AWSresponse);
-      console.log("image log", image.name);
-      //set form state to image url
-      const postData = {
-        postTitle: formState.postTitle,
-        postText: formState.postText,
-        image: `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${image.name}`,
-        username: formState.username,
-      };
-      //update DB
-      console.log(formState);
-      const { data } = await addPost({
-        variables: { ...postData },
-      });
-      navigate("/feed");
+      if (image) {
+        const AWSresponse = await axios.post(
+          `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
+          formData
+        );
+        console.log(AWSresponse);
+        console.log("image log", image.name);
+        //set form state to image url
+        const postData = {
+          postTitle: formState.postTitle,
+          postText: formState.postText,
+          image: `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${image.name}`,
+          username: formState.username,
+        };
+        //update DB
+        console.log(formState);
+        //update DB
+        console.log(formState);
+        // AWS request
+        const { data } = await addPost({
+          variables: { ...postData },
+        });
+        navigate("/feed");
+      } else {
+        const postData = {
+          postTitle: formState.postTitle,
+          postText: formState.postText,
+          username: formState.username,
+        };
+        //update DB
+        console.log(formState);
+        // AWS request
+        const { data } = await addPost({
+          variables: { ...postData },
+        });
+        navigate("/feed");
+      }
     } catch (error) {
       console.log(JSON.stringify(error));
       console.log("AWS IS DOWN");
@@ -78,23 +95,28 @@ const CreatePost = () => {
       <div className="createPostPage">
         <div className="createPostContainer">
           <div className="topCreate">
-            <input
-              className="postInput"
-              placeholder="postTitle"
-              name="postTitle"
-              type="text"
-              value={formState.postTitle}
-              onChange={handleChange}
-            />
+            <div className="profileTagWrapper">
+              <input
+                className="postInput"
+                placeholder="postTitle"
+                name="postTitle"
+                type="text"
+                value={formState.postTitle}
+                onChange={handleChange}
+              />
+            </div>
             <div className="divider"></div>
-            <input
-              type="file"
-              name="image"
-              files={formState.image}
-              onChange={handleChangeFile}
-              id="file"
-              className="inputfile"
-            />
+            <div className="profileTagWrapper">
+              <p>Upload Image</p>
+              <input
+                type="file"
+                name="image"
+                files={formState.image}
+                onChange={handleChangeFile}
+                id="file"
+                className="inputfile"
+              />
+            </div>
             <label className="postInput" for="file">
               Choose a file
             </label>

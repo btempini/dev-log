@@ -26,8 +26,11 @@ function UserProfile() {
   );
 
   const User = data?.me || data?.user || {};
-  const Posts = [];
+  const Posts = User.posts;
+  const gitHubLink = `https://github.com/${User.github}`;
+  const mailLink = `mailto:${User.email}`;
 
+  console.log(Posts);
   //Define user to be reassigned to data later
   // let User = "";
   // let Posts = [];
@@ -78,17 +81,33 @@ function UserProfile() {
         <div className="rightProfile">
           <div className="topProfile">
             <div className="topButtonContainer">
-              <div className="lookLikeButton">
-                <p className="name">{User.username}</p>
+              <div className="profileTagWrapper">
+                <p>Name</p>
+                <div className="lookLikeButton">
+                  <p className="name">{User.username}</p>
+                </div>
               </div>
               <div className="divider"></div>
-              <div className="lookLikeButton">
-                <p className="level">{User.DevLvl}</p>
+              <div className="profileTagWrapper">
+                <p>Level</p>
+                <div className="lookLikeButton">
+                  <p className="level">{User.DevLvl}</p>
+                </div>
               </div>
               <div className="divider"></div>
-              <button className="emailButton">{User.github}</button>
+              <div className="profileTagWrapper">
+                <p>Email</p>
+                <a href={mailLink} target="_blank">
+                  <button className="emailButton">{User.email}</button>
+                </a>
+              </div>
               <div className="divider"></div>
-              <button className="emailButton">{User.email}</button>
+              <div className="profileTagWrapper">
+                <p>Github</p>
+                <a href={gitHubLink} target="_blank">
+                  <button className="emailButton">{User.github}</button>
+                </a>
+              </div>
             </div>
             <div className="bioContainer">
               <h2 className="bioTitle">Bio</h2>
