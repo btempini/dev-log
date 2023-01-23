@@ -53,7 +53,7 @@ function App() {
           <Route path="/post" element={<Post />} />
           <Route path="/searchresults" element={<SearchResults />} />
           <Route path="/addPost" element={<AddPost />} />
-          <Route path="*" element={<Error />} />
+          <Route path="/error" element={<Error />} />
           <Route path="/addpfp" element={<CreatePfp />} />
         </Routes>
       </Router>
