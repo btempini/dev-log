@@ -26,8 +26,11 @@ function UserProfile() {
   );
 
   const User = data?.me || data?.user || {};
-  const Posts = [];
+  const Posts = User.posts;
+  const gitHubLink = `https://github.com/${User.github}`;
+  const mailLink = `mailto:${User.email}`;
 
+  console.log(Posts);
   //Define user to be reassigned to data later
   // let User = "";
   // let Posts = [];
@@ -94,12 +97,16 @@ function UserProfile() {
               <div className="divider"></div>
               <div className="profileTagWrapper">
                 <p>Email</p>
-                <button className="emailButton">{User.github}</button>
+                <a href={mailLink} target="_blank">
+                  <button className="emailButton">{User.email}</button>
+                </a>
               </div>
               <div className="divider"></div>
               <div className="profileTagWrapper">
                 <p>Github</p>
-                <button className="emailButton">{User.email}</button>
+                <a href={gitHubLink} target="_blank">
+                  <button className="emailButton">{User.github}</button>
+                </a>
               </div>
             </div>
             <div className="bioContainer">
