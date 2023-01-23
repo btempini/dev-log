@@ -6,6 +6,7 @@
   height: 95vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   font-family: "Share Tech", sans-serif;
   color: #39ffe8;
@@ -13,6 +14,7 @@
 
 .singlePostWrapper {
   margin-top: -30px;
+  margin-bottom: 5px;
   width: 50%;
   border: 2px solid #39ffe8;
   display: flex;
@@ -38,4 +40,12 @@
 
 .singleTitle {
   text-decoration: underline;
+}
+
+.backFeed{
+  color: #0c100e;
+  padding: 17px;
+  width: 270px;
+  border-radius: 27px;
+  margin: 10px;
 }

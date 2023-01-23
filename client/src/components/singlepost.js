@@ -34,9 +34,9 @@ function SinglePost() {
           <p className="singleTitle">Likes:{Post.likes}</p>
         </div>
       </div>
-      <div>
-        <Link to="/feed">Back to feed</Link>
-      </div>
+      <Link to="/feed">
+        <button className="backFeed">Back to feed</button>
+      </Link>
     </div>
   );
 }
