@@ -8,7 +8,7 @@ import SearchResults from "./pages/SearchResults";
 import OnePost from "./pages/OnePost";
 import Signup from "./pages/Signup";
 import CreatePfp from "./pages/CreatePfp";
-import UserError from"./pages/UserError"
+import UserError from "./pages/UserError";
 import { setContext } from "@apollo/client/link/context";
 import {
   ApolloClient,
@@ -23,7 +23,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddPost from "./pages/AddPost";
 
 const httpLink = createHttpLink({
-  uri: `http://localhost:3001/graphql`,
+  uri: `graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
