@@ -49,7 +49,7 @@ const CreatePost = () => {
     try {
       if (image) {
         const AWSresponse = await axios.post(
-          `/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
+          `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
           formData
         );
         console.log(AWSresponse);
