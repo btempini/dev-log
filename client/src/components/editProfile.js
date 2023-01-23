@@ -9,11 +9,11 @@ const EditProfile = (User) => {
   console.log(User);
   let Profile = User.User;
   const [formState, setFormState] = useState({
-    username: "",
-    fullName: "",
-    bio: "",
-    devLvl: "",
-    github: "",
+    username: Profile.username,
+    fullName: Profile.fullName,
+    bio: Profile.bio,
+    devLvl: Profile.devLvl,
+    github: Profile.github,
   });
 
   console.log(formState);
