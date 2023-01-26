@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/createpost.css";
 import { ADD_POST } from "../utils/mutations";
@@ -8,16 +8,58 @@ import axios from "axios";
 const formData = new FormData();
 
 const CreatePost = () => {
-  const navigate = useNavigate();
+  const cloudinaryRef = useRef();
+  const widgetRef = useRef();
   const [formState, setFormState] = useState({
     postTitle: "",
     postText: "",
     image: "",
     username: auth.getProfile().data.username,
   });
+
+  useEffect(() => {
+    cloudinaryRef.current = window.cloudinary;
+    widgetRef.current = cloudinaryRef.current.createUploadWidget(
+      {
+        cloudName: `${process.env.REACT_APP_SECRET_CODE}`,
+        uploadPreset: "qzeis8oj",
+        styles: {
+          palette: {
+            window: "#000000",
+            windowBorder: "#90A0B3",
+            tabIcon: "#18ECD8",
+            menuIcons: "#5A616A",
+            textDark: "#000000",
+            textLight: "#18ECD8",
+            link: "#18ECD8",
+            action: "#FF620C",
+            inactiveTabIcon: "#0E2F5A",
+            error: "#F44235",
+            inProgress: "#18ECD8",
+            complete: "#20B832",
+            sourceBg: "#000000",
+          },
+          fonts: {
+            default: {
+              active: true,
+            },
+          },
+        },
+      },
+      async function (error, response) {
+        if (response.event === "success") {
+          console.log(response.info.url);
+          console.log("formState", formState);
+          setFormState({ ...formState, image: response.info.url });
+        }
+      }
+    );
+  }, [formState]);
+
+  const navigate = useNavigate();
+
   console.log(formState);
   const [addPost, { error, data }] = useMutation(ADD_POST);
-  console.log(addPost);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,14 +67,6 @@ const CreatePost = () => {
     setFormState({
       ...formState,
       [name]: value,
-    });
-  };
-  const handleChangeFile = (event) => {
-    const { name, files } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: files,
     });
   };
 
@@ -48,17 +82,11 @@ const CreatePost = () => {
     console.log(formData);
     try {
       if (image) {
-        const AWSresponse = await axios.post(
-          `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
-          formData
-        );
-        console.log(AWSresponse);
-        console.log("image log", image.name);
         //set form state to image url
         const postData = {
           postTitle: formState.postTitle,
           postText: formState.postText,
-          image: `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${image.name}`,
+          image: formState.image,
           username: formState.username,
         };
         //update DB
@@ -90,6 +118,7 @@ const CreatePost = () => {
       navigate("/feed");
     }
   };
+
   return (
     <form onSubmit={handleFormSubmit}>
       <div className="createPostPage">
@@ -110,12 +139,15 @@ const CreatePost = () => {
             <div className="profileTagWrapper">
               <p>Upload Image</p>
               <input
-                type="file"
                 name="image"
                 files={formState.image}
-                onChange={handleChangeFile}
+                // onChange={handleChangeFile}
                 id="file"
                 className="inputfile"
+                onClick={() => {
+                  widgetRef.current.open();
+                  // handleChangeFile();
+                }}
               />
               <label className="postInput" for="file">
                 Choose a file
