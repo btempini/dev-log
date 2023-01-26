@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
 import { QUERY_SINGLE_USER } from "../utils/queries";
@@ -9,6 +9,51 @@ import axios from "axios";
 const formData = new FormData();
 
 const AddPfp = () => {
+  const cloudinaryRef = useRef();
+  const widgetRef = useRef();
+  const [formState, setFormState] = useState({
+    image: "",
+    user: {},
+  });
+  useEffect(() => {
+    cloudinaryRef.current = window.cloudinary;
+    widgetRef.current = cloudinaryRef.current.createUploadWidget(
+      {
+        cloudName: `${process.env.REACT_APP_SECRET_CODE}`,
+        uploadPreset: "qzeis8oj",
+        styles: {
+          palette: {
+            window: "#000000",
+            windowBorder: "#90A0B3",
+            tabIcon: "#18ECD8",
+            menuIcons: "#5A616A",
+            textDark: "#000000",
+            textLight: "#18ECD8",
+            link: "#18ECD8",
+            action: "#FF620C",
+            inactiveTabIcon: "#0E2F5A",
+            error: "#F44235",
+            inProgress: "#18ECD8",
+            complete: "#20B832",
+            sourceBg: "#000000",
+          },
+          fonts: {
+            default: {
+              active: true,
+            },
+          },
+        },
+      },
+      async function (error, response) {
+        if (response.event === "success") {
+          console.log(response.info.url);
+          console.log("formState", formState);
+          setFormState({ ...formState, image: response.info.url });
+          console.log(formState);
+        }
+      }
+    );
+  }, [formState]);
   const navigate = useNavigate();
 
   //get current user info !
@@ -27,10 +72,6 @@ const AddPfp = () => {
   });
   let user = {};
   const [editUser, { error, data }] = useMutation(EDIT_USER);
-  const [formState, setFormState] = useState({
-    image: "",
-    user: {},
-  });
   if (User.loading) {
     return <>loading...</>;
   } else {
@@ -46,21 +87,21 @@ const AddPfp = () => {
     //AWS will return a URL
     // addPost {} = formState image URL
     // send to AWS
-    const image = formState.image[0];
+    // const image = formState.image[0];
 
-    formData.append("files", image);
-    console.log(formData);
+    // formData.append("files", image);
+    // console.log(formData);
     try {
       // AWS request
-      const AWSresponse = await axios.post(
-        `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
-        formData
-      );
-      console.log(AWSresponse);
+      // const AWSresponse = await axios.post(
+      //   `http://localhost:3001/api/bucketRequest/${process.env.REACT_APP_SECRET_CODE}`,
+      //   formData
+      // );
+      // console.log(AWSresponse);
 
-      console.log("image log", image.name);
+      // console.log("image log", image.name);
       const userInfo = {
-        profilePhoto: `https://devlog-bucket-2023.s3.us-west-1.amazonaws.com/${image.name}`,
+        profilePhoto: formState.image,
         userId: user.user._id,
         username: user.user.username,
         fullName: user.user.fullName,
@@ -97,12 +138,15 @@ const AddPfp = () => {
           <div className="createPostContainer">
             <div className="topCreate">
               <input
-                type="file"
                 name="image"
                 files={formState.image}
                 onChange={handleChangeFile}
                 id="file"
                 className="inputfile"
+                onClick={() => {
+                  widgetRef.current.open();
+                  // handleChangeFile();
+                }}
               />
               <label className="postInput" for="file">
                 Choose a file
