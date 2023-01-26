@@ -5,9 +5,6 @@ import auth from "../utils/auth";
 import { QUERY_SINGLE_USER } from "../utils/queries";
 import { EDIT_USER } from "../utils/mutations";
 
-import axios from "axios";
-const formData = new FormData();
-
 const AddPfp = () => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
