@@ -31,11 +31,11 @@ try {
       userProfileId: String
     }
     type Comment {
-      commentId: ID!
-      CommentText: String!
-      username: String!
-      likes: Int
-      postedAt: String
+      _id: ID!
+      text: String!
+      commentBy: String!
+
+      createdAt: String
     }
 
     type Auth {

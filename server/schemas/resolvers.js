@@ -64,7 +64,7 @@ const resolvers = {
     comments: async () => {
       try {
         const comments = await Comment.find();
-        return comments;
+        return "comments";
       } catch (err) {
         throw new Error(err);
       }
