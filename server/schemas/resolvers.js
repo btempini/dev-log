@@ -207,14 +207,14 @@ const resolvers = {
       if (!user) {
         throw new AuthenticationError("Not authorized");
       }
-      // const newComment = await Comment.create({ CommentText, username });
-      // const post = await Post.findById(postId);
-      // post.comments.push(newComment);
-      // await post.save();
-      // return newComment;
+
       const addedComment = await Post.findOneAndUpdate(
         { _id: postId },
-        { $push: { comments: CommentText, username: username } },
+        {
+          $addToSet: {
+            comments: { CommentText, commentBy: context.user.username },
+          },
+        },
         { new: true }
       );
       if (!addedComment) {
