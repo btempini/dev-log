@@ -142,44 +142,42 @@ export const QUERY_ME = gql`
 export const QUERY_POSTS = gql`
   query allPosts {
     posts {
-      _id
       commentCount
+      _id
+      comments {
+        _id
+        text
+        commentBy
+        createdAt
+      }
       image
+      likes
       postText
       postTitle
       postedAt
       username
-
-      likes
-      comments {
-        CommentText
-        commentId
-        likes
-        postedAt
-        username
-      }
+      userProfileId
     }
   }
 `;
 export const QUERY_SINGLE_POST = gql`
-  query Post($postId: ID!) {
+  query singlePosts($postId: ID!) {
     post(postId: $postId) {
       _id
-      commentCount
-      image
-      likes
-      postText
       postTitle
+      postText
+      image
       postedAt
-      userProfileId
       username
+      likes
       comments {
-        commentId
-        CommentText
-        username
-        likes
-        postedAt
+        _id
+        text
+        commentBy
+        createdAt
       }
+      commentCount
+      userProfileId
     }
   }
 `;
