@@ -37,7 +37,9 @@ function SinglePost() {
             Body: <span className="deets">{Post.postText}</span>
           </p>
           <p className="singleTitle">
-            Posted By: <span className="deets">{Post.username}</span>
+            <Link to={`/profile/${Post.userProfileId}`}>
+              Posted by: {Post.username}
+            </Link>{" "}
           </p>
           <p className="singleTitle">
             Likes: <span className="deets">{Post.likes}</span>
