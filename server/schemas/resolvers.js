@@ -200,7 +200,7 @@ const resolvers = {
         throw new Error(err);
       }
     },
-    addComment: async (_, { CommentText, postId, username }, context) => {
+    addComment: async (_, { postId, text, username }, context) => {
       // check if user is authorized to create this comment
       // create comment logic
       const user = await User.findOne({ username });
@@ -212,7 +212,7 @@ const resolvers = {
         { _id: postId },
         {
           $addToSet: {
-            comments: { CommentText, commentBy: context.user.username },
+            comments: { text, commentBy: username },
           },
         },
         { new: true }

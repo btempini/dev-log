@@ -1,6 +1,6 @@
-const { timeStamp } = require("console");
+
 const { Schema, model } = require("mongoose");
-const commentSchema = require("./Comment");
+
 const User = require("./User");
 
 const postSchema = new Schema(
@@ -36,7 +36,7 @@ const postSchema = new Schema(
     },
     comments: [
       {
-        commentText: {
+        text: {
           type: String,
           required: true,
           minlength: 1,

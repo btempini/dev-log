@@ -87,7 +87,7 @@ try {
         likes: Int
       ): Post
       deletePost(postId: ID!): Post
-      addComment(CommentText: String!, postId: String!): Comment
+      addComment(postId: ID!, text: String!, username: String!): Post
       deleteComment(commentId: ID!): Comment
     }
   `;
