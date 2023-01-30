@@ -6,6 +6,7 @@
   height: 95vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   font-family: "Share Tech", sans-serif;
   color: #39ffe8;
@@ -13,6 +14,7 @@
 
 .singlePostWrapper {
   margin-top: -30px;
+  margin-bottom: 5px;
   width: 50%;
   border: 2px solid #39ffe8;
   display: flex;
@@ -21,12 +23,18 @@
 }
 
 .singlePostImageWrapper {
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 20px;
+  border: 2px solid #7271f8;
 }
 
 .singlePostImage {
-  margin: 20px;
-  width: 500px;
+  object-fit: cover;
+  max-height: 500px;
+  max-width: 500px;
 }
 
 .rightSingle {
@@ -34,8 +42,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  max-width: 440px;
 }
 
 .singleTitle {
-  text-decoration: underline;
+  margin: 5px;
+}
+
+.backFeed {
+  color: #0c100e;
+  padding: 17px;
+  width: 270px;
+  border-radius: 27px;
+  margin: 10px;
+}
+
+.deets {
+  text-decoration: none;
+  color: white;
 }

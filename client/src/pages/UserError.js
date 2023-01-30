@@ -1,12 +1,12 @@
 import React from "react";
 import Footer from "../components/footer";
-import FourOhfour from "../components/404";
-import Header from "../components/header";
+import NoUser from "../components/nouser"
+// import Header from "../components/header";
 
 const Error = () => {
   return (
     <div>
-      <FourOhfour />
+      <NoUser />
       <Footer />
     </div>
   );
