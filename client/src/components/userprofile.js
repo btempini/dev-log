@@ -1,5 +1,6 @@
 // import React from "react";
 import "./styles/userprofile.css";
+import Loading from "./loading";
 import avatar from "../assets/Avatar.png";
 import React, { useEffect, useState } from "react";
 import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
@@ -46,7 +47,7 @@ function UserProfile() {
 
   if (loading) {
     //basic loading bar
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   console.log(User);
   console.log(Posts);
