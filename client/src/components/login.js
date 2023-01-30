@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles/login.css";
 import "./styles/404.css";
 import { useMutation } from "@apollo/client";
@@ -9,6 +9,7 @@ import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const Login = (props) => {
+  const navigate = useNavigate();
   // const [modalError, setModalError] = useState("")
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -42,6 +43,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
       Auth.login(data.login.token);
+      navigate("/feed");
     } catch (e) {
       console.error(e);
     }
@@ -53,37 +55,34 @@ const Login = (props) => {
 
   return (
     <>
-      {data ? (
-        (window.location.href = "/feed")
-      ) : (
-        <div className="signUpForm">
-          {/* {modalError&& <Modal message={modalError.message}} /> */}
-          <h1 className="devLog">
-            <span>{"<"}</span>dev.log<span>{">"}</span>
-          </h1>
-          <form className="loginFormEl" onSubmit={handleFormSubmit}>
-            <input
-              type="email"
-              placeholder="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-            <button className="loginButton">Login</button>
-          </form>
-          {/* Link button to Feed page */}
-          <Link to="/signup">
-            <button className="signUpButton">Sign up?</button>
-          </Link>
-        </div>
-      )}
+      <div className="signUpForm">
+        {/* {modalError&& <Modal message={modalError.message}} /> */}
+        <h1 className="devLog">
+          <span>{"<"}</span>dev.log<span>{">"}</span>
+        </h1>
+        <form className="loginFormEl" onSubmit={handleFormSubmit}>
+          <input
+            type="email"
+            placeholder="email"
+            name="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="loginButton">Login</button>
+        </form>
+        {/* Link button to Feed page */}
+        <Link to="/signup">
+          <button className="signUpButton">Sign up?</button>
+        </Link>
+      </div>
+
       {error && (
         <div className="errorPage">
           <p>{error.message}</p>
