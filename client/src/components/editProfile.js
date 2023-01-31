@@ -4,8 +4,10 @@ import { useMutation } from "@apollo/client";
 import { EDIT_USER } from "../utils/mutations";
 import auth from "../utils/auth";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = (User) => {
+  const navigate = useNavigate();
   console.log(User);
   let Profile = User.User;
   const [formState, setFormState] = useState({
@@ -33,6 +35,7 @@ const EditProfile = (User) => {
       const { data } = await editUser({
         variables: { userId: Profile._id, ...formState },
       });
+      window.location.reload();
     } catch (e) {
       console.log(e);
     }
@@ -45,7 +48,7 @@ const EditProfile = (User) => {
   return (
     <>
       {data ? (
-        (window.location.href = `/profile/${Profile._id}`)
+        console.log(error)
       ) : (
         <form onSubmit={handleFormSubmit}>
           <div className="profilePage" key={Profile._id}>
