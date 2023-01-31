@@ -4,16 +4,14 @@ import "./styles/login.css";
 import "./styles/404.css";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-// import Modal from "./modal.js"
-
 import Auth from "../utils/auth";
 
 const Login = (props) => {
   const navigate = useNavigate();
-  // const [modalError, setModalError] = useState("")
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
+  //track form change
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -23,21 +21,9 @@ const Login = (props) => {
     });
   };
 
+  //form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    // if (password and/or email do not match ) {
-    // setModalError({
-    // message: Invalid email and/or password
-    // });
-    // return;
-    // }
-
-    // if (nothing in either or both fields) {
-    // setModalError({
-    // message: Please enter your email/password
-    // })
-    // }
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -56,7 +42,6 @@ const Login = (props) => {
   return (
     <>
       <div className="signUpForm">
-        {/* {modalError&& <Modal message={modalError.message}} /> */}
         <h1 className="devLog">
           <span>{"<"}</span>dev.log<span>{">"}</span>
         </h1>

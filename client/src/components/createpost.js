@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./styles/createpost.css";
 import { ADD_POST } from "../utils/mutations";
 import auth from "../utils/auth";
-import axios from "axios";
 const formData = new FormData();
 
 const CreatePost = () => {
@@ -55,15 +54,11 @@ const CreatePost = () => {
       }
     );
   }, [formState]);
-
   const navigate = useNavigate();
-
-  console.log(formState);
   const [addPost, { error, data }] = useMutation(ADD_POST);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -72,10 +67,6 @@ const CreatePost = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    //send file information to AWS
-    //AWS will return a URL
-    // addPost {} = formState image URL
-    // send to AWS
     const image = formState.image[0];
 
     formData.append("files", image);
@@ -89,11 +80,7 @@ const CreatePost = () => {
           image: formState.image,
           username: formState.username,
         };
-        //update DB
-        console.log(formState);
-        //update DB
-        console.log(formState);
-        // AWS request
+
         const { data } = await addPost({
           variables: { ...postData },
         });
@@ -114,7 +101,7 @@ const CreatePost = () => {
       }
     } catch (error) {
       console.log(JSON.stringify(error));
-      console.log("AWS IS DOWN");
+      console.log("Upload Error");
       navigate("/feed");
     }
   };
