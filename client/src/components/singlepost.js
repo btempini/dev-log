@@ -11,6 +11,7 @@ function SinglePost() {
   const { loading, data, error } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: postId },
   });
+  console.log(JSON.stringify(error));
 
   const Post = data?.post || {};
   console.log(Post);

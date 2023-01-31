@@ -18,14 +18,6 @@ export const QUERY_USERS = gql`
         postedAt
         username
         likes
-        comments {
-          commentId
-          CommentText
-          username
-          likes
-          postedAt
-        }
-        commentCount
       }
       friends {
         _id
