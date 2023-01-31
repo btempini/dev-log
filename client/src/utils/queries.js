@@ -57,13 +57,7 @@ export const QUERY_SINGLE_USER = gql`
       posts {
         _id
         commentCount
-        comments {
-          commentId
-          CommentText
-          likes
-          postedAt
-          username
-        }
+
         image
         likes
         postText
@@ -139,52 +133,50 @@ export const QUERY_ME = gql`
     }
   }
 `;
+//add back userProfileId when pushing to live server
 export const QUERY_POSTS = gql`
   query allPosts {
     posts {
-      _id
       commentCount
+      _id
+      comments {
+        _id
+        text
+        commentBy
+        createdAt
+      }
       image
+      likes
       postText
       postTitle
       postedAt
       username
-
-      likes
-      comments {
-        CommentText
-        commentId
-        likes
-        postedAt
-        username
-      }
     }
   }
 `;
 export const QUERY_SINGLE_POST = gql`
-  query Post($postId: ID!) {
+  query singlePosts($postId: ID!) {
     post(postId: $postId) {
       _id
-      commentCount
-      image
-      likes
-      postText
       postTitle
+      postText
+      image
       postedAt
-      userProfileId
       username
+      likes
       comments {
-        commentId
-        CommentText
-        username
-        likes
-        postedAt
+        _id
+        text
+        commentBy
+        createdAt
       }
+      commentCount
+      userProfileId
     }
   }
 `;
-export const QUERY_COMMENTS = `
-query comments {
+export const QUERY_COMMENTS = gql`
+  query comments {
     comments {
       CommentText
       commentId
@@ -193,9 +185,9 @@ query comments {
       username
     }
   }
-  `;
-export const QUERY_SINGLE_COMMENT = `
-query comment($commentId: ID!) {
+`;
+export const QUERY_SINGLE_COMMENT = gql`
+  query comment($commentId: ID!) {
     comment(commentId: $commentId) {
       commentId
       CommentText

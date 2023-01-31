@@ -31,11 +31,11 @@ try {
       userProfileId: String
     }
     type Comment {
-      commentId: ID!
-      CommentText: String!
-      username: String!
-      likes: Int
-      postedAt: String
+      _id: ID!
+      text: String!
+      commentBy: String!
+
+      createdAt: String
     }
 
     type Auth {
@@ -87,7 +87,7 @@ try {
         likes: Int
       ): Post
       deletePost(postId: ID!): Post
-      addComment(CommentText: String!, username: String!): Comment
+      addComment(postId: ID!, text: String!, username: String!): Post
       deleteComment(commentId: ID!): Comment
     }
   `;

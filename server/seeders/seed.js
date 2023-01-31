@@ -1,6 +1,6 @@
 const db = require("../config/connection");
 const { User, Post } = require("../models/");
-const { post } = require("../models/Comment");
+
 const { posts } = require("./postSeeds");
 const { users } = require("./userSeeds");
 

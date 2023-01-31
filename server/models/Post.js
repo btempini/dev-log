@@ -1,6 +1,6 @@
-const { timeStamp } = require("console");
+
 const { Schema, model } = require("mongoose");
-const commentSchema = require("./Comment");
+
 const User = require("./User");
 
 const postSchema = new Schema(
@@ -34,7 +34,25 @@ const postSchema = new Schema(
       type: Number,
       default: 0,
     },
-    comments: [commentSchema],
+    comments: [
+      {
+        text: {
+          type: String,
+          required: true,
+          minlength: 1,
+          maxlength: 280,
+        },
+        commentBy: {
+          type: String,
+          required: true,
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+          get: (timeStamp) => new Date(timeStamp).toDateString(),
+        },
+      },
+    ],
   },
   {
     toJSON: {
