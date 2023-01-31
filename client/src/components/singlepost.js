@@ -1,10 +1,9 @@
 import React from "react";
 import "./styles/singlepost.css";
-import placeholder from "../assets/placeholder.png";
+
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
-import post from "./post";
 
 function SinglePost() {
   const { postId } = useParams();
