@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./styles/userfeed.css";
-import placeholder from "../assets/placeholder.png";
-import avatar from "../assets/Avatar.png";
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
-import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_SINGLE_USER } from "../utils/queries";
 import Post from "./post";
 import { Link } from "react-router-dom";
 import auth from "../utils/auth";
 import axios from "axios";
+import Loading from "./loading";
 
 function UserFeed() {
   useEffect(() => {
     getCode();
   }, []);
+  //get codeWars info from api
   const getCode = async () => {
     try {
       const codeWarsData = await axios.get(
@@ -35,11 +35,11 @@ function UserFeed() {
     rank: { name: ":(" },
     url: "try Again later",
   });
-
+  //post query
   const postsData = useQuery(QUERY_POSTS);
   const posts = postsData.data?.posts || [];
-  console.log(postsData);
   const [user, setUser] = useState({});
+  //user query
   const { loading, data } = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: auth.getProfile().data._id },
   });
@@ -51,10 +51,9 @@ function UserFeed() {
   }, [loading, data]);
 
   if (loading) {
-    return <>loading...</>;
+    return <Loading />;
   }
 
-  console.log(user);
   return (
     // user feed
     <div className="userFeed">

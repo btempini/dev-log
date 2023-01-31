@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const EditProfile = (User) => {
   const navigate = useNavigate();
-  console.log(User);
   let Profile = User.User;
   const [formState, setFormState] = useState({
     username: Profile.username,
@@ -18,7 +17,6 @@ const EditProfile = (User) => {
     github: Profile.github,
   });
 
-  console.log(formState);
   const [editUser, { error, data }] = useMutation(EDIT_USER);
 
   const handleChange = (event) => {

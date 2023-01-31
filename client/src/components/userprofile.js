@@ -1,9 +1,8 @@
 // import React from "react";
 import "./styles/userprofile.css";
 import Loading from "./loading";
-import avatar from "../assets/Avatar.png";
 import React, { useEffect, useState } from "react";
-import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import Post from "../components/post";
@@ -28,14 +27,6 @@ function UserProfile() {
   const gitHubLink = `https://github.com/${User.github}`;
   const mailLink = `mailto:${User.email}`;
 
-  console.log(Posts);
-  //Define user to be reassigned to data later
-  // let User = "";
-  // let Posts = [];
-  //waits till loading is not true to assign the User value to query data
-  console.log(data);
-  console.log(auth.loggedIn(), auth.getProfile().data._id);
-
   useEffect(() => {
     if (auth.loggedIn() && auth.getProfile().data._id === userId) {
       setMeState(true);
@@ -46,8 +37,6 @@ function UserProfile() {
     //basic loading bar
     return <Loading />;
   }
-  console.log(User);
-  console.log(Posts);
 
   if (editState) {
     return <EditProfile User={User} />;
