@@ -57,13 +57,7 @@ export const QUERY_SINGLE_USER = gql`
       posts {
         _id
         commentCount
-        comments {
-          commentId
-          CommentText
-          likes
-          postedAt
-          username
-        }
+
         image
         likes
         postText
@@ -139,6 +133,7 @@ export const QUERY_ME = gql`
     }
   }
 `;
+//add back userProfileId when pushing to live server
 export const QUERY_POSTS = gql`
   query allPosts {
     posts {
@@ -156,7 +151,6 @@ export const QUERY_POSTS = gql`
       postTitle
       postedAt
       username
-      userProfileId
     }
   }
 `;

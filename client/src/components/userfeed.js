@@ -38,7 +38,7 @@ function UserFeed() {
 
   const postsData = useQuery(QUERY_POSTS);
   const posts = postsData.data?.posts || [];
-
+  console.log(postsData);
   const [user, setUser] = useState({});
   const { loading, data } = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: auth.getProfile().data._id },
