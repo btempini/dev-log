@@ -18,14 +18,11 @@ function UserProfile() {
 
   //set up query
 
-  const { loading, data, error } = useQuery(
-    userId ? QUERY_SINGLE_USER : QUERY_ME,
-    {
-      variables: { userId: userId },
-    }
-  );
+  const { loading, data, error } = useQuery(QUERY_SINGLE_USER, {
+    variables: { userId: userId },
+  });
 
-  const User = data?.me || data?.user || {};
+  const User = data?.user || {};
   const Posts = User.posts;
   const gitHubLink = `https://github.com/${User.github}`;
   const mailLink = `mailto:${User.email}`;
