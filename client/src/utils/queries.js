@@ -18,6 +18,14 @@ export const QUERY_USERS = gql`
         postedAt
         username
         likes
+        comments {
+          commentId
+          CommentText
+          username
+          likes
+          postedAt
+        }
+        commentCount
       }
       friends {
         _id
@@ -143,7 +151,6 @@ export const QUERY_POSTS = gql`
       postTitle
       postedAt
       username
-
       likes
     }
   }
@@ -165,7 +172,6 @@ export const QUERY_SINGLE_POST = gql`
         createdAt
       }
       commentCount
-      userProfileId
     }
   }
 `;
