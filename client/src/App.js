@@ -57,7 +57,7 @@ function App() {
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/error" element={<Error />} />
           <Route path="/addpfp" element={<CreatePfp />} />
-          <Route path="*" element={<UserError />}></Route>
+          {/* <Route path="*" element={<UserError />}></Route> */}
           <Route path="/singlepost/:postId" element={<OnePost />} />
         </Routes>
       </Router>
