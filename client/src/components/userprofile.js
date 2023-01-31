@@ -2,7 +2,7 @@
 import "./styles/userprofile.css";
 import Loading from "./loading";
 import React, { useEffect, useState } from "react";
-import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import Post from "../components/post";
