@@ -57,18 +57,6 @@ export const QUERY_SINGLE_USER = gql`
       posts {
         _id
         commentCount
-<<<<<<< HEAD
-        userProfileId
-        comments {
-          commentId
-          CommentText
-          likes
-          postedAt
-          username
-        }
-=======
-
->>>>>>> 988661f3d5a19f0ca9c6c4b22220c4a00409f048
         image
         likes
         postText
