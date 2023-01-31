@@ -153,13 +153,6 @@ export const QUERY_POSTS = gql`
       username
 
       likes
-      comments {
-        CommentText
-        commentId
-        likes
-        postedAt
-        username
-      }
     }
   }
 `;
