@@ -7,6 +7,7 @@ import { QUERY_SINGLE_POST } from "../utils/queries";
 
 function SinglePost() {
   const { postId } = useParams();
+  console.log(postId);
 
   const { loading, data, error } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: postId },
