@@ -160,6 +160,18 @@ export const QUERY_SINGLE_POST = gql`
     post(postId: $postId) {
       _id
       postTitle
+      postText
+      image
+      postedAt
+      username
+      likes
+      comments {
+        _id
+        text
+        commentBy
+        createdAt
+      }
+      commentCount
     }
   }
 `;
