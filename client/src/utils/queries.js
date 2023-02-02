@@ -63,6 +63,7 @@ export const QUERY_SINGLE_USER = gql`
         postTitle
         postedAt
         username
+        userProfileId
       }
       friends {
         DevLvl
@@ -138,6 +139,7 @@ export const QUERY_POSTS = gql`
   query allPosts {
     posts {
       commentCount
+      userProfileId
       _id
       comments {
         _id
@@ -158,6 +160,7 @@ export const QUERY_POSTS = gql`
 export const QUERY_SINGLE_POST = gql`
   query singlePosts($postId: ID!) {
     post(postId: $postId) {
+      userProfileId
       _id
       postTitle
       postText
