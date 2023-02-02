@@ -83,7 +83,10 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (_, { username, fullName, email, password, DevLvl }) => {
+    addUser: async (
+      _,
+      { username, fullName, email, password, DevLvl, github }
+    ) => {
       // add user logic
       const user = await User.create({
         username,
@@ -91,6 +94,7 @@ const resolvers = {
         email,
         password,
         DevLvl,
+        github,
       });
       const token = signToken(user);
 

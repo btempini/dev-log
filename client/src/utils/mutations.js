@@ -8,6 +8,7 @@ export const ADD_USER = gql`
     $email: String!
     $password: String!
     $devLvl: String!
+    $github: String!
   ) {
     addUser(
       username: $username
@@ -15,6 +16,7 @@ export const ADD_USER = gql`
       email: $email
       password: $password
       DevLvl: $devLvl
+      github: $github
     ) {
       token
       user {
