@@ -37,7 +37,7 @@ function UserFeed() {
   });
   //post query
   const postsData = useQuery(QUERY_POSTS);
-  // console.log(JSON.stringify(postsData.error));
+
   const posts = postsData.data?.posts || [];
   const [user, setUser] = useState({});
   //user query

@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/userfeed.css";
 import { Link } from "react-router-dom";
 
-function post({ posts, title }) {
+function post({ posts }) {
   if (!posts.length) {
     return <h2 className="noposts">No posts yet...</h2>;
   }
