@@ -61,6 +61,7 @@ try {
         email: String!
         password: String!
         DevLvl: String!
+        github: String!
       ): Auth
       editUser(
         userId: ID!
