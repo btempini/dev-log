@@ -96,10 +96,10 @@ function UserProfile() {
                 </a>
               </div>
             </div>
-            <div className="bioContainer">
-              <h2 className="bioTitle">Bio</h2>
-              <p className="bioDescription">{User.bio}</p>
-            </div>
+          </div>
+          <div className="bioContainer">
+            <h2 className="bioTitle">Bio</h2>
+            <p className="bioDescription">{User.bio}</p>
           </div>
         </div>
       </div>

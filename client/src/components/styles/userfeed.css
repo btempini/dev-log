@@ -4,7 +4,7 @@
   background-image: url("../../assets/background1-min.png");
   background-attachment: fixed;
   padding: 40px;
-  height: 2000px;
+  min-height: 100vh;
   background-color: #0c100e;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,12 +20,12 @@
 
 .leftAside {
   width: 30%;
-  height: 500px;
+  height: auto;
 }
 
 .rightAside {
   width: 70%;
-  height: 500px;
+  height: auto;
   flex-direction: column;
   margin-left: 10px;
 }
