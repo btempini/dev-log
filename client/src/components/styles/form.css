@@ -57,3 +57,20 @@ select {
   font-family: "Share Tech", sans-serif;
   color: #39ffe8;
 }
+
+@media screen and (max-width: 480px) {
+  .leftHero {
+    width: 100%;
+    background-position-y: -550px;
+  }
+
+  .rightForm {
+    position: absolute;
+    width: 100%;
+    top: 24%;
+  }
+
+  .signupHeader {
+    font-size: 26px;
+  }
+}
