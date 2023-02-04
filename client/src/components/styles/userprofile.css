@@ -4,14 +4,15 @@
   background-image: url("../../assets/background2.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-y: -12px;
   background-color: #0c100e;
-  height: auto;
+  min-height: 100vh;
   padding: 50px;
 }
 
 .profileContainer {
   width: 1160px;
-  height: 250px;
+  height: auto;
   margin: 0 auto;
   display: flex;
 }
