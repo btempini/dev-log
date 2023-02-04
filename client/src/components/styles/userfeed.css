@@ -20,12 +20,12 @@
 
 .leftAside {
   width: 30%;
-  height: 500px;
+  height: auto;
 }
 
 .rightAside {
   width: 70%;
-  height: 500px;
+  height: auto;
   flex-direction: column;
   margin-left: 10px;
 }
