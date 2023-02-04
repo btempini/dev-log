@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
 # About Dev-Log
-Social media for developers! Connect with other devs and create/explore content for your friends!
+Social media for developers!
 
 Are you a developer? Have you ever thought "I have SO MANY FEELINGS, but NO FRIENDS to vent to!!"? Well you are not alone! With Dev-Log you are now able to connect with other devs on a more personal and light-hearted level.
 
