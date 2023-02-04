@@ -36,3 +36,10 @@
   background-position: cover;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 480px) {
+  .modalContainer {
+    bottom: 80px;
+    align-items: end;
+  }
+}

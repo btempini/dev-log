@@ -117,3 +117,9 @@ span {
   height: 20px;
   background: transparent;
 }
+
+@media screen and (max-width: 480px) {
+  .devLog {
+    font-size: 70px;
+  }
+}
