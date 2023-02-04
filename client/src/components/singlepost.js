@@ -1,17 +1,18 @@
 import React from "react";
 import "./styles/singlepost.css";
-import placeholder from "../assets/placeholder.png";
+
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
-import post from "./post";
 
 function SinglePost() {
   const { postId } = useParams();
+  console.log(postId);
 
   const { loading, data, error } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: postId },
   });
+  console.log(JSON.stringify(error));
 
   const Post = data?.post || {};
   console.log(Post);
@@ -37,7 +38,9 @@ function SinglePost() {
             Body: <span className="deets">{Post.postText}</span>
           </p>
           <p className="singleTitle">
-            Posted By: <span className="deets">{Post.username}</span>
+            <Link to={`/profile/${Post.userProfileId}`}>
+              Posted by: {Post.username}
+            </Link>{" "}
           </p>
           <p className="singleTitle">
             Likes: <span className="deets">{Post.likes}</span>

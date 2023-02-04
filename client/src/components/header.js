@@ -30,23 +30,17 @@ const Header = () => {
   };
 
   const searchButton = async () => {
-    console.log(formState);
-    await user({ variables: { username: formState.search } });
-    if (!loading) {
-      console.log(data.username._id);
-      navigate(`/profile/${data.username._id}`);
+    try {
+      const userObject = await user({
+        variables: { username: formState.search },
+      });
+      navigate(`/profile/${userObject.data.username._id}`);
+      return;
+    } catch (error) {
+      console.log(error);
+      //write a error or modal here?
     }
   };
-
-  //ON FORM SUBMIT WE NEED TO QUERY FOR THAT USER!!!!
-  //check the form
-  //set form state
-  //on form submit query
-  //QUERY THAT USER
-  //pass the value of the form as the username query
-  //REDIRECT TO THAT URL PF PAGE
-  //pass navigate with a template string as pfp
-
   return (
     <div className="header" id="top">
       <div>
@@ -55,7 +49,11 @@ const Header = () => {
         </button>
       </div>
       <div id="searchF" className="searchDiv">
-        <button className="searchButton" type="button" onClick={searchButton}>
+        <button
+          className="searchButton"
+          type="button"
+          onClick={() => searchButton()}
+        >
           Search
         </button>
         <input

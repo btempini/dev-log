@@ -8,6 +8,7 @@ export const ADD_USER = gql`
     $email: String!
     $password: String!
     $devLvl: String!
+    $github: String!
   ) {
     addUser(
       username: $username
@@ -15,6 +16,7 @@ export const ADD_USER = gql`
       email: $email
       password: $password
       DevLvl: $devLvl
+      github: $github
     ) {
       token
       user {
@@ -129,13 +131,23 @@ export const DELETE_POST = gql`
   }
 `;
 export const ADD_COMMENT = gql`
-  mutation addComment($commentText: String!, $username: String!) {
-    addComment(CommentText: $commentText, username: $username) {
-      commentId
-      CommentText
+  mutation addComment($postId: ID!, $text: String!, $username: String!) {
+    addComment(postId: $postId, text: $text, username: $username) {
+      _id
+      postTitle
+      postText
+      image
+      postedAt
       username
       likes
-      postedAt
+      comments {
+        _id
+        text
+        commentBy
+        createdAt
+      }
+      commentCount
+      userProfileId
     }
   }
 `;

@@ -56,12 +56,14 @@ const Form = () => {
     // }
 
     try {
+      console.log(formState);
       const { data } = await addUser({
         variables: { ...formState },
       });
       Auth.login(data.addUser.token);
     } catch (e) {
-      console.log(e);
+      console.log(formState);
+      console.log(JSON.stringify(e));
     }
   };
 
@@ -70,7 +72,7 @@ const Form = () => {
   return (
     <div>
       {data ? (
-        (<Navigate to="/feed" /> )
+        <Navigate to="/feed" />
       ) : (
         <div className="signupContainer">
           {modalError && <Modal message={modalError.message} />}

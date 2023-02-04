@@ -64,7 +64,7 @@ const resolvers = {
     comments: async () => {
       try {
         const comments = await Comment.find();
-        return comments;
+        return "comments";
       } catch (err) {
         throw new Error(err);
       }
@@ -83,7 +83,10 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (_, { username, fullName, email, password, DevLvl }) => {
+    addUser: async (
+      _,
+      { username, fullName, email, password, DevLvl, github }
+    ) => {
       // add user logic
       const user = await User.create({
         username,
@@ -91,6 +94,7 @@ const resolvers = {
         email,
         password,
         DevLvl,
+        github,
       });
       const token = signToken(user);
 
@@ -200,18 +204,27 @@ const resolvers = {
         throw new Error(err);
       }
     },
-    addComment: async (_, { CommentText, username }, context) => {
+    addComment: async (_, { postId, text, username }, context) => {
       // check if user is authorized to create this comment
       // create comment logic
       const user = await User.findOne({ username });
       if (!user) {
         throw new AuthenticationError("Not authorized");
       }
-      const newComment = await Comment.create({ CommentText, username });
-      const post = await Post.findById(postId);
-      post.comments.push(newComment);
-      await post.save();
-      return newComment;
+
+      const addedComment = await Post.findOneAndUpdate(
+        { _id: postId },
+        {
+          $addToSet: {
+            comments: { text, commentBy: username },
+          },
+        },
+        { new: true }
+      );
+      if (!addedComment) {
+        throw new Error("Error posting comment !");
+      }
+      return addedComment;
     },
     deleteComment: async (_, { commentId }, context) => {
       try {

@@ -1,8 +1,8 @@
 // import React from "react";
 import "./styles/userprofile.css";
-import avatar from "../assets/Avatar.png";
+import Loading from "./loading";
 import React, { useEffect, useState } from "react";
-import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_SINGLE_USER } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import Post from "../components/post";
@@ -18,25 +18,14 @@ function UserProfile() {
 
   //set up query
 
-  const { loading, data, error } = useQuery(
-    userId ? QUERY_SINGLE_USER : QUERY_ME,
-    {
-      variables: { userId: userId },
-    }
-  );
+  const { loading, data, error } = useQuery(QUERY_SINGLE_USER, {
+    variables: { userId: userId },
+  });
 
-  const User = data?.me || data?.user || {};
+  const User = data?.user || {};
   const Posts = User.posts;
   const gitHubLink = `https://github.com/${User.github}`;
   const mailLink = `mailto:${User.email}`;
-
-  console.log(Posts);
-  //Define user to be reassigned to data later
-  // let User = "";
-  // let Posts = [];
-  //waits till loading is not true to assign the User value to query data
-  console.log(data);
-  console.log(auth.loggedIn(), auth.getProfile().data._id);
 
   useEffect(() => {
     if (auth.loggedIn() && auth.getProfile().data._id === userId) {
@@ -46,10 +35,8 @@ function UserProfile() {
 
   if (loading) {
     //basic loading bar
-    return <div>Loading...</div>;
+    return <Loading />;
   }
-  console.log(User);
-  console.log(Posts);
 
   if (editState) {
     return <EditProfile User={User} />;
@@ -109,10 +96,10 @@ function UserProfile() {
                 </a>
               </div>
             </div>
-            <div className="bioContainer">
-              <h2 className="bioTitle">Bio</h2>
-              <p className="bioDescription">{User.bio}</p>
-            </div>
+          </div>
+          <div className="bioContainer">
+            <h2 className="bioTitle">Bio</h2>
+            <p className="bioDescription">{User.bio}</p>
           </div>
         </div>
       </div>

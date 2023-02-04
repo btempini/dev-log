@@ -4,9 +4,10 @@ import { useMutation } from "@apollo/client";
 import { EDIT_USER } from "../utils/mutations";
 import auth from "../utils/auth";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = (User) => {
-  console.log(User);
+  const navigate = useNavigate();
   let Profile = User.User;
   const [formState, setFormState] = useState({
     username: Profile.username,
@@ -16,7 +17,6 @@ const EditProfile = (User) => {
     github: Profile.github,
   });
 
-  console.log(formState);
   const [editUser, { error, data }] = useMutation(EDIT_USER);
 
   const handleChange = (event) => {
@@ -33,6 +33,7 @@ const EditProfile = (User) => {
       const { data } = await editUser({
         variables: { userId: Profile._id, ...formState },
       });
+      window.location.reload();
     } catch (e) {
       console.log(e);
     }
@@ -45,7 +46,7 @@ const EditProfile = (User) => {
   return (
     <>
       {data ? (
-        (window.location.href = `/profile/${Profile._id}`)
+        console.log(error)
       ) : (
         <form onSubmit={handleFormSubmit}>
           <div className="profilePage" key={Profile._id}>

@@ -1,13 +1,11 @@
 import React from "react";
 import "./styles/userfeed.css";
-import placeholder from "../assets/placeholder.png";
 import { Link } from "react-router-dom";
 
-function post({ posts, title }) {
+function post({ posts }) {
   if (!posts.length) {
     return <h2 className="noposts">No posts yet...</h2>;
   }
-  console.log(posts);
   return (
     <div className="postContainer">
       {posts &&
