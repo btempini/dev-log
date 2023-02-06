@@ -46,3 +46,21 @@ html {
 .searchDiv .tooltip .arrow {
   background-color: #39ffe8;
 }
+
+@media screen and (max-width: 480px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .searchDiv {
+    width: 75%;
+    justify-content: space-between;
+  }
+
+  .searchButton,
+  .findFriends,
+  .logoutButton,
+  .viewProfile {
+    font-size: 15px;
+  }
+}

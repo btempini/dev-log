@@ -23,6 +23,6 @@
     position: absolute;
     bottom: 0;
     right: 79px;
-    display: flex;
+    display: none;
   }
 }
