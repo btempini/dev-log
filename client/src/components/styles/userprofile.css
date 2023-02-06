@@ -18,7 +18,7 @@
 }
 
 .largeAvatar {
-  height: 200px;
+  height: 175px;
   border: 2px solid #39ffe8;
   border-radius: 100px;
   min-width: 178px;
@@ -208,4 +208,10 @@
   align-items: center;
   font-family: "Lekton", sans-serif;
   color: rgba(57, 255, 232);
+}
+
+@media screen and (max-width: 480px) {
+  .postData {
+    padding-left: 6px;
+  }
 }

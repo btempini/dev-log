@@ -178,7 +178,7 @@
 }
 
 .codeWarsDaily {
-  color: white;
+  color: #7271f8;
   font-family: "Share Tech", sans-serif;
   margin: 15px;
   font-size: 30px;
@@ -195,7 +195,7 @@
 }
 
 .codeWarsTitles {
-  color: white;
+  color: #39ffe8;
   font-family: "Share Tech", sans-serif;
   margin-left: 15px;
   margin-top: 25px;
@@ -224,4 +224,61 @@ a {
   margin-top: 0px;
   margin-left: 600px;
   background-color: transparent;
+}
+
+@media screen and (max-width: 480px) {
+  .userFeed {
+    padding: 5px;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .consoleContainer {
+    width: 100%;
+  }
+
+  .leftAside {
+    width: 100%;
+  }
+
+  .codeWarsContainer {
+    width: 99%;
+  }
+
+  .rightAside {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .consoleLog {
+    margin: 0;
+  }
+
+  .largerPost {
+    width: 100%;
+  }
+
+  .postButton {
+    margin-top: 15px;
+  }
+
+  .postData {
+    width: 93%;
+  }
+
+  .postContainer {
+    width: 94%;
+    padding: 10px;
+  }
+
+  .avatarContainer {
+    margin-top: 20px;
+  }
+
+  .viewProfile {
+    width: 100px;
+  }
 }
