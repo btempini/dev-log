@@ -140,7 +140,7 @@ export const QUERY_POSTS = gql`
     posts {
       commentCount
       # COMMENT BACK IN BEFORE PRODUCTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      userProfileId
+      # userProfileId
       _id
       comments {
         _id
