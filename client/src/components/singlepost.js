@@ -24,7 +24,19 @@ function SinglePost() {
   return (
     <div className="singlePostPage">
       <div className="singlePostWrapper">
-        <div className="singlePostImageWrapper">
+        <div className="singlePostHeader">
+          <h1 className="singlePostTitle"> Title: {Post.postTitle}</h1>
+          <h2 className="singlePostDate">Date: {Post.postedAt}</h2>
+        </div>
+        <div className="singlePostBodyDiv">
+          <div className="singlePostImageDiv">
+            <img className="singlePostImage" src={Post.image}></img>
+            <br></br>
+            <p className="singlePostBody">Body: {Post.postText}</p>
+          </div>
+        </div>
+
+        {/* <div className="singlePostImageWrapper">
           <img className="singlePostImage" alt="placeholder" src={Post.image} />
         </div>
         <div className="rightSingle">
@@ -45,11 +57,11 @@ function SinglePost() {
           <p className="singleTitle">
             Likes: <span className="deets">{Post.likes}</span>
           </p>
-        </div>
+        </div> */}
       </div>
-      <Link to="/feed">
+      {/* <Link to="/feed">
         <button className="backFeed">Back to feed</button>
-      </Link>
+      </Link> */}
     </div>
   );
 }
