@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/singlepost.css";
+import commentIcon from "../assets/commentIcon.png";
 
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -32,36 +33,35 @@ function SinglePost() {
           <div className="singlePostImageDiv">
             <img className="singlePostImage" src={Post.image}></img>
             <br></br>
-            <p className="singlePostBody">Body: {Post.postText}</p>
+
+            <h3 className="singlePostAuthor">
+              <Link to={`/profile/${Post.userProfileId}`}>
+                Posted by: {Post.username}
+              </Link>{" "}
+            </h3>
+            <br></br>
+            <a>
+              <img src={commentIcon}></img>
+            </a>
+
+            <br></br>
+            <h5 className="singlePostBody">{Post.postText}</h5>
           </div>
         </div>
-
-        {/* <div className="singlePostImageWrapper">
-          <img className="singlePostImage" alt="placeholder" src={Post.image} />
-        </div>
-        <div className="rightSingle">
-          <p className="singleTitle">
-            Title:<span className="deets">{Post.postTitle}</span>{" "}
-          </p>
-          <p className="singleTitle">
-            Date: <span className="deets">{Post.postedAt}</span>
-          </p>
-          <p className="singleTitle">
-            Body: <span className="deets">{Post.postText}</span>
-          </p>
-          <p className="singleTitle">
-            <Link to={`/profile/${Post.userProfileId}`}>
-              Posted by: {Post.username}
-            </Link>{" "}
-          </p>
-          <p className="singleTitle">
-            Likes: <span className="deets">{Post.likes}</span>
-          </p>
-        </div> */}
+        {Post.comments.length > 0 ? (
+          <></>
+        ) : (
+          <>
+            <div></div>
+          </>
+        )}
       </div>
-      {/* <Link to="/feed">
-        <button className="backFeed">Back to feed</button>
-      </Link> */}
+      <br></br>
+      <div className="singlePageButtonDiv">
+        <Link to="/feed">
+          <button className="backFeed">Back to feed</button>
+        </Link>
+      </div>
     </div>
   );
 }
