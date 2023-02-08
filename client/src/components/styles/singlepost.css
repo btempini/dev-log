@@ -67,6 +67,21 @@
   justify-content: center;
 }
 
+.singlePostCommentIcon:hover {
+  cursor: pointer;
+}
+
+.singlePostForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.singlePostSubmit {
+  display: flex;
+  justify-content: center;
+}
+
 .backFeed {
   color: #0c100e;
   padding: 17px;
