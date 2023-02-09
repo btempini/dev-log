@@ -1,52 +1,92 @@
 @import url("https://fonts.googleapis.com/css2?family=Lekton&family=Share+Tech+Mono&display=swap");
 
 .singlePostPage {
-  background-color: #0c100e;
+  background-color: #161616;
   width: 100%;
-  height: 95vh;
-  display: flex;
+  min-height: 100vh;
+  background-size: cover;
+  /* display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   font-family: "Share Tech", sans-serif;
-  color: #39ffe8;
+  color: hsl(173, 100%, 61%);
 }
 
-.singlePostWrapper {
-  margin-top: -30px;
-  margin-bottom: 5px;
-  width: 50%;
-  border: 2px solid #39ffe8;
+.singePostWrapper {
+}
+
+.singlePostHeader {
+  padding-top: 5%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
-.singlePostImageWrapper {
+.singlePostTitle {
+  font-size: 5vw;
+}
+.singlePostDate {
+  font-size: 4vw;
+}
+.singlePostBodyDiv {
   display: flex;
   justify-content: center;
+}
+.singlePostImageDiv {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  overflow: hidden;
-  margin: 20px;
-  border: 2px solid #7271f8;
 }
 
 .singlePostImage {
-  object-fit: cover;
-  max-height: 500px;
-  max-width: 500px;
+  border: 1px solid hsl(173, 100%, 61%);
+  width: 87vw;
+}
+.singlePostAuthor {
+  font-size: 4vw;
+  text-decoration: underline;
+  color: hsl(173, 100%, 61%) !important;
 }
 
-.rightSingle {
-  height: auto;
+.singlePostAuthor a {
+  color: hsl(173, 100%, 61%) !important;
+}
+
+.singlePostIcons {
+  display: flex;
+  justify-content: space-between;
+}
+.singlePostBody {
+  font-size: 4vw;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.singlePageButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.singlePostCommentIcon:hover {
+  cursor: pointer;
+}
+
+.singlePostForm {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  max-width: 440px;
+  align-items: center;
 }
 
-.singleTitle {
-  margin: 5px;
+.singlePostSubmit {
+  display: flex;
+  justify-content: center;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .backFeed {
@@ -57,7 +97,69 @@
   margin: 10px;
 }
 
-.deets {
-  text-decoration: none;
-  color: white;
+.commentHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Tablet styles */
+@media only screen and (min-width: 768px) {
+  .singlePostImage {
+    border: 1px solid hsl(173, 100%, 61%);
+    width: 50vw;
+  }
+  .singlePostTitle {
+    font-size: 24px;
+  }
+  .singlePostDate {
+    font-size: 22px;
+  }
+  .singlePostHeader {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .singlePostAuthor {
+    font-size: 20px;
+    text-decoration: underline;
+    color: hsl(173, 100%, 61%) !important;
+  }
+  .singlePostBody {
+    font-size: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .singlePostImage {
+    border: 1px solid hsl(173, 100%, 61%);
+    width: 30vw;
+  }
+  .singlePostTitle {
+    font-size: 24px;
+  }
+  .singlePostDate {
+    font-size: 22px;
+  }
+  .singlePostHeader {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .singlePostAuthor {
+    font-size: 18px;
+    text-decoration: underline;
+    color: hsl(173, 100%, 61%) !important;
+  }
+  .singlePostBody {
+    font-size: 16px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
 }
