@@ -3,7 +3,8 @@
 .singlePostPage {
   background-color: #161616;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  background-size: cover;
   /* display: flex;
   justify-content: center;
   flex-direction: column;
@@ -82,12 +83,24 @@
   justify-content: center;
 }
 
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .backFeed {
   color: #0c100e;
   padding: 17px;
   width: 270px;
   border-radius: 27px;
   margin: 10px;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* Tablet styles */
 @media only screen and (min-width: 768px) {

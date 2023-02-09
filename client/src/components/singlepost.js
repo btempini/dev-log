@@ -17,8 +17,10 @@ function SinglePost() {
     console.log(JSON.stringify(error));
   }
   const Post = data?.post || {};
-  console.log(Post);
+  const comments = Post.comments;
 
+  console.log(Post);
+  console.log(comments);
   const [commentState, setCommentState] = useState(false);
   const [addComment] = useMutation(ADD_COMMENT);
   const [formState, setFormState] = useState({
@@ -42,7 +44,11 @@ function SinglePost() {
       const { data } = await addComment({
         variables: { ...formState },
       });
-      window.location.reload();
+      setFormState({
+        ...formState,
+        text: "",
+      });
+      setCommentState(false);
     } catch (e) {
       console.log(e);
     }
@@ -72,7 +78,9 @@ function SinglePost() {
             <br></br>
             <a
               className="singlePostCommentIcon"
-              onClick={() => setCommentState(true)}
+              onClick={() =>
+                !commentState ? setCommentState(true) : setCommentState(false)
+              }
             >
               <img src={commentIcon} />
             </a>
@@ -98,7 +106,22 @@ function SinglePost() {
           </div>
         </div>
         {Post.comments.length > 0 ? (
-          <></>
+          <>
+            <br></br>
+            <section className="commentContainer">
+              <h2>Comments:</h2>
+              {comments &&
+                comments.map((comment) => (
+                  <>
+                    <div className="commentHeader">
+                      <h4>{comment.commentBy}</h4>
+                      <span>{comment.createdAt} :</span>
+                    </div>
+                    <p>{comment.text}</p>
+                  </>
+                ))}
+            </section>
+          </>
         ) : (
           <>
             <div></div>
