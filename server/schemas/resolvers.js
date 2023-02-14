@@ -239,6 +239,24 @@ const resolvers = {
         throw new Error(err);
       }
     },
+    addFollower: async (_, { userId, followingId, followingUsername }) => {
+      const newFollower = await User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: {
+            friends: {
+              friendId: followingId,
+              friendUsername: followingUsername,
+            },
+          },
+        },
+        { new: true }
+      );
+      if (!followingId) {
+        throw new Error("No user with that ID to add");
+      }
+      return newFollower;
+    },
   },
 };
 module.exports = resolvers;

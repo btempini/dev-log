@@ -90,6 +90,11 @@ try {
       deletePost(postId: ID!): Post
       addComment(postId: ID!, text: String!, username: String!): Post
       deleteComment(commentId: ID!): Comment
+      addFollower(
+        userId: ID!
+        followingId: ID!
+        followingUsername: String!
+      ): User
     }
   `;
   module.exports = typeDefs;
