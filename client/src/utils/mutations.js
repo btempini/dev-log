@@ -57,10 +57,9 @@ export const LOGIN_USER = gql`
         #   postText
         # }
         friends {
-          DevLvl
+          friendId
           _id
-          username
-          fullName
+          friendUsername
         }
         bio
         DevLvl
@@ -164,7 +163,7 @@ export const DELETE_COMMENT = gql`
 `;
 
 export const ADD_FOLLOWER = gql`
-  mutation AddFollower(
+  mutation Mutation(
     $userId: ID!
     $followingId: ID!
     $followingUsername: String!
@@ -175,11 +174,6 @@ export const ADD_FOLLOWER = gql`
       followingUsername: $followingUsername
     ) {
       _id
-
-      friends {
-        _id
-        username
-      }
     }
   }
 `;

@@ -3,16 +3,18 @@ import "./styles/userprofile.css";
 import Loading from "./loading";
 import React, { useEffect, useState } from "react";
 import { QUERY_SINGLE_USER } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import Post from "../components/post";
 import EditProfile from "./editProfile";
 import auth from "../utils/auth";
+import { ADD_FOLLOWER } from "../utils/mutations";
 
 function UserProfile() {
   const [editState, setEditState] = useState(false);
   const [meState, setMeState] = useState(false);
   const [followingState, setFollowingState] = useState(false);
+  const [addFollower] = useMutation(ADD_FOLLOWER);
   //grabs the profile id from the params
   //url looks like heroku/devlog/USER-ID
   const { userId } = useParams();
@@ -66,6 +68,22 @@ function UserProfile() {
     // }
   }, [userData, userId, userDataRaw.data]);
 
+  const handleAddFriend = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await addFollower({
+        variables: {
+          userId: loggedInUser.data._id,
+          followingId: userId,
+          followingUsername: User.username,
+        },
+      });
+      window.location.reload();
+    } catch (e) {
+      console.error(JSON.stringify(e));
+    }
+  };
+
   if (userDataRaw.loading || userLoading) {
     return <Loading />;
   }
@@ -110,7 +128,9 @@ function UserProfile() {
             <>
               {" "}
               <>
-                <button className="profileButton">Follow</button>
+                <button onClick={handleAddFriend} className="profileButton">
+                  Follow
+                </button>
               </>
             </>
           )}

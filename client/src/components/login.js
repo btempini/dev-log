@@ -31,7 +31,7 @@ const Login = (props) => {
       Auth.login(data.login.token);
       navigate("/feed");
     } catch (e) {
-      console.error(e);
+      console.error(JSON.stringify(e));
     }
     setFormState({
       email: "",
