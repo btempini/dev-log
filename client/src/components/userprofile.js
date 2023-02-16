@@ -12,9 +12,31 @@ import auth from "../utils/auth";
 function UserProfile() {
   const [editState, setEditState] = useState(false);
   const [meState, setMeState] = useState(false);
+  const [followingState, setFollowingState] = useState(false);
   //grabs the profile id from the params
   //url looks like heroku/devlog/USER-ID
   const { userId } = useParams();
+
+  const loggedInUser = auth.getProfile();
+
+  const userDataRaw = useQuery(QUERY_SINGLE_USER, {
+    variables: { userId: loggedInUser.data._id },
+  });
+  const userData = userDataRaw.data;
+  console.log(userData);
+  // const friends = userData.data.user.friends;
+  // console.log(friends);
+  if (userData) {
+    let friends = userData.user.friends;
+    console.log(friends);
+    friends.map((friend) => {
+      console.log(friend.friendId);
+      if (friend._id === userId) {
+        setFollowingState(true);
+        console.log(followingState);
+      }
+    });
+  }
 
   //set up query
 
@@ -62,7 +84,9 @@ function UserProfile() {
               </button>
             </>
           ) : (
-            <></>
+            <>
+              <button className="profileButton">Follow</button>
+            </>
           )}
         </div>
         <div className="rightProfile">

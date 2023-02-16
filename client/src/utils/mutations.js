@@ -162,6 +162,27 @@ export const DELETE_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_FOLLOWER = gql`
+  mutation AddFollower(
+    $userId: ID!
+    $followingId: ID!
+    $followingUsername: String!
+  ) {
+    addFollower(
+      userId: $userId
+      followingId: $followingId
+      followingUsername: $followingUsername
+    ) {
+      _id
+
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
 export const EDIT_USER = gql`
   mutation Mutation(
     $userId: ID!

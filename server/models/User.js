@@ -34,7 +34,6 @@ const userSchema = new Schema({
     {
       friendId: {
         type: Schema.Types.ObjectId,
-        ref: "User",
       },
       friendUsername: {
         type: String,

@@ -12,7 +12,7 @@ try {
       email: String!
       password: String!
       posts: [Post]
-      friends: [User]
+      friends: [Friend]
       bio: String
       DevLvl: String!
       github: String
@@ -36,6 +36,11 @@ try {
       commentBy: String!
 
       createdAt: String
+    }
+    type Friend {
+      _id: ID!
+      friendId: ID!
+      friendUsername: String!
     }
 
     type Auth {
