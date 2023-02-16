@@ -21,30 +21,25 @@ function UserProfile() {
 
   const userDataRaw = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: loggedInUser.data._id },
+    skip: !loggedInUser.data._id, // skip the query if the user is not logged in
+    fetchPolicy: "network-only", // force the query to fetch data from the server, not the cache
   });
   const userData = userDataRaw.data;
   console.log(userData);
-  // const friends = userData.data.user.friends;
-  // console.log(friends);
-  if (userData) {
-    let friends = userData.user.friends;
-    console.log(friends);
-    friends.map((friend) => {
-      console.log(friend.friendId);
-      if (friend._id === userId) {
-        setFollowingState(true);
-        console.log(followingState);
-      }
-    });
-  }
+
+  console.log(userData);
 
   //set up query
 
-  const { loading, data, error } = useQuery(QUERY_SINGLE_USER, {
+  const {
+    loading: userLoading,
+    data: userData2,
+    error: userError,
+  } = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: userId },
   });
 
-  const User = data?.user || {};
+  const User = userData2?.user || {};
   const Posts = User.posts;
   const gitHubLink = `https://github.com/${User.github}`;
   const mailLink = `mailto:${User.email}`;
@@ -53,9 +48,33 @@ function UserProfile() {
     if (auth.loggedIn() && auth.getProfile().data._id === userId) {
       setMeState(true);
     }
-  }, []);
 
-  if (loading) {
+    if (userData) {
+      let friends = userData.user.friends;
+      console.log(friends);
+      friends.map((friend) => {
+        console.log(friend.friendId);
+        console.log(userId);
+        if (friend.friendId === userId) {
+          setFollowingState(true);
+          console.log(followingState);
+        }
+      });
+    }
+    // if (userDataRaw.data) {
+    //   checkFollow();
+    // }
+  }, [userData, userId, userDataRaw.data]);
+
+  if (userDataRaw.loading || userLoading) {
+    return <Loading />;
+  }
+
+  if (userDataRaw.error || userError) {
+    return <div>Failed to load user data</div>;
+  }
+
+  if (userLoading) {
     //basic loading bar
     return <Loading />;
   }
@@ -83,9 +102,16 @@ function UserProfile() {
                 </Link>
               </button>
             </>
+          ) : followingState ? (
+            <>
+              <button className="profileButton">Following!</button>
+            </>
           ) : (
             <>
-              <button className="profileButton">Follow</button>
+              {" "}
+              <>
+                <button className="profileButton">Follow</button>
+              </>
             </>
           )}
         </div>
