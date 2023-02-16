@@ -57,10 +57,9 @@ export const LOGIN_USER = gql`
         #   postText
         # }
         friends {
-          DevLvl
+          friendId
           _id
-          username
-          fullName
+          friendUsername
         }
         bio
         DevLvl
@@ -159,6 +158,22 @@ export const DELETE_COMMENT = gql`
       username
       likes
       postedAt
+    }
+  }
+`;
+
+export const ADD_FOLLOWER = gql`
+  mutation Mutation(
+    $userId: ID!
+    $followingId: ID!
+    $followingUsername: String!
+  ) {
+    addFollower(
+      userId: $userId
+      followingId: $followingId
+      followingUsername: $followingUsername
+    ) {
+      _id
     }
   }
 `;

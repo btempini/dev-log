@@ -3,26 +3,45 @@ import "./styles/userprofile.css";
 import Loading from "./loading";
 import React, { useEffect, useState } from "react";
 import { QUERY_SINGLE_USER } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import Post from "../components/post";
 import EditProfile from "./editProfile";
 import auth from "../utils/auth";
+import { ADD_FOLLOWER } from "../utils/mutations";
 
 function UserProfile() {
   const [editState, setEditState] = useState(false);
   const [meState, setMeState] = useState(false);
+  const [followingState, setFollowingState] = useState(false);
+  const [addFollower] = useMutation(ADD_FOLLOWER);
   //grabs the profile id from the params
   //url looks like heroku/devlog/USER-ID
   const { userId } = useParams();
 
+  const loggedInUser = auth.getProfile();
+
+  const userDataRaw = useQuery(QUERY_SINGLE_USER, {
+    variables: { userId: loggedInUser.data._id },
+    skip: !loggedInUser.data._id, // skip the query if the user is not logged in
+    fetchPolicy: "network-only", // force the query to fetch data from the server, not the cache
+  });
+  const userData = userDataRaw.data;
+  console.log(userData);
+
+  console.log(userData);
+
   //set up query
 
-  const { loading, data, error } = useQuery(QUERY_SINGLE_USER, {
+  const {
+    loading: userLoading,
+    data: userData2,
+    error: userError,
+  } = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: userId },
   });
 
-  const User = data?.user || {};
+  const User = userData2?.user || {};
   const Posts = User.posts;
   const gitHubLink = `https://github.com/${User.github}`;
   const mailLink = `mailto:${User.email}`;
@@ -31,9 +50,49 @@ function UserProfile() {
     if (auth.loggedIn() && auth.getProfile().data._id === userId) {
       setMeState(true);
     }
-  }, []);
 
-  if (loading) {
+    if (userData) {
+      let friends = userData.user.friends;
+      console.log(friends);
+      friends.map((friend) => {
+        console.log(friend.friendId);
+        console.log(userId);
+        if (friend.friendId === userId) {
+          setFollowingState(true);
+          console.log(followingState);
+        }
+      });
+    }
+    // if (userDataRaw.data) {
+    //   checkFollow();
+    // }
+  }, [userData, userId, userDataRaw.data]);
+
+  const handleAddFriend = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await addFollower({
+        variables: {
+          userId: loggedInUser.data._id,
+          followingId: userId,
+          followingUsername: User.username,
+        },
+      });
+      window.location.reload();
+    } catch (e) {
+      console.error(JSON.stringify(e));
+    }
+  };
+
+  if (userDataRaw.loading || userLoading) {
+    return <Loading />;
+  }
+
+  if (userDataRaw.error || userError) {
+    return <div>Failed to load user data</div>;
+  }
+
+  if (userLoading) {
     //basic loading bar
     return <Loading />;
   }
@@ -61,8 +120,19 @@ function UserProfile() {
                 </Link>
               </button>
             </>
+          ) : followingState ? (
+            <>
+              <button className="profileButton">Following!</button>
+            </>
           ) : (
-            <></>
+            <>
+              {" "}
+              <>
+                <button onClick={handleAddFriend} className="profileButton">
+                  Follow
+                </button>
+              </>
+            </>
           )}
         </div>
         <div className="rightProfile">
