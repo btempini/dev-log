@@ -43,36 +43,38 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_SINGLE_USER = gql`
-  query singleProfile($userId: ID!) {
+  query querySingleUser($userId: ID!) {
     user(userId: $userId) {
-      DevLvl
       _id
-      bio
-      email
-      fullName
-      github
-      password
       username
+      fullName
+      email
+      password
+      friends {
+        _id
+        friendId
+        friendUsername
+      }
+      bio
+      DevLvl
+      github
       profilePhoto
       posts {
         _id
-        commentCount
-        image
-        likes
-        postText
         postTitle
+        postText
+        image
         postedAt
         username
+        likes
+        comments {
+          _id
+          text
+          commentBy
+          createdAt
+        }
+        commentCount
         userProfileId
-      }
-      friends {
-        DevLvl
-        _id
-        bio
-        email
-        fullName
-        github
-        username
       }
     }
   }
