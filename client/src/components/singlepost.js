@@ -62,8 +62,15 @@ function SinglePost() {
     <div className="singlePostPage">
       <div className="singlePostWrapper">
         <div className="singlePostHeader">
-          <h1 className="singlePostTitle"> Title: {Post.postTitle}</h1>
-          <h2 className="singlePostDate">Date: {Post.postedAt}</h2>
+          <h1 className="singlePostTitle">
+            {" "}
+            <span className="purps">Title: </span>
+            {Post.postTitle}
+          </h1>
+          <h2 className="singlePostDate">
+            <span className="purps">Date: </span>
+            {Post.postedAt}
+          </h2>
         </div>
         <div className="singlePostBodyDiv">
           <div className="singlePostImageDiv">
@@ -76,50 +83,53 @@ function SinglePost() {
               </Link>{" "}
             </h3>
             <br></br>
-            <a
-              className="singlePostCommentIcon"
-              onClick={() =>
-                !commentState ? setCommentState(true) : setCommentState(false)
-              }
-            >
-              <img src={commentIcon} />
-            </a>
-            {commentState ? (
-              <>
-                <form onSubmit={handleFormSubmit} className="singlePostForm">
-                  <input
-                    placeholder="Comment ..."
-                    type="text"
-                    name="text"
-                    value={formState.text}
-                    onChange={handleChange}
-                  ></input>
-                  <button className="singlePostSubmit">Submit</button>
-                </form>
-              </>
-            ) : (
-              <></>
-            )}
-
-            <br></br>
             <h5 className="singlePostBody">{Post.postText}</h5>
+            <div className="commentContainer">
+              <a
+                className="singlePostCommentIcon"
+                onClick={() =>
+                  !commentState ? setCommentState(true) : setCommentState(false)
+                }
+              >
+                <span class="commentText">Leave a comment?</span>
+                <img src={commentIcon} />
+              </a>
+              {commentState ? (
+                <>
+                  <form onSubmit={handleFormSubmit} className="singlePostForm">
+                    <input
+                      placeholder="Comment ..."
+                      type="text"
+                      name="text"
+                      value={formState.text}
+                      onChange={handleChange}
+                    ></input>
+                    <button className="singlePostSubmit">Submit</button>
+                  </form>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         </div>
         {Post.comments.length > 0 ? (
           <>
             <br></br>
             <section className="commentContainer">
-              <h2>Comments:</h2>
-              {comments &&
-                comments.map((comment) => (
-                  <>
-                    <div className="commentHeader">
-                      <h4>{comment.commentBy}</h4>
-                      <span>{comment.createdAt} :</span>
-                    </div>
-                    <p>{comment.text}</p>
-                  </>
-                ))}
+              <h2 className="purps">Comments:</h2>
+              <div className="commentSingle">
+                {comments &&
+                  comments.map((comment) => (
+                    <>
+                      <div className="commentHeader">
+                        <h4>{comment.commentBy}</h4>
+                        <span>{comment.createdAt} :</span>
+                        <p>{comment.text}</p>
+                      </div>
+                    </>
+                  ))}
+              </div>
             </section>
           </>
         ) : (
