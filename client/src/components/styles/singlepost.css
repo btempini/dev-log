@@ -13,9 +13,6 @@
   color: hsl(173, 100%, 61%);
 }
 
-.singePostWrapper {
-}
-
 .singlePostHeader {
   padding-top: 5%;
   display: flex;
@@ -50,7 +47,7 @@
 }
 
 .singlePostAuthor a {
-  color: hsl(173, 100%, 61%) !important;
+  color: #7271f8 !important;
 }
 
 .singlePostIcons {
@@ -102,6 +99,34 @@
   justify-content: center;
   align-items: center;
 }
+
+.commentText {
+  color: #7271f8;
+}
+
+.commentContainer {
+  margin-top: 20px;
+}
+
+.singlePostCommentIcon {
+  display: flex;
+  align-items: center;
+}
+
+.purps {
+  color: #7271f8;
+}
+
+.commentSingle {
+  margin-top: 20px;
+  width: 30%;
+  border: 1px solid;
+}
+
+.commentHeader p {
+  color: white;
+}
+
 /* Tablet styles */
 @media only screen and (min-width: 768px) {
   .singlePostImage {

@@ -214,4 +214,8 @@
   .postData {
     padding-left: 6px;
   }
+
+  .bottomRight {
+    position: static;
+  }
 }
