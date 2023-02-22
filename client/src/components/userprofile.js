@@ -29,8 +29,6 @@ function UserProfile() {
   const userData = userDataRaw.data;
   console.log(userData);
 
-  console.log(userData);
-
   //set up query
 
   const {
@@ -42,9 +40,11 @@ function UserProfile() {
   });
 
   const User = userData2?.user || {};
+  const Friends = User.friends;
   const Posts = User.posts;
   const gitHubLink = `https://github.com/${User.github}`;
   const mailLink = `mailto:${User.email}`;
+  console.log(Friends);
 
   useEffect(() => {
     if (auth.loggedIn() && auth.getProfile().data._id === userId) {
@@ -100,7 +100,7 @@ function UserProfile() {
   if (editState) {
     return <EditProfile User={User} />;
   }
-
+  console.log(Friends.length);
   return (
     <div className="profilePage" key={User._id}>
       <div className="profileContainer">
@@ -170,6 +170,20 @@ function UserProfile() {
           <div className="bioContainer">
             <h2 className="bioTitle">Bio</h2>
             <p className="bioDescription">{User.bio}</p>
+          </div>
+          <div className="bioContainer">
+            <h2 className="bioTitle">Follows:</h2>
+            {Friends.length !== 0 ? (
+              Friends.map((friend) => (
+                <p>
+                  <Link reloadDocument to={`/profile/${friend.friendId}`}>
+                    {friend.friendUsername}
+                  </Link>
+                </p>
+              ))
+            ) : (
+              <p>No one...console.log("Thats sad!)"</p>
+            )}
           </div>
         </div>
       </div>
