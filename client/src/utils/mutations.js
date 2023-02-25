@@ -123,9 +123,7 @@ export const EDIT_POST = gql`
 export const DELETE_POST = gql`
   mutation Mutation($postId: ID!) {
     deletePost(postId: $postId) {
-      _id
-      postText
-      postTitle
+      commentCount
     }
   }
 `;

@@ -46,6 +46,15 @@
   color: hsl(173, 100%, 61%) !important;
 }
 
+.singlePostDelete {
+  color: rgb(168, 2, 2);
+  text-decoration: underline;
+}
+
+.singlePostDelete:hover {
+  cursor: pointer;
+}
+
 .singlePostAuthor a {
   color: #7271f8 !important;
 }
