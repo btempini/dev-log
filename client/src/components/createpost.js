@@ -84,7 +84,7 @@ const CreatePost = () => {
         const { data } = await addPost({
           variables: { ...postData },
         });
-        navigate("/feed");
+        window.location.replace("/feed");
       } else {
         const postData = {
           postTitle: formState.postTitle,
@@ -97,12 +97,12 @@ const CreatePost = () => {
         const { data } = await addPost({
           variables: { ...postData },
         });
-        navigate("/feed");
+        window.location.replace("/feed");
       }
     } catch (error) {
       console.log(JSON.stringify(error));
       console.log("Upload Error");
-      navigate("/feed");
+      window.location.replace("/feed");
     }
   };
 

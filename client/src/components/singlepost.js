@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/singlepost.css";
 import commentIcon from "../assets/commentIcon.png";
 
@@ -6,10 +6,11 @@ import { Link, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import auth from "../utils/auth";
-import { ADD_COMMENT } from "../utils/mutations";
+import { ADD_COMMENT, DELETE_POST } from "../utils/mutations";
 
 function SinglePost() {
   const { postId } = useParams();
+  const [delPost] = useMutation(DELETE_POST);
   const { loading, data, error } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: postId },
   });
@@ -22,6 +23,7 @@ function SinglePost() {
   console.log(Post);
   console.log(comments);
   const [commentState, setCommentState] = useState(false);
+  const [meState, setMeState] = useState(false);
   const [addComment] = useMutation(ADD_COMMENT);
   const [formState, setFormState] = useState({
     text: "",
@@ -54,6 +56,29 @@ function SinglePost() {
     }
   };
 
+  const deletePost = async (event) => {
+    console.log("working");
+
+    try {
+      const { data } = await delPost({
+        variables: {
+          postId: postId,
+        },
+      });
+      window.location.replace("/feed");
+    } catch (e) {
+      console.error(JSON.stringify(e));
+      window.alert("There was an error delting your post");
+    }
+  };
+
+  const userId = Post.userProfileId;
+  useEffect(() => {
+    if (auth.loggedIn() && auth.getProfile().data._id === userId) {
+      setMeState(true);
+    }
+  });
+  console.log(meState);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -76,12 +101,27 @@ function SinglePost() {
           <div className="singlePostImageDiv">
             <img className="singlePostImage" src={Post.image}></img>
             <br></br>
-
             <h3 className="singlePostAuthor">
               <Link to={`/profile/${Post.userProfileId}`}>
                 Posted by: {Post.username}
               </Link>{" "}
             </h3>
+            {meState ? (
+              <>
+                <h3
+                  className="singlePostDelete"
+                  onClick={() => {
+                    if (window.confirm("delete post?")) {
+                      deletePost();
+                    }
+                  }}
+                >
+                  Delete Post
+                </h3>
+              </>
+            ) : (
+              <></>
+            )}
             <br></br>
             <h5 className="singlePostBody">{Post.postText}</h5>
             <div className="commentContainer">
