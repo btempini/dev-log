@@ -6,11 +6,12 @@ import { Link, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import auth from "../utils/auth";
-import { ADD_COMMENT, DELETE_POST } from "../utils/mutations";
+import { ADD_COMMENT, DELETE_COMMENT, DELETE_POST } from "../utils/mutations";
 
 function SinglePost() {
   const { postId } = useParams();
   const [delPost] = useMutation(DELETE_POST);
+  const [delComment] = useMutation(DELETE_COMMENT);
   const { loading, data, error } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: postId },
   });
@@ -69,6 +70,21 @@ function SinglePost() {
     } catch (e) {
       console.error(JSON.stringify(e));
       window.alert("There was an error delting your post");
+    }
+  };
+
+  const deleteComment = async (commentId) => {
+    try {
+      const { data } = await delComment({
+        variables: {
+          postId: postId,
+          commentId: commentId,
+        },
+      });
+      window.location.reload();
+    } catch (e) {
+      console.log(JSON.stringify(e));
+      window.alert("There was an error deleting your comment");
     }
   };
 
@@ -163,9 +179,28 @@ function SinglePost() {
                   comments.map((comment) => (
                     <>
                       <div className="commentHeader">
-                        <h4>{comment.commentBy}</h4>
+                        <h4 commentId={comment._id}>{comment.commentBy}</h4>
                         <span>{comment.createdAt} :</span>
                         <p>{comment.text}</p>
+                      </div>
+                      <div>
+                        {auth.getProfile().data.username ===
+                        comment.commentBy ? (
+                          <>
+                            <p
+                              className="singlePostDeleteComment"
+                              onClick={() => {
+                                if (window.confirm("delete comment?")) {
+                                  deleteComment(comment._id);
+                                }
+                              }}
+                            >
+                              ^Delete^
+                            </p>
+                          </>
+                        ) : (
+                          <></>
+                        )}
                       </div>
                     </>
                   ))}

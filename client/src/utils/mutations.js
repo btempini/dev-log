@@ -149,13 +149,9 @@ export const ADD_COMMENT = gql`
   }
 `;
 export const DELETE_COMMENT = gql`
-  mutation deleteComment($commentId: ID!) {
-    deleteComment(commentId: $commentId) {
-      commentId
-      CommentText
-      username
-      likes
-      postedAt
+  mutation Mutation($commentId: ID!, $postId: ID!) {
+    deleteComment(commentId: $commentId, postId: $postId) {
+      commentCount
     }
   }
 `;

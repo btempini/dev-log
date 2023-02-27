@@ -122,6 +122,14 @@
   align-items: center;
 }
 
+.singlePostDeleteComment {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(168, 2, 2);
+}
+
 .purps {
   color: #7271f8;
 }
