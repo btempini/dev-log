@@ -1,6 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 
-const { User, Post, Comment } = require("../models");
+const { User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -228,15 +228,21 @@ const resolvers = {
       }
       return addedComment;
     },
-    deleteComment: async (_, { commentId }, context) => {
+    deleteComment: async (_, { commentId, postId }, context) => {
       try {
         // check if user is authorized to delete this comment
-        const comment = await Comment.findById(commentId);
-        if (!comment) {
-          throw new Error("Comment not found");
+        const post = await Post.findById(postId);
+        if (!post) {
+          throw new Error("Post not found");
         }
-        await comment.remove();
-        return true;
+        const commentIndex = post.comments.findIndex(
+          (comment) => comment.id === commentId
+        );
+        if (commentIndex === -1) {
+          throw new Error("Comment now found");
+        }
+        post.comments.splice(commentIndex, 1);
+        await post.save();
       } catch (err) {
         throw new Error(err);
       }

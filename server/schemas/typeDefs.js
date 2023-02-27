@@ -94,7 +94,7 @@ try {
       ): Post
       deletePost(postId: ID!): Post
       addComment(postId: ID!, text: String!, username: String!): Post
-      deleteComment(commentId: ID!): Comment
+      deleteComment(commentId: ID!, postId: ID!): Post
       addFollower(
         userId: ID!
         followingId: ID!
